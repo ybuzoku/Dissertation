@@ -1,0 +1,153 @@
+\documentclass[a4paper,12pt]{report}
+%\setcounter{tocdepth}{1}%
+\usepackage{amssymb,amsmath,amsthm,cmbright}
+\usepackage{amsfonts,amsmath,amssymb,graphicx}
+\usepackage{bbkproject}
+\usepackage{hyperref}
+\theoremstyle{plain}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+
+\subject{Mathematics} %write your degree subject here
+\degree{M.Sc.} %write your degree (eg M.Sc., Ph.D.)
+\thesis{dissertation} %if it's a thesis, write thesis instead
+\title{A survey of Riemann surfaces and their classification, with particular focus on their geometry}
+\author{Y. Buzoku}
+\supervisor{Dr. B. Fairbairn} 
+\department{Department of Economics, Mathematics and Statistics}%
+\submissiondate{$30^{\mathrm{th}}$ September 2021}%
+\institution{Birkbeck, University of London}%
+
+%
+\parindent 0pt
+%
+\begin{document}
+\maketitle{}{}{I have found a beautiful proof, but this abstract is too short to contain it.}
+%
+\chapter{Introduction}
+
+The aim of this dissertation is to investigate and gain a deeper understanding of
+Riemann Surfaces, their construction, their classification and an analysis of the
+geometry of some classes of these surfaces. Doing so will bring together ideas
+from different, seemingly unrelated fields of mathematics. Often times, Riemann
+Surfaces are studied solely due to these connections as they might not occur in
+higher dimensional analogues. We begin this dissertation with an introduction to
+Riemann surfaces as classical complex-analytical manifolds, and then showing that
+we can define them equivalently as algebraic varieties of complex curves. We then 
+study briefly the automorphisms of a particular set of such Riemann Surfaces, and 
+give a short review of topological notions that will be important in our 
+classification later, including quotient spaces. We then show how can endow a 
+Riemann surface structure on such spaces, and give examples of spaces arising in such a way, and their lifts to their universal covers.
+
+From there we begin to classify Riemann surfaces by stating the uniformisation 
+theorem, and classifying Riemann surfaces with universal cover the Riemann sphere. We then introduce Teichm\"{u}ller spaces and discuss Riemann surfaces with the complex plane as universal cover.
+
+The remainder of this dissertation will then focus on the infinite family of Riemann surfaces with the hyperbolic plane as universal cover. A discussion of the geometry of some compact Riemann surfaces follows, with some anecdotal but interesting ideas introduced, such as the interplay between cubic graphs and Riemann surfaces, naturally arising hyperbolic Teichm\"{u}ller spaces, and Hubers Theorem relating the length spectrum of hyperbolic Riemann surfaces and the eigenvalues of the Laplacian on said surfaces. We conclude with a discussion of the heat kernel on the sphere, plane and hyperbolic plane and prove the uniformisation theorem for compact Riemann surfaces and the claim that there exist exactly two non-compact simply connected Riemann surfaces.
+
+
+\chapter{Riemann Surfaces}
+
+This chapter shows the basic definitions from Topology, (Complex) Analysis 
+and Riemann Surface Theory to define Riemann Surfaces, their mappings and 
+boilerplate stuff. Discuss what is needed and constructions in detail.
+I guess weird test yadda yadda 
+
+
+\section{Basic Definitions}\label{bdefns}
+
+We begin by stating the basic definitions of Riemann Surfaces and the 
+analogs of some important notions from Complex Analysis in Riemann Surface
+Theory.
+
+\begin{defn}[Riemann Surface]\label{rsdefn}
+A Hausdorff topological space $X$ is said to be a Riemann Surface if:
+\begin{itemize}
+\item There exists a collection of open sets $U_{\alpha} \subset X$, where $
+\alpha$ 
+ranges over some index set such that $\bigcup\limits_{\alpha} U_{\alpha}$ cover 
+$X$.
+\item There exists for each $\alpha$, a homeomorphism, called a chart map, $
+\psi_{\alpha}\colon U_{\alpha} \rightarrow \tilde{U}_{\alpha}$, where $\tilde{U}
+_{\alpha}$ is 
+an open set in $\mathbb{C}$, with the property that for all $\alpha$, $\beta$, 
+the 
+composite map $\psi_{\alpha} \circ \psi_{\beta}^{-1}$ is holomorphic on its 
+domain of 
+definition. (These composite maps are sometimes called transition maps).
+\end{itemize}
+We call the triple $(\{U_\alpha\},\{\tilde{U}_{\alpha}\}, \{\psi_\alpha\})$ an 
+atlas of 
+charts for the Riemann Surface $X$, though we also use the common notation $(U,
+\tilde{U}, \psi)$ to denote this, where $U=\{U_\alpha\}$, $\tilde{U}=\{\tilde{U}
+_{\alpha}\}$ and $\psi=\{\psi_\alpha\}$.
+\end{defn}
+
+
+\section{Algebraic Curves}\label{algcurv}
+ALGBRAIC CURVES ARE COOOOOL MAN!
+
+\section{Proper Discontinuous Group Actions}\label{PropDiscGrpAct}
+Geometry and groups episode three, the revenge of the fundamental domain.
+\subsection{Fuchsian grouppos}
+Empty something.
+
+\paragraph{Example} I have a vase; it is a cuboid with a square base. I don't want
+to paint the base, just the four sides. I can colour each of the
+sides red, blue, green or yellow. How many different ways can the
+vase be coloured?
+
+To answer this we let $G$ be the rotation group of the vase, and
+$X$ be the set of all colourings. Each of the four sides can be
+any one of four colours, so $|X| = 4^4 = 256$.\smallskip\\
+%
+The only rotational symmetries of $G$ are those about the vertical
+axis of symmetry through the vase. If we let $\alpha$ be a rotation
+of $90^{\circ}$, then $G = \langle \alpha \rangle = \{1, \alpha,
+\alpha^2, \alpha^{-1}\}$. Firstly note that $\mathrm{Fix}(1) =
+X$.\smallskip\\
+%
+ What is $\mathrm{Fix}(\alpha)$? Let's label the faces $A,
+B, C, D$ and the colours $r, g, b, y$ (for red, green, blue,
+yellow). Then a string $(r, r, g, b)$ for instance will mean that
+$A$ is red, $B$ is red, $C$ is green and $D$ is blue. Let $(c_1,
+c_2, c_3, c_4) \in \mathrm{Fix}(\alpha)$, where $c_i \in \{r, g, b,
+y\}$. Then $(c_1, c_2, c_3, c_4) = \alpha\cdot (c_1, c_2, c_3, c_4)
+= (c_2, c_3, c_4, c_1)$. Hence $c_1 = c_2 = c_3 = c_4$. There are
+four possible such colourings, $(r, r, r, r)$, $(g, g, g, g)$, $(b,
+b, b, b)$ and $(y, y, y, y)$. So $|\mathrm{Fix}(\alpha)| = 4$.
+Similarly $|\mathrm{Fix}(\alpha^{-1})| = 4$. \smallskip \\
+%
+Finally, suppose $(c_1, c_2, c_3, c_4) \in \mathrm{Fix}(\alpha^2)$.
+This happens precisely when $c_1 = c_3$ and $c_2 = c_4$. There are
+$4^2 = 16$ such colourings, for example $$(r, b, r, b), (b, r, b,
+r), (r, r, r, r), (y, r, y, r)$$ and so on. Hence
+$|\mathrm{Fix}(\alpha^2)| = 16$. We are now in a position to count
+the colourings, using the Orbit Counting Lemma. We get
+\begin{eqnarray*} \# {\mbox{ colourings}} &=& \frac{1}{|G|}\sum_{g
+\in G} |\mathrm{Fix}(g)|\\
+&=& \textstyle\frac{1}{4}\left(|\mathrm{Fix}(1)| +
+|\mathrm{Fix}(\alpha)| + |\mathrm{Fix}(\alpha^2)|
++ |\mathrm{Fix}(\alpha^{-1})|\right)\\
+&=& \textstyle\frac{1}{4}(256 + 4 + 16 + 4)\\
+&=& 70.\end{eqnarray*}
+
+
+
+\chapter{Die Wende}
+
+Ich liebe doch alle menschen
+%
+%\references{Bibliography}{}{yes}
+\begin{thebibliography}{99}
+
+\bibitem{smith} J. Smith. {\em My favourite Theorems}, Madeup University Press (2026).
+%
+\bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
+\end{thebibliography}
+\end{document}

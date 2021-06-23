@@ -1,0 +1,376 @@
+% This is a style file for Mathematics or Statistics dissertations at Birkbeck
+% Written by Sarah Hart, but cribbed from an old style file I got for writing my thesis at Manchester University.
+% So I may not understand all the ins and outs of the code!
+\topmargin -0.75in
+\headsep .5in
+\textheight 8.5in
+\textwidth 150mm \oddsidemargin 4.4mm \evensidemargin 0in %gives 30mm margins
+% Disallow page breaks at hyphens (this will give some underfull vbox's,
+% so an alternative is to use \brokenpenalty=100 and manually search
+% for and fix such page breaks)
+\brokenpenalty=10000
+
+\addtolength{\headheight}{12pt}
+\setlength{\footskip}{50pt}
+
+
+\parskip=12pt
+
+% Use 1.9 times the normal baseline-to-baseline skip (approx double space)
+\renewcommand{\baselinestretch}{1.45}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\let\fancy@def\gdef
+\def\lhead{\@ifnextchar[{\@xlhead}{\@ylhead}}
+\def\@xlhead[#1]#2{\fancy@def\@elhead{#1}\fancy@def\@olhead{#2}}
+\def\@ylhead#1{\fancy@def\@elhead{#1}\fancy@def\@olhead{#1}}
+
+\def\chead{\@ifnextchar[{\@xchead}{\@ychead}}
+\def\@xchead[#1]#2{\fancy@def\@echead{#1}\fancy@def\@ochead{#2}}
+\def\@ychead#1{\fancy@def\@echead{#1}\fancy@def\@ochead{#1}}
+
+\def\rhead{\@ifnextchar[{\@xrhead}{\@yrhead}}
+\def\@xrhead[#1]#2{\fancy@def\@erhead{#1}\fancy@def\@orhead{#2}}
+\def\@yrhead#1{\fancy@def\@erhead{#1}\fancy@def\@orhead{#1}}
+
+\def\lfoot{\@ifnextchar[{\@xlfoot}{\@ylfoot}}
+\def\@xlfoot[#1]#2{\fancy@def\@elfoot{#1}\fancy@def\@olfoot{#2}}
+\def\@ylfoot#1{\fancy@def\@elfoot{#1}\fancy@def\@olfoot{#1}}
+
+\def\cfoot{\@ifnextchar[{\@xcfoot}{\@ycfoot}}
+\def\@xcfoot[#1]#2{\fancy@def\@ecfoot{#1}\fancy@def\@ocfoot{#2}}
+\def\@ycfoot#1{\fancy@def\@ecfoot{#1}\fancy@def\@ocfoot{#1}}
+
+\def\rfoot{\@ifnextchar[{\@xrfoot}{\@yrfoot}}
+\def\@xrfoot[#1]#2{\fancy@def\@erfoot{#1}\fancy@def\@orfoot{#2}}
+\def\@yrfoot#1{\fancy@def\@erfoot{#1}\fancy@def\@orfoot{#1}}
+
+\newdimen\headrulewidth
+\newdimen\footrulewidth
+\newdimen\plainheadrulewidth
+\newdimen\plainfootrulewidth
+\newdimen\headwidth
+\newdimen\footruleskip
+\newif\if@fancyplain \@fancyplainfalse
+\def\fancyplain#1#2{\if@fancyplain#1\else#2\fi}
+\headwidth=-123456789sp %magic constant
+
+
+\def\fancy@reset{\restorecr
+ \def\baselinestretch{1}%
+ \def\nouppercase##1{{\let\uppercase\relax\let\MakeUppercase\relax##1}}%
+ \ifx\undefined\@newbaseline%
+   \ifx\@normalsize\undefined \normalsize %
+   \else \@normalsize \fi
+ \else%
+  \@newbaseline%
+ \fi}
+
+% Initialization of the head and foot text.
+
+\headrulewidth 0.4pt
+\footrulewidth\z@
+\plainheadrulewidth\z@
+\plainfootrulewidth\z@
+\footruleskip .3\normalbaselineskip
+
+\lhead[\fancyplain{}{\sl\rightmark}]{\fancyplain{}{\sl\leftmark}}
+%  i.e. empty on ``plain'' pages, \rightmark on even, \leftmark on odd pages,
+% where \leftmark is the chapter name, and \rightmark is the section name
+\chead{}
+\rhead[\fancyplain{}{\sl\leftmark}]{\fancyplain{}{\sl\rightmark}}
+%  i.e. empty on ``plain'' pages, \leftmark on even, \rightmark on odd pages,
+% where \leftmark is the chapter name, and \rightmark is the section name
+%currently all pages are "even" because you are asked to print single sided.
+
+\lfoot{}
+\cfoot{\rm\thepage} % page number
+\rfoot{}
+
+% Put together a header or footer given the left, center and
+% right text, fillers at left and right and a rule.
+% The \lap commands put the text into an hbox of zero size,
+% so overlapping text does not generate an errormessage.
+
+\def\@fancyhead#1#2#3#4#5{#1\hbox to\headwidth{\fancy@reset\vbox{\hbox
+{\rlap{\parbox[b]{\headwidth}{\raggedright#2\strut}}\hfill
+\parbox[b]{\headwidth}{\centering#3\strut}\hfill
+\llap{\parbox[b]{\headwidth}{\raggedleft#4\strut}}}\headrule}}#5}
+
+\def\@fancyfoot#1#2#3#4#5{#1\hbox to\headwidth{\fancy@reset\vbox{\footrule
+\hbox{\rlap{\parbox[t]{\headwidth}{\raggedright#2\strut}}\hfill
+\parbox[t]{\headwidth}{\centering#3\strut}\hfill
+\llap{\parbox[t]{\headwidth}{\raggedleft#4\strut}}}}}#5}
+
+\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
+
+\def\footrule{{\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
+\vskip-\footruleskip\vskip-\footrulewidth
+\hrule\@width\headwidth\@height\footrulewidth\vskip\footruleskip}}
+
+\def\ps@fancy{%
+\@ifundefined{@chapapp}{\let\@chapapp\chaptername}{}%for amsbook
+% Define \MakeUppercase for old LaTeXen.
+% Note: we used \def rather than \let, so that \let\uppercase\relax (from
+% the original documentation) will still work.
+\@ifundefined{MakeUppercase}{\def\MakeUppercase{\uppercase}}{}
+\@ifundefined{chapter}{\def\sectionmark##1{\markboth
+{\MakeUppercase{\ifnum \c@secnumdepth>\z@
+ \thesection\hskip 1em\relax \fi ##1}}{}}%
+\def\subsectionmark##1{\markright {\ifnum \c@secnumdepth >\@ne
+ \thesubsection\hskip 1em\relax \fi ##1}}}%
+{\def\chaptermark##1{\markboth {\MakeUppercase{\ifnum \c@secnumdepth>\m@ne
+ \@chapapp\ \thechapter. \ \fi ##1}}{}}
+\def\sectionmark##1{\markright{\MakeUppercase{\ifnum \c@secnumdepth >\z@
+ \thesection. \ \fi ##1}}}}%
+%\csname ps@headings\endcsname % use \ps@headings defaults if they exist
+\ps@@fancy
+\gdef\ps@fancy{\@fancyplainfalse\ps@@fancy}%
+% Initialize \headwidth if the user didn't
+\ifdim\headwidth<0sp
+% This catches the case that \headwidth hasn't been initialized and the
+% case that the user added something to \headwidth in the expectation that
+% it was initialized to \textwidth. We compensate this now. This loses if
+% the user intended to multiply it by a factor. But that case is more
+% likely done by saying something like \headwidth=1.2\textwidth The doc
+% kays you have to change \headwidth after the first call to,
+% \pagestyle{fancy}. This code is just to catch the most common cases were
+% that requirement is violated.
+    \advance\headwidth123456789sp\advance\headwidth\textwidth\fi}
+\def\ps@fancyplain{\ps@fancy \let\ps@plain\ps@plain@fancy}
+\def\ps@plain@fancy{\@fancyplalntrue\ps@@fancy}
+\def\ps@@fancy{%
+\ps@empty % This is for amsbook/amsart, which do strange things with \topskip
+\def\@mkboth{\protect\markboth}%
+\def\@oddhead{\@fancyhead\@lodd\@olhead\@ochead\@orhead\@rodd}%
+\def\@oddfoot{\@fancyfoot\@lodd\@olfoot\@ocfoot\@orfoot\@rodd}%
+\def\@evenhead{\@fancyhead\@rodd\@elhead\@echead\@erhead\@lodd}%
+\def\@evenfoot{\@fancyfoot\@rodd\@elfoot\@ecfoot\@erfoot\@lodd}%
+}
+\def\@lodd{\if@reversemargin\hss\else\relax\fi}
+\def\@rodd{\if@reversemargin\relax\else\hss\fi}
+
+\let\latex@makecol\@makecol
+\def\@makecol{\let\topfloat\@toplist\let\botfloat\@botlist\latex@makecol}
+\def\iftopfloat#1#2{\ifx\topfloat\empty #2\else #1\fi}
+\def\ifbotfloat#1#2{\ifx\botfloat\empty #2\else #1\fi}
+\def\iffloatpage#1#2{\if@fcolmade #1\else #2\fi}
+
+\newcommand{\fancypagestyle}[2]{%
+  \@namedef{ps@#1}{\let\fancy@def\def#2\relax\ps@fancy}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\department#1{\gdef\@dept{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+%\def\shorttitle#1{\gdef\@shorttitle{#1}}
+\def\submissiondate#1{\gdef\@submissiondate{#1}}
+\def\subject#1{\gdef\@subject{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\thesis#1{\gdef\@thesis{#1}}
+\gdef\@bibname{References}
+\def\institution#1{\gdef\@institution{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+%
+% Redefine foot rule to be a tighter fit
+%
+\def\footruleoffset{0.1}
+
+\def\footrule{{\if@fancyplain\footrulewidth\plainfootrulewidth\fi
+\vskip-\footruleoffset\normalbaselineskip\vskip-\footrulewidth
+\hrule\@width\headwidth\@height\footrulewidth\vskip\footruleoffset\normalbaselineskip}}
+
+\lhead[\rm\thepage]{\leftmark}
+\chead{}
+\rhead[\leftmark]{\rm\thepage}
+
+\lfoot[]{} \cfoot{} \rfoot[\rightmark]{\rightmark}
+
+\footrulewidth 0.4pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Redefine chaptermark
+\let\@yyy=\ps@fancy
+
+\def\ps@fancy{\@yyy         %
+%
+% Redefine chapter and section mark, so they don't uppercase everything
+%
+\def\chaptermark##1{
+\typeout{Chapter running head: \@chapapp\space\thechapter.\space ##1}
+               \markboth{\ifnum \c@secnumdepth >\m@ne
+                         \@chapapp\ \thechapter. \ \fi ##1}{}}
+%
+%
+\def\sectionmark##1{\typeout{Section running head: \thesection.\space ##1}
+\markright{\ifnum \c@secnumdepth >\z@\thesection. \ \fi ##1}}
+}
+
+%definition of the "thebibliography" command
+
+\newcommand{\references}[3]{
+\gdef\@bibname{#1}
+\bibliographystyle{#2}
+ \addcontentsline{toc}{chapter}{\@bibname}
+ \bibliography{#3}
+}
+
+\def\thebibliography#1{\chapter*{\@bibname\@mkboth
+{\@bibname}{\@bibname}}\list
+{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+\advance\leftmargin\labelsep
+\usecounter{enumi}}
+\def\newblock{\hskip .11em plus .33em minus -.07em}
+\sloppy
+\sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+%% Redefine the macro used for floats (including figures and tables)
+%% so that single spacing is used.
+%% (Note \def\figure{\@float{figure}set single spacing} doesn't work
+%%  because figure has an optional argument)
+%\def\@xfloat#1[#2]{\ifhmode \@bsphack\@floatpenalty -\@Mii\else
+%   \@floatpenalty-\@Miii\fi\def\@captype{#1}\ifinner
+%      \@parmoderr\@floatpenalty\z@
+%    \else\@next\@currbox\@freelist{\@tempcnta\csname ftype@#1\endcsname
+%       \multiply\@tempcnta\@xxxii\advance\@tempcnta\sixt@@n
+%       \@tfor \@tempa :=#2\do
+%                        {\if\@tempa h\advance\@tempcnta \@ne\fi
+%                         \if\@tempa t\advance\@tempcnta \tw@\fi
+%                         \if\@tempa b\advance\@tempcnta 4\relax\fi
+%                         \if\@tempa p\advance\@tempcnta 8\relax\fi
+%         }\global\count\@currbox\@tempcnta}\@fltovf\fi
+%    \global\setbox\@currbox\vbox\bgroup
+%    \def\baselinestretch{1}\@normalsize
+%    \boxmaxdepth\z@
+%    \hsize\columnwidth \@parboxrestore}
+
+% Redefine the macro used for footnotes to use single spacing
+\long\def\@footnotetext#1{\insert\footins{\def\baselinestretch{1}\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces
+      #1\strut}}}
+
+% Macros to get mixed case in contents etc
+
+\def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{Contents\@mkboth{Contents}{Contents}}
+ \@starttoc{toc}\if@restonecol\twocolumn\fi}
+
+
+\def\tableoffigures{\typeout{Creating/including list of figures}
+\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+\chapter*{List of Figures\@mkboth{List of figures}{List of figures}}
+\addcontentsline{toc}{chapter}{List of figures}
+\@starttoc{lof}\if@restonecol\twocolumn\fi}
+
+\def\tableoftables{\typeout{Creating/including list of tables}
+\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+\chapter*{List of tables\@mkboth{List of tables}{List of tables}}
+\addcontentsline{toc}{chapter}{List of tables}
+\@starttoc{lot}\if@restonecol\twocolumn\fi}
+
+
+
+
+
+\newcommand{\preface}[1]{
+\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+\@mkboth{#1}{#1}
+\thispagestyle{plain}
+\typeout{Preface:#1}
+}
+
+\newcommand{\declaration}{
+\clearpage
+\preface{Declaration}
+\vfill
+\begin{center}
+\begin{minipage}{4in}
+\parindent=0pt
+This {\@thesis} is submitted under the regulations of Birkbeck, University of London as part of the
+examination requirements for the {\@degree} degree in {\@subject}.
+Any quotation or excerpt  from the published or unpublished work of
+other persons is explicitly indicated and in each such instance a
+full reference of the source of such work is given. I have read and
+understood the Birkbeck College guidelines on plagiarism and in
+accordance with those requirements submit this work as my own.
+\par
+\end{minipage}
+\end{center}
+\vfill
+}
+
+\def\abstract{  %begin abstract code
+\preface{Abstract}
+
+\begin{center}
+\Large \bf \uppercase\expandafter{Birkbeck, University of London}
+\end{center}
+
+{\bf ABSTRACT OF \uppercase\expandafter{\@thesis}} submitted by
+{\bf \@author}\ and entitled {\bf \@title}.
+
+
+Date of Submission: \@submissiondate\\
+\noindent\mbox{}\hrulefill\\
+
+}
+\def\endabstract{\newpage}
+
+% First parameter controls Table of figures (if you want one write {yes}
+% Second parameter controls Table of tables%
+% Third parameter is the abstract
+% Example \maketitle{yes}{yes}{This is the abstract}
+% Example \maketitle{yes}{yes}{\input{abstract}}
+\def\maketitle#1#2#3{%
+\let\footnotesize\small \setcounter{page}{1}
+%so line above footnote appears: \let\footnoterule\relax
+\thispagestyle{empty}%
+\null\vskip.3in%
+\begin{center}
+  \Huge\bf\uppercase\expandafter{\@title}
+        \end{center}\vskip.5in
+        \vfill
+        \begin{center}
+                \sc A \expandafter{\@thesis} submitted to \@institution\\
+                for the degree of \expandafter{\@degree} in \@subject.
+        \end{center}
+        \vfill
+        \begin{center}
+                \rm By\\
+                \@author\\
+                \rm Supervisor: \@supervisor\\
+                \expandafter{\@dept}\\
+                \@submissiondate\\
+        \end{center}\vskip.5in
+\newpage
+%
+% Default is new style
+%
+\pagestyle{fancy}
+
+\setcounter{footnote}{0}
+%\setcounter{page}{0}
+\tableofcontents
+\ifx#1\@empty\else\tableoffigures\fi     % Delete this line if no figures or no table of figures wanted
+\ifx#2\@empty\else\tableoftables\fi      % Delete this line if no tables or no table of tables (!) wanted
+
+\begin{abstract}
+#3
+\end{abstract}
+\declaration
+\let\maketitle\relax}
+
+\newenvironment{singlespace}{\begingroup\def\baselinestretch{1}\@normalsize}{\endgroup\@normalsize}
