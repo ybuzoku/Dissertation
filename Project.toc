@@ -1,11 +1,14 @@
-\contentsline {chapter}{List of figures}{3}{chapter*.2}
-\contentsline {chapter}{Abstract}{4}{chapter*.3}
-\contentsline {chapter}{Declaration}{5}{chapter*.4}
-\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}
-\contentsline {chapter}{\numberline {2}Riemann Surfaces}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}Basic Definitions}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Algebraic Curves}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}Proper Discontinuous Group Actions}{9}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Fuchsian grouppos}{9}{subsection.2.3.1}
-\contentsline {paragraph}{Example}{9}{section*.5}
-\contentsline {chapter}{\numberline {3}Die Wende}{11}{chapter.3}
+\contentsline {chapter}{List of figures}{4}{chapter*.2}
+\contentsline {chapter}{Abstract}{5}{chapter*.3}
+\contentsline {chapter}{Declaration}{6}{chapter*.4}
+\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Riemann Surfaces}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Basic Definitions}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}Algebraic Curves}{10}{section.2.2}
+\contentsline {section}{\numberline {2.3}Proper Discontinuous Group Actions}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Fuchsian grouppos}{10}{subsection.2.3.1}
+\contentsline {paragraph}{Example}{10}{section*.5}
+\contentsline {chapter}{\numberline {3}The Uniformisation Theorem}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Compact Riemann Surfaces}{12}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Introduction}{12}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}The Main Theorem for Compact Riemann Surfaces}{12}{subsection.3.1.2}

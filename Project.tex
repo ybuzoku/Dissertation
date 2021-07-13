@@ -139,13 +139,74 @@ the colourings, using the Orbit Counting Lemma. We get
 
 
 
-\chapter{Die Wende}
+\chapter{The Uniformisation Theorem}
+\section{Compact Riemann Surfaces}
+\subsection{Introduction}
+We begin this section by introducing some details about the main steps involved 
+in our approach to understanding the uniformisation theorem for Riemann surfaces. 
+In particular there is a single equation on which our approach hinges. This 
+equation, though abstract, gives a powerful result for Riemann Surfaces. We will 
+also investigate this result by looking at a particular Physical interpretation 
+to try and give us some intuition into why such a statement might hold true.
+\subsection{The Main Theorem for Compact Riemann Surfaces}
+We begin by stating the main theorem for compact Riemann surfaces. This naming is 
+non-standard though is adhered to by \cite{donaldson}.
+\begin{thm} [The main theorem for compact Riemann surfaces]\label{MTCRS} ~\\
+Let $X$ be a compact, closed Riemann Surface with $\rho \in \Omega^2(X)$. 
+Then we have that $\Delta \phi = \rho \Leftrightarrow \int_X \rho = 0$,
+where $ \phi \in \Omega^0(X)$ and $\phi$ is unique up to addition by a constant.
+\end{thm}
+Whilst seemingly complicated, this theorem says three things:
+\begin{itemize}
+\item[1.] If $\phi$ is a solution to the equation $\Delta \phi = \rho$ then $
+\int_X \rho = 0$.
+\item[2.] If $\phi$ is a solution of the equation, then adding a constant to $
+\phi$ does not change $\rho$
+\item[3.] If $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ then there exists 
+a $\phi \in \Omega^0(X)$ such that $\Delta \phi = \rho$.
+\end{itemize}
 
-Ich liebe doch alle menschen
+Points one and two are easy to prove and we will do so below:
+\begin{proof} ~\\
+We start by proving point $1.$ ~\\
+Let $\phi \in \Omega^0(X)$. Recall that $\Delta = 2i\bar{\partial}\partial$, so 
+applying this directly to $\phi$, yields a 2-form $\rho = 2i\frac{\partial^2\phi}
+{\partial \bar{z}\partial z} d\bar{z}\wedge dz = 2i \bar{\partial}\partial \phi$. 
+Noting that $d(\partial \phi) = \partial^2 \phi + \bar{\partial}\partial \phi = 
+\bar{\partial}\partial \phi $, we can rewrite $\rho$ as $\rho = 2id(\partial 
+\phi)$ as $\partial^2 = \bar{\partial}^2 = 0$.
+
+Integrating $\rho$ over $X$, gives $\int_X \rho = 2i\int_X
+\bar{\partial}\partial \phi = 2i \int_X d(\partial \phi) = 2i \int_{\partial X}
+\partial \phi$, where we have changed our domain of integration from $X$ to its
+boundary $\partial X$ by Stokes' theorem. However, a closed, compact Riemann
+surface has no boundary, so such an integral would be over an empty set and as
+such $\int_X \rho = 2i\int_X d(\partial \phi) = 2i\int_{\partial X} \partial \phi = 0$. ~\\
+
+The proof of point 2 is similarly elementary. ~\\
+Let $\phi$ and $\psi$ be such that $\Delta \phi = \rho$ and $\Delta \psi = \rho$. 
+Letting $\theta = \psi - \phi$ allows us to write this as $\Delta \theta = 0$, 
+implying that $\theta$ is a harmonic function.
+
+Since $\psi,\phi \in \Omega^0(X)=C^{\infty}(X,\mathbb{R})$, $\theta$ is a real-
+valued function.
+Recall, that we also defined the notion of the Dirichlet norm. We can use the 
+fact that it is a norm to show that $\theta$ is a constant. ~\\
+Consider $||\theta||_D = ||d\theta|| = 2 \int_X (\frac{\partial \theta}{\partial 
+z})^2 dx \wedge dy = \int_X \theta \Delta \theta = 0$.
+Hence, $d\theta = 0$. Since $\theta$ is real-valued, this implies that 
+$\theta = constant$. ~\\
+This concludes our proof of points $1$ and $2$. 
+\end{proof}
+Whilst points $1$ and $2$ were quite easy to prove, it is the final point to 
+which we now turn our attention to.
+
+To try and understand 
+
 %
 %\references{Bibliography}{}{yes}
 \begin{thebibliography}{99}
-
+\bibitem{donaldson} S. Donaldson, Riemann Surfaces
 \bibitem{smith} J. Smith. {\em My favourite Theorems}, Madeup University Press (2026).
 %
 \bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
