@@ -5,5 +5,5 @@ show:
 	@xpdf Project.pdf
 send:
 	git add -A
-	git commit 
+	git commit -m "Autocommiting from Makefile on TSPC"
 	git push
