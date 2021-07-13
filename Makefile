@@ -4,6 +4,8 @@ show:
 	@echo "Displaying PDF in graphics window. CTRL+C to end..."
 	@xpdf Project.pdf
 send:
-	git add -A
-	git commit -m "Autocommiting from Makefile on TSPC"
-	git push
+	@git add -A
+	@echo "Committing repository to Main..."
+	@git commit -m "Autocommiting from Makefile on TSPC"
+	@echo "Pushing respository to GitHub..."
+	@git push
