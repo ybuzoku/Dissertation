@@ -7,8 +7,10 @@
 \contentsline {section}{\numberline {2.2}Algebraic Curves}{10}{section.2.2}
 \contentsline {section}{\numberline {2.3}Proper Discontinuous Group Actions}{10}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Fuchsian grouppos}{10}{subsection.2.3.1}
-\contentsline {paragraph}{Example}{10}{section*.5}
-\contentsline {chapter}{\numberline {3}The Uniformisation Theorem}{12}{chapter.3}
-\contentsline {section}{\numberline {3.1}Compact Riemann Surfaces}{12}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Introduction}{12}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}The Main Theorem for Compact Riemann Surfaces}{12}{subsection.3.1.2}
+\contentsline {chapter}{\numberline {3}Calculus on Riemann Surfaces}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}The Tangent and Cotangent Spaces}{11}{section.3.2}
+\contentsline {chapter}{\numberline {4}The Uniformisation Theorem}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Compact Riemann Surfaces}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Introduction}{13}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}The Main Theorem for Compact Riemann Surfaces}{13}{subsection.4.1.2}
