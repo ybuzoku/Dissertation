@@ -167,107 +167,130 @@ in Chapter 5 of \cite{donaldson} unless otherwise noted.
 
 
 \chapter{The Uniformisation Theorem}
-\section{Compact Riemann Surfaces}
-\subsection{Introduction}
-We begin this section by introducing some details about the main steps
-involved 
-in our approach to understanding the uniformisation theorem for Riemann
-surfaces. 
-In particular there is a single equation on which our approach hinges.
-This 
-equation, though abstract, gives a powerful result for Riemann Surfaces.
-We will 
-also investigate this result by looking at a particular Physical
-interpretation 
-to try and give us some intuition into why such a statement might hold
-true.
-\subsection{The Main Theorem for Compact Riemann Surfaces}
-We begin by stating the main theorem for compact Riemann surfaces. This
-naming is 
-non-standard though is adhered to by \cite{donaldson}.
-\begin{thm} [The main theorem for compact Riemann surfaces]\label{MTCRS}
-~\\
-Let $X$ be a compact, closed Riemann Surface with $\rho \in \Omega^2(X)$. 
-Then we have that $\Delta \phi = \rho \Leftrightarrow \int_X \rho = 0$,
-where $ \phi \in \Omega^0(X)$ and $\phi$ is unique up to addition by a
-constant.
-\end{thm}
-We note that our solution to the equation is a real valued function and
-our $2$-form is also similarly identified with a real valued function.
-We do so because if we can prove the existance of a solution for real-
-valued functions and forms, then we can construct a complex-valued
-solution by taking a linear combination of two real-valued functions.
-Similarly, we can identify real $1$-forms with $(1,0)$-forms by mapping a
-real
+\section{Preliminaries}
+\subsection{The $\Delta$ operator and Harmonic functions}
+We begin our treatment of the uniformisation theorem, with a discussion of a particular and extremely important differential operator on Riemann Surfaces; the Laplacian. The majority of definitions can be found in \cite{donaldson} unless explicitly stated.
 
-Whilst seemingly complicated, this theorem says three things:
-\begin{itemize}
-\item[1.] If $\phi$ is a solution to the equation $\Delta \phi = \rho$
-then $
-\int_X \rho = 0$.
-\item[2.] If $\phi$ is a solution of the equation, then adding a constant
-to $
-\phi$ does not change $\rho$
-\item[3.] If $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ then
-there exists 
-a $\phi \in \Omega^0(X)$ such that $\Delta \phi = \rho$.
-\end{itemize}
+\begin{defn}[The Laplacian]\label{LaplacianDef}
+  Let $X$ be a Riemann Surface. We define a linear map $\Delta:\Omega^0(X)\rightarrow \Omega^2(X)$, where $\Delta=2i\bar{\partial}\partial$. We call this linear map the Laplacian.
+\end{defn}
 
-Points one and two are easy to prove and we will do so below:
-\begin{proof} ~\\
-We start by proving point $1.$ ~\\
-Let $\phi \in \Omega^0(X)$. Recall that
-$\Delta =2i\bar{\partial}\partial$, so 
-applying this directly to $\phi$, yields a 2-form
-$\rho = 2i\frac{\partial^2\phi}{\partial \bar{z}\partial z}d\bar{z}\wedge
-dz = 2i \bar{\partial}\partial \phi$. 
-Noting that
-$d(\partial \phi) = \partial^2 \phi + \bar{\partial}\partial\phi =
-\bar{\partial}\partial \phi $, we can rewrite $\rho$ as
-$\rho = 2id(\partial \phi)$ as $\partial^2 = \bar{\partial}^2 = 0$.
+Note that though, we have said that $\Delta$ is a map, it is a map from a space of functions to a space of functions, and hence is technically an operator; in particular, since it defines a differential equation in local coordinates, it is a differential operator and hence will be referred to as so.
 
-Integrating $\rho$ over $X$, gives $\int_X \rho = 2i\int_X
-\bar{\partial}\partial \phi = 2i \int_X d(\partial \phi) = 2i
-\int_{\partial X}\partial \phi$
-, where we have changed our domain of integration from $X$ to its
-boundary $\partial X$ by Stokes' theorem. However, a closed, compact
-Riemann surface has no boundary, so such an integral would be over an
-empty set and as such $\int_X \rho = 2i\int_X d(\partial \phi) =
-2i\int_{\partial X} \partial \phi = 0$. ~\\
+In local co-ordinates, $\Delta$ simply recovers the expected Laplacian of a function since for a given function $f\in \Omega^0(X)$ we get that 
+\begin{align*}
+  \Delta f &= 2i\bar{\partial }\partial f = 2i(\frac{\partial}{\partial\bar{z}})(\frac{\partial}{\partial z})f(d\bar{z}\wedge dz) \\
+  &=\frac{i}{2}(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y})(\frac{\partial}{\partial x} - i\frac{\partial}{\partial y})f(2idx\wedge dy) \\
+  &= -(\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2})dx\wedge dy 
+\end{align*}
+which when we equate $dx\wedge dy$ with the usual area from $dxdy$ becomes the usual Laplacian from vector calculus, up to a minus sign. We usually do this so we can identify functions with two-forms. For example, when given a function $f(x,y)$, it has an associated two-form $\rho = f(x,y) dx\wedge dy$, which can be integrated. Though we can define a notion of the Laplacian without the minus sign, as we will shortly see, that minus sign is important to our setup for the proof of the uniformisation theorem. Hence, we will leave it so. 
 
-The proof of point 2 is similarly elementary. ~\\
-Let $\phi$ and $\psi$ be such that $\Delta \phi = \rho$ and $\Delta \psi
-= \rho$. 
-Letting $\theta = \psi - \phi$ allows us to write this as $\Delta \theta
-= 0$, 
-implying that $\theta$ is a harmonic function.
+A special class of function that is also important to our theory is that of the 
+Harmonic functions. They play a crucial role in studying the Laplacian operator generally and have a number of very nice properties that we will be exploiting in the coming section.
+\begin{defn}[Harmonic function]\label{HarmonicDef}
+  Let $X$ be a Riemann surface. A function $f\in \Omega^0(X)$ is said to be harmonic if $\Delta f = 0$. A  function $g:X \rightarrow \mathbb{C}$ is said to be harmonic if both its real and imaginary parts are real valued harmonic functions.
+\end{defn}
+We note that we can relax the differentiability condition considerably to make the functions only twice differentiable. Thus harmonic functions need to be at least twice differentiable. Furthermore, the domain of definition is not restricted to just Riemann surfaces but can also be any open subset of $\mathbb{R}^n$ or $\mathbb{C}^n$ for any $n\geq 1$. 
 
-Since $\psi,\phi \in \Omega^0(X)=C^{\infty}(X,\mathbb{R})$, $\theta$ is a
-real-
-valued function.
-Recall, that we also defined the notion of the Dirichlet norm. We can use
-the 
-fact that it is a norm to show that $\theta$ is a constant. ~\\
-Consider $||\theta||_D = ||d\theta|| = 2 \int_X (\frac{\partial
-\theta}{\partial 
-z})^2 dx \wedge dy = \int_X \theta \Delta \theta = 0$.
-Hence, $d\theta = 0$. Since $\theta$ is real-valued, this implies that 
-$\theta = constant$. ~\\
-This concludes our proof of points $1$ and $2$. 
+Let us give some examples of Harmonic functions.
+\newpage
+
+\begin{example}[Examples of various Harmonic functions on different domains]
+  Over open sets in $\mathbb{C}$ we have:
+  \begin{itemize} 
+    \item Constant functions are trivially harmonic.
+    \item Any holomorphic function is automatically a harmonic function since its real and imaginary parts satisfy the Cauchy-Riemann equations.
+    \item $f(z)=e^z=e^{x+iy}=e^xsin(y)$
+  \end{itemize}
+  Taking our domain of definition to be open subsets of $\mathbb{R}^3$, we have:
+  \begin{itemize} 
+    \item $f(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}$
+  \end{itemize}
+  Finally, on the punctured plane $\mathbb{C}\setminus \{0\}$, we also have a nice family of examples:
+  \begin{itemize}
+    \item $f(x+iy) = ln(x^2 + y^2)$ and hence $g(x+iy)=K ln(x^2+y^2)$ for all $K \in \mathbb{R}$.
+  \end{itemize}
+  All of the aforementioned functions satisfy the equation $\Delta f = 0$ on their domain of definition. This concludes the example.
+\end{example}
+
+It is enlightening to see the claim that any holomorphic function is harmonic using our language of differential forms.
+\begin{lemma}\label{HolIsHarm}
+  Holomorphic functions are harmonic functions, ie they have harmonic real and imaginary parts. 
+\end{lemma} 
+\begin{proof}
+  Let $X$ be a Riemann surface and $f$ a holomorphic function defined on $X$.
+  Let us consider the Laplacian applied to the sum $\frac{1}{2i}(f \pm \bar{f})$.
+  \[\frac{1}{2i}\Delta(f \pm \bar{f}) = \bar{\partial}\partial(f \pm \bar{f})=-\partial(\bar{\partial}f) \pm \bar{\partial}\overline{(\bar{\partial}f)}=-\partial(0) \pm \bar{\partial}(0) = 0 \pm 0 = 0\]
+  where both brackets $\bar{\partial} f = 0$ because $f$ is holomorphic.
 \end{proof}
-Whilst points $1$ and $2$ were quite easy to prove, it is the final point
-to which we now turn our attention to.
-To try and understand why this, seemingly abstract, result is true, we
-momentarily turn to the theory of Electromagnetism. Maxwells first
-equation posits that for a region of space $\Omega$ with boundary, $
-\int_\Omega \rho dV = \int_{\partial \Omega} \nabla \cdot E dS $. We see
-this as a consequence of Stokes theorem.
 
+Note however, that whilst holomorphic implies harmonic, the converse isn't always true. However we can say the following.
+
+\begin{lemma}\label{HarmRealHol}
+  Let $X$ be a Riemann Surface, $U$ and open set around a point $p \in X$ and let $\phi \in \Omega^0(U)$ be a harmonic function. Then there exists an open neighbourhood $V \subset U$ of the point $p$ and a holomorphic function $f \colon V \rightarrow \mathbb{C}$ with $\phi = Re(f)$.
+\end{lemma}
+Since this is local result on $X$, then the proof follows exactly as in classical complex analysis. However, we wish to showcase how using calculus on Riemann surfaces can help solve problems efficinetly and as such we provide a proof using the tools we have established.
+\begin{proof}
+  Let $A \in \Omega^1(U)$ be a real one-form such that: 
+  \begin{align*}
+    A &= -\frac{\partial \phi}{\partial y} dx + \frac{\partial \phi}{\partial x} dy \\ &= i\bar{\partial}\phi + \overline{(i\bar{\partial}\phi)}
+  \end{align*}
+  Since $\phi$ is harmonic, so $\bar{\partial}\partial \phi = 0$ and $d = \partial + \bar{\partial}$, we get that $dA = 0$. Hence, if $V$ is an open, simply-connected set (such that $H^1(V)=0$), then we can find a function $\psi \in \Omega^0(V)$ such that $d\psi = A$. By equating coefficients we get that $\partial \psi = -i \partial \psi$ and $\bar{\partial} \psi = i \bar{\partial} \phi$. So if we construct a function $f \colon V \rightarrow \mathbb{C}$ where $f = \phi + i \psi$, we see that $\bar{\partial}f = \bar{\partial}(\phi + i\psi) = \bar{\partial}\phi +i(i\bar{\partial}\phi) = 0$ and hence, $f$ is a holomorphic function whose real part is $\phi$. 
+\end{proof}
+
+Harmonic functions are clearly quite well behaved and have nice properties that are not generally exhibited by other functions. These properties, such as the maximum principle which we will define and prove below, play a crucial role in our proof of the setup for the uniformisation theorem.
+
+To do this, we need a version of the mean value theorem for harmonic functions.
+\begin{lemma}[The Mean Value Theorem for Harmonic Functions]\label{MVT}
+  Let $U$ be a domain in $\mathbb{C}$ around the a point $a \in U$ and let $\phi \in \Omega^0(U)$ be harmonic on $U$. Let $\gamma$ be a closed circle of radius $R > 0$ contained within $U$ that encircles the point $a$. Then, the mean value of $\phi$ over the set bounded by $\gamma$ is equal to the value of $\phi$ at the point $a$. 
+\end{lemma}
+We note that while the statement of this lemma talks about domains of $\mathbb{C}$, we could equally talk about domains on any Riemann surface as by definition of a Riemann Surface, we have chart maps that map open sets of a Riemann Surface to domains in $\mathbb{C}$. 
+\begin{proof}
+  Since $\phi$ is a real-valued harmonic function, then by lemma \ref{HarmRealHol} then we have a holomorphic function $f$ such that the real part of $f$ is $\phi$. We now consider the statement of Cauchys Integral formula about $\gamma$.
+  \begin{align*}
+    f(a) = \frac{1}{2\pi i}\int_{\gamma}\frac{f(z)}{z}dz
+  \end{align*}
+  Parameterising by $\gamma$ gives us that $z= a + Re^{i\theta}$ for $\theta \in [0, 2\pi)$ on $\gamma$ and that $dz = iRe^{i\theta}$. Plugging these into the above equation gives us the relation that
+  \begin{align*}
+    f(a) &= \frac{1}{2\pi i}\int_{\gamma}\frac{f(z)}{z}dz = \frac{1}{2\pi i}\int_0^{2\pi}\frac{f(z)}{Re^{i\theta}}iRe^{i\theta}d\theta \\
+    &= \frac{1}{2\pi}\int_0^{2\pi}f(z)d\theta
+  \end{align*}
+  Since $\phi$ is the real part of $f$, we can split $f$ into real and imaginary parts with the integrals splitting into real and imaginary parts. Hence, we get that 
+  \begin{align*}
+    \phi(a)=\frac{1}{2\pi}\int_0^{2\pi}\phi(z)d\theta
+  \end{align*}
+    which implies that the average value of $\phi(z)$ along $\gamma$ equals $\phi(a)$ giving us our mean value theorem.
+\end{proof}
+
+Now we are in a position to discuss the (strong) maximum principle for harmonic functions. Some authors may call following the strong maximum principle though since we dont need the "weak" maximum principle, we will simply refer to the following as the maximum principle.
+The following can be found in \cite{arnold}
+\begin{lemma}[The Maximum Principle]\label{MaximumPrincipleDef}
+  Let $X$ be a Riemann Surface, let $U$ be a domain on $X$ and $\phi$ be a real-valued harmonic function on $U$. Then $\phi$ has no extrema in $U$. In other words, if for some $w \in U$ we have that $\phi(w) = max\{\phi(z) \colon \forall z \in U\}$ then $\phi$ must be a constant.
+\end{lemma}
+\begin{proof}
+  Let $w_0$ be the point at which the maximum of $\phi$ occurs in $U$. Consider a small circular neighbourhood of $w_0$, with $w_0$ at the centre with the closed neighbourhood bounded by a circle called $\gamma$. We pick a point $w_1$ on the circle $\gamma$ and suppose that $\phi(w_0)>\phi(w_1)$. Let us connect $w_0$ and $w_1$ with a straight line $\delta$ so that $\delta:[0,1] \rightarrow U$ with $\delta(0)=w_0$ and $\delta(1)=w_1$.
+  
+  Since $\phi$ is continuous, that implies that for all $t > 0$, we must have that $\phi(\delta(0)) > \phi(\delta(t))$. But this violates lemma \ref{MVT}, the mean value theorem for harmonic functions, for if this is the case, then we would have 
+  \[ \phi(w_0) > \frac{1}{2\pi}\int_0^{2\pi}\phi(\theta)d\theta \]
+  This clearly cannot be so we must make it so that $\phi(w_0) = \phi(\delta(t))$ for all $t > 0$. So $\phi$ is constant in this small neighbourhood, which is closed. However, for any point in this neighbourhood, there is an open ball contained in $U$ surrounding it. Hence this neighbourhood is also open. This leads to the conclusion that the set of points maximising $\phi$ must either be empty, or must be the entire componant of the domain containing $w_0$. Hence, if $\phi$ has a maximum in $U$, $\phi$ must be constant across the whole of $U$.
+\end{proof}
+
+So we see that harmonic functions are indeed quite special. We now move on to our next topics of interest.
+
+\subsection{Hilbert Spaces and the space $C^{\infty}(X)/{\mathbb{R}}$}
+
+Hilbert spaces are in some ways, the most familiar class of space that one may study. They crop up everywhere in Mathematics and more and more in Theoretical Physics and indeed they play a major part in the proof of the Uniformisation theorem. Specifially, we will want to construct a particular Hilbert space that will contain a function that we will use to prove the Uniformisation theorem. Let us provide some definitions first.
+
+\begin{defn}[Inner Product Space]
+  Let $V$ be a vector space over a field $\mathbb{F}$ and $\langle \cdot,\cdot \rangle \colon V \times V \rightarrow \mathbb{F}$ be a positive definite sesquilinear form on $V$. Then the pair $\{\{V,\mathbb{F}\}, \langle \cdot,\cdot \rangle\}$ is called a Inner Product Space.
+  \end{defn}
 
 %
 %\references{Bibliography}{}{yes}
 \begin{thebibliography}{99}
-\bibitem{donaldson} S. Donaldson, Riemann Surfaces
+\bibitem{donaldson} S. Donaldson, {\em Riemann Surfaces}
+\bibitem{arnold} V. I. Arnol'd, {\em Lectures on Partial Differential Equations}
+\bibitem{rudin} W. Rudin, {\em Functional Analysis}
 \bibitem{smith} J. Smith. {\em My favourite Theorems}, Madeup University
 Press (2026).
 %
