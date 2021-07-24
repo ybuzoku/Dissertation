@@ -1,0 +1,2 @@
+Project:
+  pdflatex Project.pdf
