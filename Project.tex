@@ -282,9 +282,40 @@ So we see that harmonic functions are indeed quite special. We now move on to ou
 Hilbert spaces are in some ways, the most familiar class of space that one may study. They crop up everywhere in Mathematics and more and more in Theoretical Physics and indeed they play a major part in the proof of the Uniformisation theorem. Specifially, we will want to construct a particular Hilbert space that will contain a function that we will use to prove the Uniformisation theorem. Let us provide some definitions first.
 
 \begin{defn}[Inner Product Space]
-  Let $V$ be a vector space over a field $\mathbb{F}$ and $\langle \cdot,\cdot \rangle \colon V \times V \rightarrow \mathbb{F}$ be a positive definite sesquilinear form on $V$. Then the pair $\{\{V,\mathbb{F}\}, \langle \cdot,\cdot \rangle\}$ is called a Inner Product Space.
-  \end{defn}
+  Let $V$ be a vector space over a field $\mathbb{F}$ and $\langle \cdot,\cdot \rangle \colon V \times V \rightarrow \mathbb{F}$ be a positive definite sesquilinear form on $V$. Then the pair $\{V_{\mathbb{F}}, \langle \cdot,\cdot \rangle\}$ (frequently abbreviated as just $V$ or $V_{\mathbb{F}}$ if the underlying field is known) is called an Inner Product Space or Pre-Hilbert Space. Furthermore, such spaces have a norm associated with them, defined as a function $||\cdot|| \colon V \rightarrow \mathbb{F}$ which can be computed by $||v|| = \sqrt{\langle v,v \rangle}$ for all $v \in V$. 
+\end{defn}
 
+We note that inner product spaces are in fact metric spaces. We note that we can define on any inner product space a metric as follows.
+\begin{prop}
+  Let $V$ be an inner product space. Then $V$ is a metric space.
+\end{prop}
+\begin{proof}
+  Let $\{V_{\mathbb{F}},\langle \cdot,\cdot \rangle\}$ be an inner product space. Pick two elements of $a,v \in V$. We define the metric $d:V\times V \rightarrow \mathbb{F}$ with the formula $d(a,b)=||a-b||$. By the properties of the inner product, we see that $d(a,b)$ is symmetric, and positive definite. The triangle inequality follows by applying the Cauchy-Schwartz inequality. 
+\end{proof}
+We can now define a Hilbert space.
+\begin{defn}[Hilbert Space]
+  An inner product space $\mathcal{H}$ is called a Hilbert Space if it is a complete metric space with a norm induced by the inner product.
+\end{defn}
+
+We see that Hilbert spaces are very similar to just normal inner product spaces and as such a lot of our examples are familiar vector spaces. Examples include
+\begin{example}
+  \begin{itemize}
+    \item $\mathbb{R}^n$ with the usual Euclidean inner product.
+  \end{itemize}
+\end{example}
+
+However, the fact Hilbert spaces are complete, allows us to find the limits of all Cauchy sequences. This completeness property allows us to generalise our notions of calculus as we have well defined limits.
+
+We are now in a position to introduce a space of critical importance to our study of the laplacian on a Riemann surface. This space is a Hilbert space, though we prove this in steps, first showing it is a vector space, then that given a particular norm, it is an inner product space, concluding with
+
+\begin{defn}[The space $C^{\infty}(X)/\mathbb{R}$]
+  Let $X$ be a Riemann surface. We define the space $C^{\infty}(X)/\mathbb{R}$ to be the space of all infinitely differentiable real-valued functions on $X$ quotiented by constant functions. Two functions $\phi, \psi \in C^{\infty}(X)$ are equivalent if they differ by a constant function.
+\end{defn}
+
+We can also equip this space with a special norm, called the Dirichlet norm.
+\begin{defn}[The Dirichlet norm]
+  The Dirichlet norm $||\cdot||_D:C^{\infty}(X)/\mathbb{R} \rightarrow \mathbb{R}$ is defined as follows. For $\tilde{f} \in C^{\infty}(X)/\mathbb{R}$, $||\tilde{f}||^2_D=||df||^2=\int_X|df|^2idz \wedge d\bar{z}$, where $\tilde{f}$ is the equivalence class of $f$.
+\end{defn}
 %
 %\references{Bibliography}{}{yes}
 \begin{thebibliography}{99}
@@ -294,7 +325,6 @@ Hilbert spaces are in some ways, the most familiar class of space that one may s
 \bibitem{smith} J. Smith. {\em My favourite Theorems}, Madeup University
 Press (2026).
 %
-\bibitem{website} MacTutor History of Mathematics Archive, at
-https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
+\bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
 \end{thebibliography}
 \end{document}
