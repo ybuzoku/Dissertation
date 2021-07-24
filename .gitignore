@@ -1,0 +1,9 @@
+*
+*.*
+!*.tex
+!*.sty
+!*.jpg
+!*.pdf
+!README.md
+!makefile
+!MAKEFILE
