@@ -1,2 +1,2 @@
 Project:
-  pdflatex Project.pdf
+	pdflatex Project.tex Project.pdf

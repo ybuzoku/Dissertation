@@ -1,0 +1,32 @@
+\contentsline {chapter}{List of figures}{5}{chapter*.2}
+\contentsline {chapter}{Abstract}{6}{chapter*.3}
+\contentsline {chapter}{Declaration}{7}{chapter*.4}
+\contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}
+\contentsline {section}{\numberline {1.1}Elementary definitions and notation}{9}{section.1.1}
+\contentsline {chapter}{\numberline {2}Riemann Surfaces}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Basic Definitions}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Algebraic Curves}{11}{section.2.2}
+\contentsline {section}{\numberline {2.3}Proper Discontinuous Group Actions}{11}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Fuchsian grouppos}{11}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Attempting to classify some Riemann surfaces}{12}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}The Riemann Sphere}{12}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Quotients of the Complex Plane}{12}{subsection.2.4.2}
+\contentsline {subsubsection}{The Cylinder}{12}{section*.5}
+\contentsline {subsubsection}{The Torus}{12}{section*.6}
+\contentsline {subsection}{\numberline {2.4.3}Moduli space of Tori}{12}{subsection.2.4.3}
+\contentsline {chapter}{\numberline {3}Calculus on Riemann Surfaces}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}The Tangent and Cotangent Spaces}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}The Alternating Algebra and Differential forms}{14}{section.3.3}
+\contentsline {section}{\numberline {3.4}de-Rham Cohomology}{14}{section.3.4}
+\contentsline {section}{\numberline {3.5}Complex structures}{15}{section.3.5}
+\contentsline {chapter}{\numberline {4}The Uniformisation Theorem}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}Preliminaries}{16}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}The $\Delta $ operator and Harmonic functions}{16}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Hilbert Spaces and the space $\mathcal {H}(X)$}{22}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}The Dirichlet Energy Functional}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Solving the Laplace equation on compact \\Riemann surfaces}{30}{section.4.3}
+\contentsline {section}{\numberline {4.4}Weyl's Lemma}{30}{section.4.4}
+\contentsline {section}{\numberline {4.5}The Uniformisation Theorem}{30}{section.4.5}
+\contentsline {section}{\numberline {4.6}The Laplace equation on simply connected non compact Riemann surfaces}{30}{section.4.6}
+\contentsline {section}{\numberline {4.7}Consequences of solving the Laplace equation on Riemann surfaces and the Riemann-Roch Theorem}{30}{section.4.7}

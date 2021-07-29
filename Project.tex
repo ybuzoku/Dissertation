@@ -74,13 +74,12 @@ plane and hyperbolic plane and prove the uniformisation theorem for
 compact Riemann surfaces and the claim that there exist exactly two
 non-compact simply connected Riemann surfaces.
 
+\section{Elementary definitions and notation}
+We begin by setting up the notation and tools we will be using from Complex Analysis and Topology.
 
 \chapter{Riemann Surfaces}
 
-This chapter shows the basic definitions from Topology, (Complex) Analysis 
-and Riemann Surface Theory to define Riemann Surfaces, their mappings and 
-boilerplate stuff. Discuss what is needed and constructions in detail.
-I guess weird test yadda yadda 
+Intro to Riemann Surfaces. Talk about $log(z)$ and it as a motivational entry into the subject.
 
 
 \section{Basic Definitions}\label{bdefns}
@@ -126,6 +125,13 @@ Geometry and groups episode three, the revenge of the fundamental domain.
 \subsection{Fuchsian grouppos}
 Empty something.
 
+\section{Attempting to classify some Riemann surfaces}
+\subsection{The Riemann Sphere}
+\subsection{Quotients of the Complex Plane}
+\subsubsection{The Cylinder}
+\subsubsection{The Torus}
+\subsection{Moduli space of Tori}
+
 \chapter{Calculus on Riemann Surfaces}
 \section{Introduction}
 To gain a deeper understanding of Riemann Surfaces from a more analytical
@@ -164,15 +170,58 @@ in Chapter 5 of \cite{donaldson} unless otherwise noted.
   $T^*_pX^{\mathbb{C}} = Hom_{\mathbb{R}}(T_pX,\mathbb{C})$.
 \end{defn}
 
+\section{The Alternating Algebra and Differential forms}
 
+\begin{defn}[Alternating Algebra]\label{AltAlg}
+  cf Calc to cohomo and Spivak  
+\end{defn}
 
+\begin{defn}[Differential $p$-forms]\label{p-form}
+  Calc to cohomo. ALL FUNCTIONS SMOOTH AND REAL HERE! We only need to consider $p=0,1,2$
+\end{defn}
+  Space of differential $0$-form is also written as $C^{\infty}(U)$
+\begin{defn}[Exterior Derivative]\label{exteriorD}
+  aaa
+\end{defn}
+
+\begin{defn}[Integration]\label{Integration}
+  Define integration 
+\end{defn}
+
+\section{de-Rham Cohomology}
+
+\begin{defn}[de-Rham Cohomology]\label{deRham}
+  aaa
+\end{defn}
+
+\begin{defn}[Complex valued forms and de-Rham Complexes]\label{Cforms}
+  aaa
+\end{defn}
+
+\section{Complex structures}
+
+\begin{defn}[Complex structure]\label{Cstructure}
+  
+\end{defn}
+
+\begin{lemma}[Structure splitting lemma]
+  Any $\mathbb{R}$-linear map from $V$ to $\mathbb{C}$ can be written in a unique way as a sum of complex linear and antilinear maps.
+\end{lemma}
+
+\begin{lemma}[Can split $\Omega^1(X,\mathbb{C})$ into direct sum]
+  
+\end{lemma}
+
+\begin{defn}[$L_2$ norm and inner-product on space of $(1,0)-$forms]\label{InnerProduct}
+  
+\end{defn}
 \chapter{The Uniformisation Theorem}
 \section{Preliminaries}
 \subsection{The $\Delta$ operator and Harmonic functions}
 We begin our treatment of the uniformisation theorem, with a discussion of a particular and extremely important differential operator on Riemann Surfaces; the Laplacian. The majority of definitions can be found in \cite{donaldson} unless explicitly stated.
 
 \begin{defn}[The Laplacian]\label{LaplacianDef}
-  Let $X$ be a Riemann Surface. We define a linear map $\Delta:\Omega^0(X)\rightarrow \Omega^2(X)$, where $\Delta=2i\bar{\partial}\partial$. We call this linear map the Laplacian.
+  Let $X$ be a Riemann Surface. We define a linear map $\Delta:\Omega^0(X)\rightarrow \Omega^2(X)$, where $\Delta=2i\bar{\partial}\wedge\partial$. We call this linear map the Laplacian. Often, we will suppress the $\wedge$ and simply write $\Delta=2i\bar{\partial}\partial$, with the $\wedge$ being implied, where no confusion may arise from such notation.
 \end{defn}
 
 Note that though, we have said that $\Delta$ is a map, it is a map from a space of functions to a space of functions, and hence is technically an operator; in particular, since it defines a differential equation in local coordinates, it is a differential operator and hence will be referred to as so.
@@ -277,7 +326,7 @@ The following can be found in \cite{arnold}
 
 So we see that harmonic functions are indeed quite special. We now move on to our next topics of interest.
 
-\subsection{Hilbert Spaces and the space $C^{\infty}(X)/{\mathbb{R}}$}
+\subsection{Hilbert Spaces and the space $\mathcal{H}(X)$}
 
 Hilbert spaces are in some ways, the most familiar class of space that one may study. They crop up everywhere in Mathematics and more and more in Theoretical Physics and indeed they play a major part in the proof of the Uniformisation theorem. Specifially, we will want to construct a particular Hilbert space that will contain a function that we will use to prove the Uniformisation theorem. Let us provide some definitions first.
 
@@ -306,21 +355,164 @@ We see that Hilbert spaces are very similar to just normal inner product spaces 
 
 However, the fact Hilbert spaces are complete, allows us to find the limits of all Cauchy sequences. This completeness property allows us to generalise our notions of calculus as we have well defined limits.
 
-We are now in a position to introduce a space of critical importance to our study of the laplacian on a Riemann surface. This space is a Hilbert space, though we prove this in steps, first showing it is a vector space, then that given a particular norm, it is an inner product space, concluding with
+A further important reason to want to study Hilbert Spaces is the Riesz Representation Theorem; a theorem that allows us, under sufficiently nice conditions that we will satisfy, to represent a bounded linear functional acting on an element of a Hilbert space, as an inner product of elements. Let us write this more precisely .
+\begin{thm}[The Riesz Representation Theorem]\label{RieszRepTheorem}
+  Let $H$ be a real Hilbert Space, and let $\sigma \colon H \rightarrow \mathbb{R}$ be a bounded linear functional, so there exists a constant $C$ such that $|\sigma(x)| \leq C||x||$ for all $x \in H$. Then there exists a $z \in H$ such that \[ \sigma(x) = \langle z, x \rangle \]
+\end{thm}
+A proof of this theorem can be found in chapter ??? of ???
 
-\begin{defn}[The space $C^{\infty}(X)/\mathbb{R}$]
-  Let $X$ be a Riemann surface. We define the space $C^{\infty}(X)/\mathbb{R}$ to be the space of all infinitely differentiable real-valued functions on $X$ quotiented by constant functions. Two functions $\phi, \psi \in C^{\infty}(X)$ are equivalent if they differ by a constant function.
+We are now in a position to introduce a space of critical importance to our study of the laplacian on a Riemann surface. This space will be a Hilbert space, though we prove this in steps, first showing it is a vector space, then that given a particular norm, it is an inner product space, and then show that it is complete. We call this space $\mathcal{H}(X)$ and we shall explicitly construct it below. 
+
+Note that henceforth we consider only connected Riemann surfaces to alleviate  issues related to having multiple connected componants.
+
+%\begin{defn}[The space $C^{\infty}(X)$]\label{infspace}
+%  Let $X$ be a Riemann surface. We denote by 
+%  $C^{\infty}(X)$ the space of all infinitely differentiable, real valued functions on $X$.
+%\end{defn}
+
+%This space is quite clearly a vector space of functions over the real numbers as with respect to the addition of functions, we have that the sum of any two smooth functions is again smooth. More precisely, we see that for all $f,g, h \in C^{\infty}(X)$ (ie, smooth functions) and $\lambda, \mu \in \mathbb{R}$, we have that $f + g = g + f$ and $f + (g + h) = (f +g) + h$, the zero function is smooth and of course, for each function $f$ there is a unique additive inverse, namely $-f$. Furthermore $\lambda(f + g) = \lambda f + \lambda g$ and $(\lambda + \mu)f = \lambda f + \mu f$.
+
+%Whilst this space is quite clearly interesting in its own right, we wish to study a particular quotient of it. We do so by establishing the following equivalence relation.
+
+
+\begin{lemma}
+  Let $X$ be a connected Riemann Surface. We define a relation on $\Omega^0(X)$ (or on $\Omega^0_c(X)$ if $X$ is non-compact), whereby two functions are equivalent if they differ by a constant function. This relation, given the symbol $\sim$, defines an equivalence relation on $\Omega^0(X)$.
+\end{lemma}
+
+\begin{proof}
+  We let $f,g,h \in \Omega^0(X)$ (or $\Omega^0_c(X)$ if $X$ is non-compact) be functions and let $a, b \in \mathbb{R}$ be arbitrary constants. 
+  Since any function $f = f + 0$ then we have that $f \sim f$. 
+  Further, we have that if $f \sim g$ impyling $f = g + a$, then we have that $g + (-a) = f$. Since $a \in \mathbb{R}$ then $-a \in \mathbb{R}$ and so we have $g \sim f$. 
+  Finally, if $f \sim g$ and $g \sim h$ implying that $f = g + a$ and $g = h + b$, then we have that $f \sim h$ since $f = g + a = (h + b) + a = h + (b + a)$ and $b+a \in \mathbb{R}$. Hence, $\sim$ is indeed an equivalence relation on $\Omega^0(X)$. 
+\end{proof}
+
+With this equivalence relation we can now define the space of cosets of functions differing by a constant.
+
+\begin{defn}[The space $\mathcal{H}(X)$]
+  Let $X$ be a connected Riemann Surface. The space of cosets under the above defined equivalence relation $\sim$, is written as $\mathcal{H}(X) = \Omega^0(X)/\sim$. Each element of this space is a coset of smooth functions on the Riemann Surface $X$, whose elements all differ from the coset representative by a constant. 
+  Similarly, if $X$ is non-compact, then we define $\mathcal{H}(X) = \Omega^0_c(X)/\sim$, whose elements all have compact support in $X$.
 \end{defn}
 
-We can also equip this space with a special inner product.
+Note that in \cite{donaldson}, this space is called both $H$ and $C^{\infty}(X)/\mathbb{R}$, with the former occuring when $X$ is non compact and the latter in the compact case. We will however, distinguish the two cases by identifying $X$ as being compact and non compact, if necessary. Furthermore, the notation $C^{\infty}(X)/\mathbb{R}$, comes from $C^{\infty}(X)$ meaning the space of smooth functions on $X$ in analysis. 
+
+Interestingly, $\mathcal{H}(X)$ is also a vector space, and this follows from the fact that $\Omega^0(X)$ is itself a vector space. Though this new space is more somehow more complicated than the space of smooth functions, there is an advantage to working with these cosets; namely that we can define a particular inner product and associated norm which will be of particular interest to our study of the laplacian on Riemann surfaces. This inner product, called the Dirichlet Inner Product, is defined as follows.
+
+\begin{defn}[The Dirichlet Inner Product]\label{dInnerProduct}
+  Let $X$ be a connected Riemann Surface and let $f, g \in \mathcal{H}(X)$, where at least one of $f$ or $g$ have compact support within $X$. Then we define the Dirichlet Inner Product $\langle \cdot, \cdot \rangle_D : \mathcal{H}(X) \times \mathcal{H}(X) \rightarrow \mathbb{R}$ as 
+  \[
+    \langle f, g \rangle_D =\langle df, dg \rangle = 2i \int_X \partial f \wedge \bar{\partial} g 
+  \]
+  where the inner product on the right hand side is defined in the previous section as definition \ref{InnerProduct}. Notice that this is a real valued inner product.
+  This inner product of course, also defines a norm in the usual way:
+  \begin{align*}
+    ||f||_D^2 = \langle f, f \rangle_D
+  \end{align*}
+\end{defn}
+
+If the functions were to not have compact support within this region then, the value of the inner product and norm might be $+\infty$, so by considering only functions with suitable compact support, we get that we have a bona-fide inner product and norm.
+
+So with all of this theoretical set up, it would be nice if we could somehow get back our claimed main object of study for this section; the laplacian. Although hidden, the Dirichlet norm (and the associated inner product) in fact return to us, the laplacian.
+
+\begin{prop}\label{InnerLaplacian}
+  Given a connected Riemann surface $X$, if at least one function $f,g$ is in $\mathcal{H}(X)$ (hence having compact support on $X$), then 
+  \begin{align*}
+    \langle f, g \rangle_D = \int_X f \Delta g = \int_X g \Delta f
+  \end{align*}
+\end{prop}
+\begin{proof}
+  First we consider two identities:
+  \begin{itemize}
+    \item $\bar{\partial}\wedge(f\bar{\partial}g) = f (\bar{\partial}\wedge\bar{\partial} g) + \bar{\partial}f \wedge \bar{\partial}g = 0 + 0 = 0$
+    \item $\partial\wedge(f\bar{\partial}g)=\partial f \wedge \bar{\partial}g + f(\partial\wedge\bar{\partial}g)=\partial f \wedge \bar{\partial}g - \frac{1}{2i}f\Delta g$
+  \end{itemize}
+  Now let us expand the inner product. By the first identity above, we have that $f\bar{\partial}g$ is holomorphic, so that $d = \partial$. Hence, we can apply Stokes theorem. Note that since $X$ has no boundary, $\partial X = \emptyset$ and hence, that integral vanishes.
+  \begin{align*}
+    \langle f, g \rangle_D &= 2i\int_X \partial f \wedge \bar{\partial}g = 2i\int_X \partial(f\bar{\partial}g)+\int_X f\Delta g \\
+    &= 2i\int_X \partial f \wedge \bar{\partial}g = 2i\int_{\partial X} f\bar{\partial}g + \int_X f\Delta g \\
+    &= \int_X f\Delta g
+  \end{align*}
+  Since the Dirichlet inner product is a real inner product, it is symmetric and hence we have that $\langle f, g \rangle_D = \langle g, f \rangle_D $ and so $\int_X f\Delta g = \int_X g \Delta f$ as claimed.
+\end{proof}
+
+\section{The Dirichlet Energy Functional}
+The Dirichlet Energy Functional is an interesting object of study in its own right. 
+
+We begin by defining the $\hat{\rho}$ functional, a simple integral functional from $\mathcal{H}(X)$ to $\mathbb{R}$.
+\begin{defn}
+  Let $X$ be a connected Riemann Surface and $\rho \in \Omega^2_c(X)$ be a $2$-form of compact support in $X$ such that $\int_X \rho = 0$. Then, we define the functional $\hat{\rho} \colon \mathcal{H}(X) \rightarrow \mathbb{R}$ to be defined as, for some $f$ of compact support in $\mathcal{H}(X)$,
+  \begin{align*}
+    \hat{\rho}(f) = \int_X f\rho
+  \end{align*}
+\end{defn}
+
+Since $\int_X \rho = 0$ then we have that this functional is linear on functions of compact support in $\mathcal{H}(X)$. Note that, if $X$ is a compact Riemann surface, then all functions and $2$-forms  onautomatically have compact support on $X$, so the compact support conditions really only apply to the cases of non-compact Riemann surfaces. In those cases, we demand compact support so that the our functional doesnt go to inifinity. For example, if we let $X=\mathbb{C}$ and let $\rho = sin(z)dz\wedge d\bar{z}$ and let $f(z) = z$, then we have that $\int_{\mathbb{C}}zsin(z)dz\wedge d\bar{z} = \infty$ with neither $f$ or $\rho$ being of compact support even though $\int_X \rho = 0$
+%SHOULD I INCLUDE THIS EXAMPLE? FLESH IT OUT? IS IT EVEN RIGHT?
+%supp(f) = \mathbb{C}\setminus \{0\} and supp(\rho)=\mathbb{C}\setminus \{nz| \forall z \in \mathbb{Z}\}
+
+We now prove the claim that $\hat{\rho}$ is a linear functional on $\mathcal{H}(X)$.
+\begin{lemma}[$\hat{\rho}$ is a linear functional]\label{rhohatlinear}
+  Let $X$ be a connected Riemann surface. Then $\hat{\rho}$ is a linear functional, ie $\hat{\rho}(\lambda f+ \mu g) = \lambda \hat{\rho}(f) + \mu \hat{\rho}(g)$
+\end{lemma}
+Recall that elements of $\mathcal{H}(X)$ are equivalence classes of smooth functions on $X$ (with compact support on $X$ if $X$ is non-compact), which differ by a constant.
+\begin{proof}
+  Let $\tilde{f},\tilde{g} \in \mathcal{H}$ and $\lambda,\mu \in \mathbb{R}$. Then for some real constant, $a,b \in \mathbb{R}$ we have that $\tilde{f}(z) = f(z) + a$ and $\tilde{g}(z) = g(z) + b$. Recall also that $\int_X \rho = 0$.
+  Hence, we get that:
+  \begin{align*}
+    \hat{\rho}(\lambda \tilde{f}+ \mu \tilde{g}) &= \hat{\rho}(\lambda(f + a) + \mu(g + b)) \\
+    &=\int_X (\lambda(f + a) + \mu(g + b))\rho \\
+    &=\lambda \int_X (f + a)\rho + \mu \int_X (g + b)\rho \\
+    &=\lambda \int_x f\rho + \lambda a\int_X \rho + \mu \int_X g\rho + \mu b\int_X \rho \\
+    &=\lambda \hat{\rho}(f) + \mu \hat{\rho}(g)\\
+    &=\lambda \hat{\rho}(\tilde{f}) + \mu \hat{\rho}(\tilde{g})
+  \end{align*}
+  with the last line following since clearly $f \in \tilde{f}$ and $g \in \tilde{g}$.
+\end{proof}
+
+We can now define a linear functional of great importance.
+
+\begin{defn}[Dirichlet Energy Functional]
+  Let $X$ be a connected Riemann Surface, and suppose $f \in \mathcal{H}(X)$. Suppose further that we have $2$-form $\rho \in \Omega^2 (X)$ such that $\int_X \rho = 0$. Then we can define a functional, $\mathcal{L}: 
+  \mathcal{H} \rightarrow \mathbb{R}$ such that $\mathcal{L}(f) = -2\hat{\rho}(f)+||f||^2_D$. This $\mathcal{L}$ is called the Dirichlet energy functional, or sometimes Dirichlet energy for short.
+\end{defn}
+
+The case of $X$ being non-compact requires special treatment as we have seen in the preceeding definitions. In these cases, we consider functions $f$ that are compactly supported on $X$ as this guarantees that $f$ goes to zero as $||f||_D$ goes to $+\infty$. This condition, along with considering that a non-compact Riemann surface is simply connected, will be sufficient for our discussion of the Dirichlet functional on non-compact manifolds.
+
+Returning to the Dirichlet functional, we see that this functional is an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a system. Often in physics, one writes $L=T-V$ (where $T$ is the symbol for kinetic energy and $V$ is the symbol for potential energy) to mean the lagrangian of a physical system. If we take a moment to look at our Dirichlet energy, we can take our kinetic energy term to be $\hat{\rho}f$, and the potential energy term to be $||f||^2_D$. But what is this the kinetic or potential energy of? In Chapter 9 of \cite{donaldson}, the conclusions of our current argument are compared to those of the solutions of the steady state heat equation, meaning we are looking for solutions to the heat equation which are constant in time over a Riemann surface. Though I find a more interesting, and perhaps easier to understand interpretation can be had by considering electric fields. Suppose for a moment that we want to apply an electric charge to the surface of our connected Riemann surface. What stable (non-changing) distributions of this charge are allowed on our Riemann surface? Naturally, the electric field and electric potential will want to be minimal, as nature tends to want to balance out forces, and spend as little energy as possible doing so. This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$ as much as possible. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding (to the first order) functions which minimise $\mathcal{L}$. To prove the existance of such minimising functions however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$.
+
+Let us, for a moment, suppose such functions exist and that $\mathcal{L}$ is a bounded linear functional. What are the functions that minimise our problem?
+We begin by computing the first variation of $\mathcal{L}$. To do this we let $\epsilon > 0$ and let $g$ be a function on $X$. The conditions on $g$ will be more precisely defined later, so for now, we assume such a $g$ exists. Let us now compute the first variation of $\mathcal{L}$:
+\begin{gather*}
+  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}\mathcal{L}(f+\epsilon g) = 0 \\
+  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(-2\hat{\rho}(f+\epsilon g) + ||f+\epsilon g||_D^2) = 0 \\
+  -2\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\int_X f\rho  + \epsilon \int_X g\rho) + \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0} \langle f + \epsilon g, f + \epsilon g \rangle = 0 \\
+  -2\hat{\rho}(g)+\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\langle f, f \rangle + 2\epsilon \langle f, g \rangle +\epsilon^2 \langle g, g \rangle) = 0 \\
+  -2\hat{\rho}(g) + 2\langle f, g \rangle = 0 \\
+  \int_X g\Delta f - \int_X g\rho = 0 \\
+  \int_X g(\Delta f - \rho) = 0 
+\end{gather*}
+The appearence of the Laplacian comes from proposition \ref*{InnerLaplacian}.
+Since we have that at least one of $f,g$ and $\rho,g$ have compact support (and in this case both $f$ and $\rho$ are compactly supported on $X$), then for this integral to be zero, we need a crucial condition to hold. Namely the following statement:
+
+There exists a unique solution $f$, up to addition by a constant, of the equation 
+\[ \Delta f = \rho \Longleftrightarrow \int_X \rho = 0\]
+
+This equation, known as Poissons' equation, will be our main tool in solving the uniformisation theorem. As we shall shortly see, we only need to consider its solutions on a small number of Riemann surfaces to allow us to draw the conclusions we seek. We begin by solving Poissons equation on compact, connected Riemann surfaces.
+
+\section{Solving the Laplace equation on compact \\Riemann surfaces}
+\section{Weyl's Lemma}
+\section{The Uniformisation Theorem}
+\section{The Laplace equation on simply connected non compact Riemann surfaces}
+\section{Consequences of solving the Laplace equation on Riemann surfaces and the Riemann-Roch Theorem}
 %
 %\references{Bibliography}{}{yes}
 \begin{thebibliography}{99}
 \bibitem{donaldson} S. Donaldson, {\em Riemann Surfaces}
 \bibitem{arnold} V. I. Arnol'd, {\em Lectures on Partial Differential Equations}
 \bibitem{rudin} W. Rudin, {\em Functional Analysis}
-\bibitem{smith} J. Smith. {\em My favourite Theorems}, Madeup University
-Press (2026).
+\bibitem{comfun} Jones \& Singerman. {\em Complex Functions}, Cambridge University Press (DATE).
+\bibitem{calcohomo} I. Madsen \& J. Tornehave, {\em From Calculus to Cohomology}, Cambridge University Press (1997)
+\bibitem{spivak} M.Spivak, {\em Calculus on Manifolds}, 
+
 %
 \bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
 \end{thebibliography}
