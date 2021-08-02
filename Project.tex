@@ -1,11 +1,10 @@
-\documentclass[a4paper,12pt]{report}
-%\setcounter{tocdepth}{1}%
-\usepackage{amssymb,amsmath,amsthm,cmbright}
+\documentclass[11pt]{report}
+\usepackage{amssymb,amsmath,amsthm}
 \usepackage{amsfonts,amsmath,amssymb,graphicx}
-\usepackage{bbkproject}
-\usepackage{hyperref}
-\theoremstyle{plain}
-\renewcommand{\thefootnote}{\arabic{footnote}}
+%\usepackage{cmbright} %sans serif font if uncommented
+\usepackage[parskip]{bbkproject}
+%\usepackage{hyperref}
+
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
@@ -14,22 +13,35 @@
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{example}[thm]{Example}
 
+%%%% These lines are only needed for the example text which follows
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\orb}{orb}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%YOU FILL IN THESE AS APPROPRIATE
 \subject{Mathematics} %write your degree subject here
-\degree{M.Sc.} %write your degree (eg M.Sc., Ph.D.)
-\thesis{dissertation} %if it's a thesis, write thesis instead
 \title{A survey of Riemann surfaces and their classification}
 \author{Y. Buzoku}
-\supervisor{Dr. B. Fairbairn} 
-\department{Department of Economics, Mathematics and Statistics}%
-\submissiondate{$30^{\mathrm{th}}$ September 2021}%
-\institution{Birkbeck, University of London}%
+\supervisor{Dr. B. Fairbairn} %
+\submissiondate{$31^{\mathrm{st}}$ August 2021}%
 
-%
-\parindent 0pt
-%
+
+
+
 \begin{document}
-\maketitle{}{}{I have found a beautiful proof, but this abstract is too short to contain it.}
-%
+\maketitle
+\tableofcontents
+
+\newpage
+\begin{abstract}
+Type your abstract here.
+\end{abstract}
+\declaration % Includes the declaration - don't delete this!
 \chapter{Introduction}
 
 The aim of this dissertation is to investigate and gain a deeper
@@ -74,12 +86,12 @@ plane and hyperbolic plane and prove the uniformisation theorem for
 compact Riemann surfaces and the claim that there exist exactly two
 non-compact simply connected Riemann surfaces.
 
-\section{Elementary definitions and notation}
+\chapter{Elementary definitions and notation}
 We begin by setting up the notation and tools we will be using from Complex Analysis and Topology.
 
 \chapter{Riemann Surfaces}
 
-Intro to Riemann Surfaces. Talk about $log(z)$ and it as a motivational entry into the subject.
+Intro to Riemann Surfaces. Talk about $\log(z)$ and it as a motivational entry into the subject.
 
 
 \section{Basic Definitions}\label{bdefns}
@@ -179,6 +191,10 @@ in Chapter 5 of \cite{donaldson} unless otherwise noted.
 \begin{defn}[Differential $p$-forms]\label{p-form}
   Calc to cohomo. ALL FUNCTIONS SMOOTH AND REAL HERE! We only need to consider $p=0,1,2$
 \end{defn}
+
+\begin{defn}[Volume form]\label{volumeform}
+  Sometimes known as an area form on surfaces.
+\end{defn}
   Space of differential $0$-form is also written as $C^{\infty}(U)$
 \begin{defn}[Exterior Derivative]\label{exteriorD}
   aaa
@@ -188,15 +204,35 @@ in Chapter 5 of \cite{donaldson} unless otherwise noted.
   Define integration 
 \end{defn}
 
+
 \section{de-Rham Cohomology}
 
 \begin{defn}[de-Rham Cohomology]\label{deRham}
   aaa
 \end{defn}
+Examples and quite a few of them
 
 \begin{defn}[Complex valued forms and de-Rham Complexes]\label{Cforms}
   aaa
 \end{defn}
+
+\section{Poincar\'{e}'s lemma}
+
+\begin{defn}[Partitions Of Unity]
+  
+\end{defn}
+
+\begin{defn}[Support of a function]
+  
+\end{defn}
+
+\begin{defn}[de-Rham complexes and cohomology with compact support]
+  
+\end{defn}
+
+\begin{thm}[Poincar\'{e}'s lemma]
+  
+\end{thm}
 
 \section{Complex structures}
 
@@ -221,30 +257,29 @@ in Chapter 5 of \cite{donaldson} unless otherwise noted.
 We begin our treatment of the uniformisation theorem, with a discussion of a particular and extremely important differential operator on Riemann Surfaces; the Laplacian. The majority of definitions can be found in \cite{donaldson} unless explicitly stated.
 
 \begin{defn}[The Laplacian]\label{LaplacianDef}
-  Let $X$ be a Riemann Surface. We define a linear map $\Delta:\Omega^0(X)\rightarrow \Omega^2(X)$, where $\Delta=2i\bar{\partial}\wedge\partial$. We call this linear map the Laplacian. Often, we will suppress the $\wedge$ and simply write $\Delta=2i\bar{\partial}\partial$, with the $\wedge$ being implied, where no confusion may arise from such notation.
+  Let $X$ be a Riemann Surface. We define a linear map $\Delta:\Omega^0(X)\rightarrow \Omega^2(X)$, where $\Delta=2i\overline{\partial}\wedge\partial$. We call this linear map the Laplacian. Often, we will suppress the $\wedge$ and simply write $\Delta=2i\overline{\partial}\partial$, with the $\wedge$ being implied, where no confusion may arise from such notation.
 \end{defn}
 
-Note that though, we have said that $\Delta$ is a map, it is a map from a space of functions to a space of functions, and hence is technically an operator; in particular, since it defines a differential equation in local coordinates, it is a differential operator and hence will be referred to as so.
+Note that, though we have said that $\Delta$ is a map, it is a map from a space of functions to a space of functions, and hence is technically an operator; in particular, since it defines a differential equation in local coordinates, it is a differential operator and hence will be referred to as so.
 
 In local co-ordinates, $\Delta$ simply recovers the expected Laplacian of a function since for a given function $f\in \Omega^0(X)$ we get that 
 \begin{align*}
-  \Delta f &= 2i\bar{\partial }\partial f = 2i(\frac{\partial}{\partial\bar{z}})(\frac{\partial}{\partial z})f(d\bar{z}\wedge dz) \\
+  \Delta f &= 2i\overline{\partial }\partial f = 2i(\frac{\partial}{\partial\overline{z}})(\frac{\partial}{\partial z})f(d\overline{z}\wedge dz) \\
   &=\frac{i}{2}(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y})(\frac{\partial}{\partial x} - i\frac{\partial}{\partial y})f(2idx\wedge dy) \\
   &= -(\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2})dx\wedge dy 
 \end{align*}
-which when we equate $dx\wedge dy$ with the usual area from $dxdy$ becomes the usual Laplacian from vector calculus, up to a minus sign. We usually do this so we can identify functions with two-forms. For example, when given a function $f(x,y)$, it has an associated two-form $\rho = f(x,y) dx\wedge dy$, which can be integrated. Though we can define a notion of the Laplacian without the minus sign, as we will shortly see, that minus sign is important to our setup for the proof of the uniformisation theorem. Hence, we will leave it so. 
+which, when we replace $dx\wedge dy$ with the usual area form $dxdy$, becomes the usual Laplacian from vector calculus, up to a minus sign. We usually do this so we can identify functions with two-forms by choosing a volume form. For example, when given a function $f(x,y)$, it has an associated two-form $\rho = f(x,y) dx\wedge dy$, which can be integrated. Though we can define a notion of the Laplacian without the minus sign, as we will shortly see, that minus sign is important in our setup for the proof of the uniformisation theorem. 
 
 A special class of function that is also important to our theory is that of the 
-Harmonic functions. They play a crucial role in studying the Laplacian operator generally and have a number of very nice properties that we will be exploiting in the coming section.
+Harmonic functions. They play an important role in studying the Laplacian operator generally and have a number of very nice properties that we will rely on in the coming sections.
 \begin{defn}[Harmonic function]\label{HarmonicDef}
-  Let $X$ be a Riemann surface. A function $f\in \Omega^0(X)$ is said to be harmonic if $\Delta f = 0$. A  function $g:X \rightarrow \mathbb{C}$ is said to be harmonic if both its real and imaginary parts are real valued harmonic functions.
+  Let $X$ be a Riemann surface. A function $f\in \Omega^0(X)$ is said to be harmonic if $\Delta f = 0$. If however, $f$ is a smooth complex function, it is said to be harmonic if both its real and imaginary parts are real valued harmonic functions.
 \end{defn}
 We note that we can relax the differentiability condition considerably to make the functions only twice differentiable. Thus harmonic functions need to be at least twice differentiable. Furthermore, the domain of definition is not restricted to just Riemann surfaces but can also be any open subset of $\mathbb{R}^n$ or $\mathbb{C}^n$ for any $n\geq 1$. 
 
 Let us give some examples of Harmonic functions.
-\newpage
 
-\begin{example}[Examples of various Harmonic functions on different domains]
+\begin{example}[Examples of various Harmonic functions on different domains]\label{harmonicexamples}
   Over open sets in $\mathbb{C}$ we have:
   \begin{itemize} 
     \item Constant functions are trivially harmonic.
@@ -257,7 +292,7 @@ Let us give some examples of Harmonic functions.
   \end{itemize}
   Finally, on the punctured plane $\mathbb{C}\setminus \{0\}$, we also have a nice family of examples:
   \begin{itemize}
-    \item $f(x+iy) = ln(x^2 + y^2)$ and hence $g(x+iy)=K ln(x^2+y^2)$ for all $K \in \mathbb{R}$.
+    \item $f(x+iy) = \log(x^2 + y^2)$ and hence $g(x+iy)=K \log(x^2+y^2)$ for all $K \in \mathbb{R}$.
   \end{itemize}
   All of the aforementioned functions satisfy the equation $\Delta f = 0$ on their domain of definition. This concludes the example.
 \end{example}
@@ -268,30 +303,30 @@ It is enlightening to see the claim that any holomorphic function is harmonic us
 \end{lemma} 
 \begin{proof}
   Let $X$ be a Riemann surface and $f$ a holomorphic function defined on $X$.
-  Let us consider the Laplacian applied to the sum $\frac{1}{2i}(f \pm \bar{f})$.
-  \[\frac{1}{2i}\Delta(f \pm \bar{f}) = \bar{\partial}\partial(f \pm \bar{f})=-\partial(\bar{\partial}f) \pm \bar{\partial}\overline{(\bar{\partial}f)}=-\partial(0) \pm \bar{\partial}(0) = 0 \pm 0 = 0\]
-  where both brackets $\bar{\partial} f = 0$ because $f$ is holomorphic.
+  Let us consider the Laplacian applied to the sum $\frac{1}{2i}(f \pm \overline{f})$.
+  \[\frac{1}{2i}\Delta(f \pm \overline{f}) = \overline{\partial}\partial(f \pm \overline{f})=-\partial(\overline{\partial}f) \pm \overline{\partial}\overline{(\overline{\partial}f)}=-\partial(0) \pm \overline{\partial}(0) = 0 \pm 0 = 0\]
+  where both brackets $\overline{\partial} f = 0$ because $f$ is holomorphic.
 \end{proof}
 
-Note however, that whilst holomorphic implies harmonic, the converse isn't always true. However we can say the following.
+Note that whilst holomorphic implies harmonic, the converse isn't always true. However, we can at least say the following.
 
 \begin{lemma}\label{HarmRealHol}
   Let $X$ be a Riemann Surface, $U$ and open set around a point $p \in X$ and let $\phi \in \Omega^0(U)$ be a harmonic function. Then there exists an open neighbourhood $V \subset U$ of the point $p$ and a holomorphic function $f \colon V \rightarrow \mathbb{C}$ with $\phi = Re(f)$.
 \end{lemma}
-Since this is local result on $X$, then the proof follows exactly as in classical complex analysis. However, we wish to showcase how using calculus on Riemann surfaces can help solve problems efficinetly and as such we provide a proof using the tools we have established.
+Since this is a local result on $X$, then the proof follows exactly as in classical complex analysis. However, we wish to showcase how using calculus on Riemann surfaces can help solve problems efficiently and as such we provide a proof using the tools we have established.
 \begin{proof}
   Let $A \in \Omega^1(U)$ be a real one-form such that: 
   \begin{align*}
-    A &= -\frac{\partial \phi}{\partial y} dx + \frac{\partial \phi}{\partial x} dy \\ &= i\bar{\partial}\phi + \overline{(i\bar{\partial}\phi)}
+    A &= -\frac{\partial \phi}{\partial y} dx + \frac{\partial \phi}{\partial x} dy \\ &= i\overline{\partial}\phi + \overline{(i\overline{\partial}\phi)}
   \end{align*}
-  Since $\phi$ is harmonic, so $\bar{\partial}\partial \phi = 0$ and $d = \partial + \bar{\partial}$, we get that $dA = 0$. Hence, if $V$ is an open, simply-connected set (such that $H^1(V)=0$), then we can find a function $\psi \in \Omega^0(V)$ such that $d\psi = A$. By equating coefficients we get that $\partial \psi = -i \partial \psi$ and $\bar{\partial} \psi = i \bar{\partial} \phi$. So if we construct a function $f \colon V \rightarrow \mathbb{C}$ where $f = \phi + i \psi$, we see that $\bar{\partial}f = \bar{\partial}(\phi + i\psi) = \bar{\partial}\phi +i(i\bar{\partial}\phi) = 0$ and hence, $f$ is a holomorphic function whose real part is $\phi$. 
+  Since $\phi$ is harmonic, $\overline{\partial}\partial \phi = 0$ and $d = \partial + \overline{\partial}$, we get that $dA = 0$. Hence, if $V$ is an open, simply-connected set (such that $H^1(V)=0$), then we can find a function $\psi \in \Omega^0(V)$ such that $d\psi = A$. By equating coefficients we get that $\partial \psi = -i \partial \psi$ and $\overline{\partial} \psi = i \overline{\partial} \phi$. So if we construct a function $f \colon V \rightarrow \mathbb{C}$ where $f = \phi + i \psi$, we see that $\overline{\partial}f = \overline{\partial}(\phi + i\psi) = \overline{\partial}\phi +i(i\overline{\partial}\phi) = 0$ and hence, $f$ is a holomorphic function whose real part is $\phi$. 
 \end{proof}
 
-Harmonic functions are clearly quite well behaved and have nice properties that are not generally exhibited by other functions. These properties, such as the maximum principle which we will define and prove below, play a crucial role in our proof of the setup for the uniformisation theorem.
+Harmonic functions are, clearly, quite well behaved and have nice properties that are not generally exhibited by other functions. These properties, such as the maximum principle, which we will define and prove below, play an important role in our treatment of the uniformisation theorem.
 
-To do this, we need a version of the mean value theorem for harmonic functions.
+To prove the maximum principle however, we first need a version of the mean value theorem for harmonic functions.
 \begin{lemma}[The Mean Value Theorem for Harmonic Functions]\label{MVT}
-  Let $U$ be a domain in $\mathbb{C}$ around the a point $a \in U$ and let $\phi \in \Omega^0(U)$ be harmonic on $U$. Let $\gamma$ be a closed circle of radius $R > 0$ contained within $U$ that encircles the point $a$. Then, the mean value of $\phi$ over the set bounded by $\gamma$ is equal to the value of $\phi$ at the point $a$. 
+  Let $U$ be a domain in $\mathbb{C}$ around a point $a \in U$ and let $\phi \in \Omega^0(U)$ be harmonic on $U$. Let $\gamma$ be a closed circle of radius $R > 0$ contained within $U$ that encircles the point $a$. Then, the mean value of $\phi$ over the set bounded by $\gamma$ is equal to the value of $\phi$ at the point $a$. 
 \end{lemma}
 We note that while the statement of this lemma talks about domains of $\mathbb{C}$, we could equally talk about domains on any Riemann surface as by definition of a Riemann Surface, we have chart maps that map open sets of a Riemann Surface to domains in $\mathbb{C}$. 
 \begin{proof}
@@ -328,40 +363,40 @@ So we see that harmonic functions are indeed quite special. We now move on to ou
 
 \subsection{Hilbert Spaces and the space $\mathcal{H}(X)$}
 
-Hilbert spaces are in some ways, the most familiar class of space that one may study. They crop up everywhere in Mathematics and more and more in Theoretical Physics and indeed they play a major part in the proof of the Uniformisation theorem. Specifially, we will want to construct a particular Hilbert space that will contain a function that we will use to prove the Uniformisation theorem. Let us provide some definitions first.
+Hilbert spaces are in some ways, the most familiar class of space that one may study. They crop up everywhere in Mathematics and more and more in Theoretical Physics and indeed they play a major part in the proof of the Uniformisation theorem. Specifially, we will want to construct a particular Hilbert space that will contain a function that we will use to prove the uniformisation theorem. Let us provide some definitions first.
 
 \begin{defn}[Inner Product Space]
-  Let $V$ be a vector space over a field $\mathbb{F}$ and $\langle \cdot,\cdot \rangle \colon V \times V \rightarrow \mathbb{F}$ be a positive definite sesquilinear form on $V$. Then the pair $\{V_{\mathbb{F}}, \langle \cdot,\cdot \rangle\}$ (frequently abbreviated as just $V$ or $V_{\mathbb{F}}$ if the underlying field is known) is called an Inner Product Space or Pre-Hilbert Space. Furthermore, such spaces have a norm associated with them, defined as a function $||\cdot|| \colon V \rightarrow \mathbb{F}$ which can be computed by $||v|| = \sqrt{\langle v,v \rangle}$ for all $v \in V$. 
+  Let $V$ be a vector space over a field $\mathbb{F}$ and $\langle \cdot,\cdot \rangle \colon V \times V \rightarrow \mathbb{F}$ be a positive definite, sesquilinear form on $V$. Then the pair $\{V_{\mathbb{F}}, \langle \cdot,\cdot \rangle\}$ (frequently abbreviated as just $V_{\mathbb{F}}$ or $V$ if the underlying field is known) is called an Inner Product Space or Pre-Hilbert Space. If $\mathbb{F}=\mathbb{R}$, then the sesquilinearity of the inner product becomes a symmetry condition, ie that for some $x,y \in V$ we have that $\langle x, y \rangle = \langle y, x \rangle$. Such inner product spaces are called real inner product spaces.
+  Finally, inner product spaces have a norm associated with them, defined as a function $\Vert \cdot\Vert  \colon V \rightarrow \mathbb{F}$ which can be computed by $\Vert v\Vert  = \sqrt{\langle v,v \rangle}$ for all $v \in V$. 
 \end{defn}
 
-We note that inner product spaces are in fact metric spaces. We note that we can define on any inner product space a metric as follows.
+We note that because inner product spaces have a norm associated with them, that they are, in fact, metric spaces. We note that we can define on any inner product space a metric as follows.
 \begin{prop}
   Let $V$ be an inner product space. Then $V$ is a metric space.
 \end{prop}
 \begin{proof}
-  Let $\{V_{\mathbb{F}},\langle \cdot,\cdot \rangle\}$ be an inner product space. Pick two elements of $a,v \in V$. We define the metric $d:V\times V \rightarrow \mathbb{F}$ with the formula $d(a,b)=||a-b||$. By the properties of the inner product, we see that $d(a,b)$ is symmetric, and positive definite. The triangle inequality follows by applying the Cauchy-Schwartz inequality. 
+  Let $\{V_{\mathbb{F}},\langle \cdot,\cdot \rangle\}$ be an inner product space. Pick two elements of $a,v \in V$. We define the metric $d:V\times V \rightarrow \mathbb{F}$ with the formula $d(a,b)=\Vert a-b\Vert $. By the properties of the inner product, we see that $d(a,b)$ is symmetric, and positive definite. The triangle inequality follows by applying the Cauchy-Schwartz inequality. 
 \end{proof}
 We can now define a Hilbert space.
 \begin{defn}[Hilbert Space]
-  An inner product space $\mathcal{H}$ is called a Hilbert Space if it is a complete metric space with a norm induced by the inner product.
+  An inner product space $V$ is called a Hilbert Space if it is a complete metric space with a norm induced by the inner product.
 \end{defn}
-
-We see that Hilbert spaces are very similar to just normal inner product spaces and as such a lot of our examples are familiar vector spaces. Examples include
+Hilbert spaces over the real numbers are called real Hilbert spaces and those over the complex numbers are called complex Hilbert spaces. We see that Hilbert spaces are very similar to just normal inner product spaces and as such a lot of our examples are familiar vector spaces. Examples include
 \begin{example}
   \begin{itemize}
     \item $\mathbb{R}^n$ with the usual Euclidean inner product.
   \end{itemize}
 \end{example}
 
-However, the fact Hilbert spaces are complete, allows us to find the limits of all Cauchy sequences. This completeness property allows us to generalise our notions of calculus as we have well defined limits.
+However, the fact Hilbert spaces are complete, allows us to find the limits of all Cauchy sequences of their elements. This completeness property allows us to generalise our notions of calculus as we have guaranteed that well defined limits exist within our space.
 
-A further important reason to want to study Hilbert Spaces is the Riesz Representation Theorem; a theorem that allows us, under sufficiently nice conditions that we will satisfy, to represent a bounded linear functional acting on an element of a Hilbert space, as an inner product of elements. Let us write this more precisely .
+A further important reason to want to use the theory of Hilbert Spaces is the Riesz Representation Theorem; a theorem that allows us, under sufficiently nice conditions, to represent a bounded linear functional acting on an element of a Hilbert space as an inner product of elements. Let us write this more precisely .
 \begin{thm}[The Riesz Representation Theorem]\label{RieszRepTheorem}
-  Let $H$ be a real Hilbert Space, and let $\sigma \colon H \rightarrow \mathbb{R}$ be a bounded linear functional, so there exists a constant $C$ such that $|\sigma(x)| \leq C||x||$ for all $x \in H$. Then there exists a $z \in H$ such that \[ \sigma(x) = \langle z, x \rangle \]
+  Let $H$ be a real Hilbert Space, and let $\sigma \colon H \rightarrow \mathbb{R}$ be a bounded linear functional, so there exists a constant $C$ such that $|\sigma(x)| \leq C\Vert x\Vert $ for all $x \in H$. Then there exists an element $z \in H$ such that \[ \sigma(x) = \langle z, x \rangle \]
 \end{thm}
 A proof of this theorem can be found in chapter ??? of ???
 
-We are now in a position to introduce a space of critical importance to our study of the laplacian on a Riemann surface. This space will be a Hilbert space, though we prove this in steps, first showing it is a vector space, then that given a particular norm, it is an inner product space, and then show that it is complete. We call this space $\mathcal{H}(X)$ and we shall explicitly construct it below. 
+We are now in a position to introduce a space of critical importance to our study of the Laplacian on a Riemann surface. This space will be a Hilbert space, though we prove this in steps, first showing it is a vector space, then that given a particular norm, it is an inner product space, and then later on showing that it is complete. We call this inner product space $\mathcal{H}(X)$ and we shall explicitly construct it below, with its completion being constructed later and will be denoted as $\overline{\mathcal{H}}(X)$. 
 
 Note that henceforth we consider only connected Riemann surfaces to alleviate  issues related to having multiple connected componants.
 
@@ -393,25 +428,25 @@ With this equivalence relation we can now define the space of cosets of function
   Similarly, if $X$ is non-compact, then we define $\mathcal{H}(X) = \Omega^0_c(X)/\sim$, whose elements all have compact support in $X$.
 \end{defn}
 
-Note that in \cite{donaldson}, this space is called both $H$ and $C^{\infty}(X)/\mathbb{R}$, with the former occuring when $X$ is non compact and the latter in the compact case. We will however, distinguish the two cases by identifying $X$ as being compact and non compact, if necessary. Furthermore, the notation $C^{\infty}(X)/\mathbb{R}$, comes from $C^{\infty}(X)$ meaning the space of smooth functions on $X$ in analysis. 
+Note that in \cite{donaldson}, this space is called both $H$ and $C^{\infty}(X)/\mathbb{R}$, with the former occuring when $X$ is non compact and the latter in the compact case. We will however, distinguish the two cases by identifying $X$ as being compact and non compact, if necessary. Furthermore, the notation $C^{\infty}(X)/\mathbb{R}$, comes from $C^{\infty}(X)$ meaning the space of smooth functions on $X$ in classical functional analysis. 
 
-Interestingly, $\mathcal{H}(X)$ is also a vector space, and this follows from the fact that $\Omega^0(X)$ is itself a vector space. Though this new space is more somehow more complicated than the space of smooth functions, there is an advantage to working with these cosets; namely that we can define a particular inner product and associated norm which will be of particular interest to our study of the laplacian on Riemann surfaces. This inner product, called the Dirichlet Inner Product, is defined as follows.
+Perhaps unsurprisingly, $\mathcal{H}(X)$ is a vector space. This follows from the fact that $\Omega^0(X)$ is itself a vector space, and the explicit proof is nearly identical to showing that $\Omega^0(X)$ is a vector space. Though this new space is somehow more complicated than the space of smooth functions, there is an advantage to working with these cosets; namely that we can define a particular inner product and associated norm which will be of particular interest to our study of the Laplacian on Riemann surfaces. This inner product, called the Dirichlet Inner Product, is defined as follows.
 
 \begin{defn}[The Dirichlet Inner Product]\label{dInnerProduct}
   Let $X$ be a connected Riemann Surface and let $f, g \in \mathcal{H}(X)$, where at least one of $f$ or $g$ have compact support within $X$. Then we define the Dirichlet Inner Product $\langle \cdot, \cdot \rangle_D : \mathcal{H}(X) \times \mathcal{H}(X) \rightarrow \mathbb{R}$ as 
   \[
-    \langle f, g \rangle_D =\langle df, dg \rangle = 2i \int_X \partial f \wedge \bar{\partial} g 
+    \langle f, g \rangle_D =\langle df, dg \rangle = 2i \int_X \partial f \wedge \overline{\partial} g 
   \]
   where the inner product on the right hand side is defined in the previous section as definition \ref{InnerProduct}. Notice that this is a real valued inner product.
   This inner product of course, also defines a norm in the usual way:
   \begin{align*}
-    ||f||_D^2 = \langle f, f \rangle_D
+    \Vert f\Vert _D^2 = \langle f, f \rangle_D
   \end{align*}
 \end{defn}
 
-If the functions were to not have compact support within this region then, the value of the inner product and norm might be $+\infty$, so by considering only functions with suitable compact support, we get that we have a bona-fide inner product and norm.
+If the functions were to not have compact support within this region then, the value of the inner product and norm might be $+\infty$, so by considering only functions with suitable compact support, we guarantee that we have an inner product and norm. 
 
-So with all of this theoretical set up, it would be nice if we could somehow get back our claimed main object of study for this section; the laplacian. Although hidden, the Dirichlet norm (and the associated inner product) in fact return to us, the laplacian.
+So with all of this theoretical set up, it would be nice if we could somehow get back our claimed main object of study for this section; the Laplacian. Although hidden, the Dirichlet norm (and the associated inner product) already contain the Laplacian in their definition. The following proposition shows just how.
 
 \begin{prop}\label{InnerLaplacian}
   Given a connected Riemann surface $X$, if at least one function $f,g$ is in $\mathcal{H}(X)$ (hence having compact support on $X$), then 
@@ -420,32 +455,35 @@ So with all of this theoretical set up, it would be nice if we could somehow get
   \end{align*}
 \end{prop}
 \begin{proof}
-  First we consider two identities:
+  We first consider the following two identities:
   \begin{itemize}
-    \item $\bar{\partial}\wedge(f\bar{\partial}g) = f (\bar{\partial}\wedge\bar{\partial} g) + \bar{\partial}f \wedge \bar{\partial}g = 0 + 0 = 0$
-    \item $\partial\wedge(f\bar{\partial}g)=\partial f \wedge \bar{\partial}g + f(\partial\wedge\bar{\partial}g)=\partial f \wedge \bar{\partial}g - \frac{1}{2i}f\Delta g$
+    \item $\overline{\partial}\wedge(f\overline{\partial}g) = f (\overline{\partial}\wedge\overline{\partial} g) + \overline{\partial}f \wedge \overline{\partial}g = 0 + 0 = 0$
+    \item $\partial\wedge(f\overline{\partial}g)=\partial f \wedge \overline{\partial}g + f(\partial\wedge\overline{\partial}g)=\partial f \wedge \overline{\partial}g - \frac{1}{2i}f\Delta g$
   \end{itemize}
-  Now let us expand the inner product. By the first identity above, we have that $f\bar{\partial}g$ is holomorphic, so that $d = \partial$. Hence, we can apply Stokes theorem. Note that since $X$ has no boundary, $\partial X = \emptyset$ and hence, that integral vanishes.
+  Now let us expand the inner product. By the first identity above, we have that $f\overline{\partial}g$ is holomorphic, so that $d = \partial$. Hence, we can apply Stokes theorem. Note that since $X$ has no boundary, $\partial X = \emptyset$ and hence, that integral vanishes.
   \begin{align*}
-    \langle f, g \rangle_D &= 2i\int_X \partial f \wedge \bar{\partial}g = 2i\int_X \partial(f\bar{\partial}g)+\int_X f\Delta g \\
-    &= 2i\int_X \partial f \wedge \bar{\partial}g = 2i\int_{\partial X} f\bar{\partial}g + \int_X f\Delta g \\
+    \langle f, g \rangle_D &= 2i\int_X \partial f \wedge \overline{\partial}g = 2i\int_X \partial(f\overline{\partial}g)+\int_X f\Delta g \\
+    &= 2i\int_X \partial f \wedge \overline{\partial}g = 2i\int_{\partial X} f\overline{\partial}g + \int_X f\Delta g \\
     &= \int_X f\Delta g
   \end{align*}
   Since the Dirichlet inner product is a real inner product, it is symmetric and hence we have that $\langle f, g \rangle_D = \langle g, f \rangle_D $ and so $\int_X f\Delta g = \int_X g \Delta f$ as claimed.
 \end{proof}
 
 \section{The Dirichlet Energy Functional}
-The Dirichlet Energy Functional is an interesting object of study in its own right. 
 
-We begin by defining the $\hat{\rho}$ functional, a simple integral functional from $\mathcal{H}(X)$ to $\mathbb{R}$.
-\begin{defn}
+A point that we will not be proving explicitly is that all functionals we consider hereon are "continuous", in the sense that given a linear functional $F:\mathcal{H}(X) \rightarrow \mathbb{R}$, we have that for any $\epsilon > 0$ we have a $\delta > 0$ such that for all $x,y \in V$, $\Vert x - y \Vert < \delta \Rightarrow |F(x) - F(y)| < \epsilon$. This continuity allows us to search for limits, by looking at how the functional acts on Cauchy sequences, as we shall see.
+We now begin by defining the $\hat{\rho}$ functional, a simple integral functional from $\mathcal{H}(X)$ to $\mathbb{R}$. 
+
+\begin{defn}[The $\hat{\rho}$ functional]
   Let $X$ be a connected Riemann Surface and $\rho \in \Omega^2_c(X)$ be a $2$-form of compact support in $X$ such that $\int_X \rho = 0$. Then, we define the functional $\hat{\rho} \colon \mathcal{H}(X) \rightarrow \mathbb{R}$ to be defined as, for some $f$ of compact support in $\mathcal{H}(X)$,
   \begin{align*}
     \hat{\rho}(f) = \int_X f\rho
   \end{align*}
 \end{defn}
 
-Since $\int_X \rho = 0$ then we have that this functional is linear on functions of compact support in $\mathcal{H}(X)$. Note that, if $X$ is a compact Riemann surface, then all functions and $2$-forms  onautomatically have compact support on $X$, so the compact support conditions really only apply to the cases of non-compact Riemann surfaces. In those cases, we demand compact support so that the our functional doesnt go to inifinity. For example, if we let $X=\mathbb{C}$ and let $\rho = sin(z)dz\wedge d\bar{z}$ and let $f(z) = z$, then we have that $\int_{\mathbb{C}}zsin(z)dz\wedge d\bar{z} = \infty$ with neither $f$ or $\rho$ being of compact support even though $\int_X \rho = 0$
+Since $\int_X \rho = 0$ then we have that this functional is linear on functions of compact support in $\mathcal{H}(X)$. Note that, if $X$ is a compact Riemann surface, then all functions and $2$-forms on $X$ automatically have compact support in $X$, so the compact support conditions really only matter in the cases of non-compact Riemann surfaces.
+% For example, if we let $X=\mathbb{C}$ and let $\rho = sin(z)dz\wedge d\overline{z}$ and let $f(z) = z$, then we have that $\int_{\mathbb{C}}zsin(z)dz\wedge d\overline{z} = \infty$ with neither $f$ or $\rho$ being of compact support even though $\int_X \rho = 0$
+
 %SHOULD I INCLUDE THIS EXAMPLE? FLESH IT OUT? IS IT EVEN RIGHT?
 %supp(f) = \mathbb{C}\setminus \{0\} and supp(\rho)=\mathbb{C}\setminus \{nz| \forall z \in \mathbb{Z}\}
 
@@ -455,8 +493,9 @@ We now prove the claim that $\hat{\rho}$ is a linear functional on $\mathcal{H}(
 \end{lemma}
 Recall that elements of $\mathcal{H}(X)$ are equivalence classes of smooth functions on $X$ (with compact support on $X$ if $X$ is non-compact), which differ by a constant.
 \begin{proof}
-  Let $\tilde{f},\tilde{g} \in \mathcal{H}$ and $\lambda,\mu \in \mathbb{R}$. Then for some real constant, $a,b \in \mathbb{R}$ we have that $\tilde{f}(z) = f(z) + a$ and $\tilde{g}(z) = g(z) + b$. Recall also that $\int_X \rho = 0$.
+  Let $\tilde{f},\tilde{g} \in \mathcal{H}(X)$ and $\lambda,\mu \in \mathbb{R}$. Then for some real constant, $a,b \in \mathbb{R}$ we have that $\tilde{f}(z) = f(z) + a$ and $\tilde{g}(z) = g(z) + b$. Recall also that $\int_X \rho = 0$.
   Hence, we get that:
+
   \begin{align*}
     \hat{\rho}(\lambda \tilde{f}+ \mu \tilde{g}) &= \hat{\rho}(\lambda(f + a) + \mu(g + b)) \\
     &=\int_X (\lambda(f + a) + \mu(g + b))\rho \\
@@ -468,52 +507,333 @@ Recall that elements of $\mathcal{H}(X)$ are equivalence classes of smooth funct
   with the last line following since clearly $f \in \tilde{f}$ and $g \in \tilde{g}$.
 \end{proof}
 
-We can now define a linear functional of great importance.
+Let us use the fact that $\hat{\rho}$ is a linear functional to define a new functional that will play a central role in our setup for the proof of the uniformisation theorem.
 
 \begin{defn}[Dirichlet Energy Functional]
-  Let $X$ be a connected Riemann Surface, and suppose $f \in \mathcal{H}(X)$. Suppose further that we have $2$-form $\rho \in \Omega^2 (X)$ such that $\int_X \rho = 0$. Then we can define a functional, $\mathcal{L}: 
-  \mathcal{H} \rightarrow \mathbb{R}$ such that $\mathcal{L}(f) = -2\hat{\rho}(f)+||f||^2_D$. This $\mathcal{L}$ is called the Dirichlet energy functional, or sometimes Dirichlet energy for short.
+  Let $X$ be a connected Riemann Surface, and suppose $f \in \mathcal{H}(X)$. Suppose further that we have $2$-form $\rho \in \Omega^2 (X)$ (or $\Omega^2_c (X)$ if $X$ is non-compact) such that $\int_X \rho = 0$. Then we can define a functional, $\mathcal{L}: 
+  \mathcal{H}(X) \rightarrow \mathbb{R}$ such that $\mathcal{L}(f) = -2\hat{\rho}(f)+\Vert f\Vert ^2_D$. This $\mathcal{L}$ is called the Dirichlet energy functional, or sometimes Dirichlet energy for short.
 \end{defn}
 
-The case of $X$ being non-compact requires special treatment as we have seen in the preceeding definitions. In these cases, we consider functions $f$ that are compactly supported on $X$ as this guarantees that $f$ goes to zero as $||f||_D$ goes to $+\infty$. This condition, along with considering that a non-compact Riemann surface is simply connected, will be sufficient for our discussion of the Dirichlet functional on non-compact manifolds.
+The case of $X$ being non-compact requires special treatment as we have seen in the preceeding definitions. In these cases, we consider functions $f$ that are compactly supported on $X$ as this guarantees that $f$ goes to zero as $\Vert f\Vert _D$ goes to $+\infty$. This condition, along with considering that a non-compact Riemann surface is simply connected, will be sufficient for our discussion of the Dirichlet functional on non-compact Riemann surfaces.
 
-Returning to the Dirichlet functional, we see that this functional is an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a system. Often in physics, one writes $L=T-V$ (where $T$ is the symbol for kinetic energy and $V$ is the symbol for potential energy) to mean the lagrangian of a physical system. If we take a moment to look at our Dirichlet energy, we can take our kinetic energy term to be $\hat{\rho}f$, and the potential energy term to be $||f||^2_D$. But what is this the kinetic or potential energy of? In Chapter 9 of \cite{donaldson}, the conclusions of our current argument are compared to those of the solutions of the steady state heat equation, meaning we are looking for solutions to the heat equation which are constant in time over a Riemann surface. Though I find a more interesting, and perhaps easier to understand interpretation can be had by considering electric fields. Suppose for a moment that we want to apply an electric charge to the surface of our connected Riemann surface. What stable (non-changing) distributions of this charge are allowed on our Riemann surface? Naturally, the electric field and electric potential will want to be minimal, as nature tends to want to balance out forces, and spend as little energy as possible doing so. This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$ as much as possible. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding (to the first order) functions which minimise $\mathcal{L}$. To prove the existance of such minimising functions however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$.
+Returning to the Dirichlet functional, we see that this functional is an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a dynamic system. Often in physics, one writes $L=T-V$ (where $T$ is the symbol for kinetic energy and $V$ is the symbol for potential energy) to mean the Lagrangian of a physical system. If we take a moment to look at our Dirichlet energy, we can take our kinetic energy term to be $\hat{\rho}f$, and the potential energy term to be $\Vert f\Vert ^2_D$. But what is this the kinetic or potential energy of? In Chapter 9 of \cite{donaldson}, the conclusions of our current argument are compared to those of the solutions of the steady state heat equation, meaning we are looking for solutions to the heat equation which are constant in time over a Riemann surface. Though I find a more interesting, and perhaps easier to understand interpretation can be had by considering electric fields. Suppose for a moment that we want to distribute an electric charge across the surface of our connected Riemann surface. What stable (non-changing) distributions of this charge are allowed on our Riemann surface? Naturally, the electric field and electric potential will want to be minimal, as nature tends to want to balance out forces, and spend as little energy as possible doing so. This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$ as much as possible. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding (to the first order) functions which minimise $\mathcal{L}$. To prove the existance of such minimising functions however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$. However, we must be careful as such minimising functions may live outside of $\mathcal{H}(X)$, in the Hilbert space $\overline{\mathcal{H}}(X)$, the completion of our inner product space. In our case, that will not be so, though showing that will be a little trickier.
 
 Let us, for a moment, suppose such functions exist and that $\mathcal{L}$ is a bounded linear functional. What are the functions that minimise our problem?
-We begin by computing the first variation of $\mathcal{L}$. To do this we let $\epsilon > 0$ and let $g$ be a function on $X$. The conditions on $g$ will be more precisely defined later, so for now, we assume such a $g$ exists. Let us now compute the first variation of $\mathcal{L}$:
+We begin by computing the first variation of $\mathcal{L}$. To do this we let $\epsilon > 0$ and let $g$ be function on $X$. The conditions on $g$ will be more precisely defined later, so for now, we assume such a $g$ exists. Let us now compute the first variation of $\mathcal{L}$:
 \begin{gather*}
   \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}\mathcal{L}(f+\epsilon g) = 0 \\
-  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(-2\hat{\rho}(f+\epsilon g) + ||f+\epsilon g||_D^2) = 0 \\
+  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(-2\hat{\rho}(f+\epsilon g) + \Vert f+\epsilon g\Vert _D^2) = 0 \\
   -2\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\int_X f\rho  + \epsilon \int_X g\rho) + \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0} \langle f + \epsilon g, f + \epsilon g \rangle = 0 \\
   -2\hat{\rho}(g)+\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\langle f, f \rangle + 2\epsilon \langle f, g \rangle +\epsilon^2 \langle g, g \rangle) = 0 \\
   -2\hat{\rho}(g) + 2\langle f, g \rangle = 0 \\
   \int_X g\Delta f - \int_X g\rho = 0 \\
   \int_X g(\Delta f - \rho) = 0 
 \end{gather*}
-The appearence of the Laplacian comes from proposition \ref*{InnerLaplacian}.
-Since we have that at least one of $f,g$ and $\rho,g$ have compact support (and in this case both $f$ and $\rho$ are compactly supported on $X$), then for this integral to be zero, we need a crucial condition to hold. Namely the following statement:
+The appearence of the Laplacian comes from proposition \ref{InnerLaplacian}.
+Since we have that at least one of $f,g$ and $\rho,g$ have compact support (and in this case both $f$ and $\rho$ are compactly supported on $X$), then for this integral to be zero, we need the following statement to be true:
 
 There exists a unique solution $f$, up to addition by a constant, of the equation 
 \[ \Delta f = \rho \Longleftrightarrow \int_X \rho = 0\]
 
-This equation, known as Poissons' equation, will be our main tool in solving the uniformisation theorem. As we shall shortly see, we only need to consider its solutions on a small number of Riemann surfaces to allow us to draw the conclusions we seek. We begin by solving Poissons equation on compact, connected Riemann surfaces.
+This equation, known as Poissons' equation, will be the main tool we will use in our treatment of the uniformisation theorem. As we shall shortly see, we only need to consider its solutions on a small number of Riemann surfaces to allow us to draw the conclusions we seek. We will split our study of the Poisson equation into two families:
+\begin{itemize}
+  \item The Poisson equation on connected, compact Riemann surfaces.
+  \item The Poisson equation on connected, simply connected, non-compact Riemann surfaces.
+\end{itemize}
+The reason for choosing these two families of Riemann surface is not immediately obvious but in brief, we will attempt to find all simply connected Riemann surfaces, and then show that all other Riemann surfaces must arise as some kind of quotient space of these simply connected surfaces. This search is motivated by a similar topological result which loosely says that a sufficiently nice topological space can be constructed by taking its universal cover (the unique simply-connected covering space) and quotienting it by a properly discontinuous group action. We will approach the problem in a similar way, but importantly in our case, the quotient spaces of these simply connected Riemann surfaces also have Riemann surface structures.
 
-\section{Solving the Laplace equation on compact \\Riemann surfaces}
-\section{Weyl's Lemma}
+We begin by solving Poissons equation on connected, compact Riemann surfaces. A corollary of this section will be that there exists a single simply connected compact Riemann surface, up to conformal equivalence - the Riemann Sphere. 
+
+\section{Solving the Poisson equation on compact Riemann surfaces}
+To begin this section, let us state the theorem that we wish to prove precisely.
+\begin{thm}[Poissons's equation on compact Riemann surfaces]\label{compactPoisson}
+  Let $X$ be a connected, compact Riemann surface. Let $\rho \in \Omega^2(X)$ be a $2$-form on $X$. Then, there exists a unique, smooth solution $f \in \Omega^0(X)$ to the equation $\Delta f = \rho$, up to the addition of a constant, if and only if $\int_X \rho = 0$. This equation is called the Poisson equation.
+\end{thm}
+We can immediately prove two things:
+\begin{itemize}
+  \item If $f$ is a smooth solution to $\Delta f = \rho$, then $\int_X \rho= 0$
+  \item $f$ is unique up to a constant.
+\end{itemize}
+The remaining statement however, ie given an arbitrary $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ then we can find a unique solution up to the addition of a constant, is much tricker to prove and this section is dedicated to proving that final point of the theorem. So let us begin the proof of Theorem \ref{compactPoisson} by proving the two aforementioned bullet points.
+\begin{proof}
+  We wish to first prove that if $f$ is a smooth solution to $\Delta f = \rho$ then $\int_X \rho = 0$. To show this, we note that since $d = \partial + \overline{\partial}$ and $d(\partial f) = \partial^2 f + \overline{\partial}\partial f = \overline{\partial}\partial f$ since $\partial^2 = 0$. Recall that  $\Delta f = 2i \overline{\partial}\partial f$. Combining these two gives us that $\Delta f =2id(\partial f)$. So let us integrate $\rho$.
+  \begin{align*}
+    \int_X \rho = \int_X \Delta f = 2i \int_X \overline{\partial}\partial f = 2i \int_X d(\partial f) = 2i\int_{\partial X}\partial f = 0
+  \end{align*}
+  where the last equality follows from Stokes theorem and the fact that $X$ has no boundary. 
+
+  Now to show that such a solution is unique up to a constant. We assume $f$ and $g$ are both solutions to the Poisson equation, ie $\Delta f = \rho$ and $\Delta g = \rho$. Then we have that $\Delta (f - g) = 0$, ie that $f-g$ is a harmonic function. Thinking of the Dirichlet norm for a moment, if we consider $\Vert f-g\Vert _D$ we get $\int_X (f-g)\Delta(f-g) = 0$. Hence, we have $\Vert f-g\Vert _D = 0$. Unfortunately, this is not a norm on $\Omega^0(X)$ but on $\mathcal{H}(X)$. But elements of $\Omega^0(X)$ can easily be mapped to elements of $\mathcal{H}(X)$. So let us consider $\Vert \tilde{f}-\tilde{g}\Vert _D = \Vert df - dg\Vert $. It follows that $\Vert \tilde{f}-\tilde{g}\Vert _D = 0$ since $\Delta(constant) = 0$ and so by the definition of $d$ and the Dirichlet norm, we get that $ df - dg = d(f-g) = 0$ implying that $f - g = c$ where $c$ is a constant. So any solution of the Poisson equation is unique up to the addition of a constant.
+\end{proof} 
+
+As stated, to complete our proof of Theorem \ref{compactPoisson}, now must now show that given a $2$-form $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ we can find a smooth function $f$ such that $\Delta f = \rho$. 
+
+\subsection{Convolutions and related technical lemmas}
+Before we begin, we will diverge slightly from discussing the Poisson equation on connected, compact Riemann surfaces and instead talk briefly about convolutions and the Newtonian potential and prove some technical lemmas that will be useful when we attempt to prove the final part of Theorem \ref{compactPoisson}.
+\begin{defn}[Convolution of functions]\label{ConvolutionDefn}
+  Let $f,g$ be smooth, complex functions defined on $\mathbb{R}^n$. Then their convolution is defined as $(f * g)(x) = \int_{\mathbb{R}^n}f(y)g(x-y)dy$ where $dy$ is volume form on $\mathbb{R}^n$, provided the integral exists for all $x \in \mathbb{R}^n$ .
+\end{defn}
+It is important to note that, one can relax the requirement for the integral to exist on all $x \in \mathbb{R}^n$ to requiring $x$ to be defined on $\mathbb{R}^n\setminus{U}$, where $U \subset \mathbb{R}^n$ is a set of measure zero. The definition of a set of measure zero can be found on page 50 of \cite{spivak}.
+
+For a detailed treatment of convolutions of functions and the theory of distributions and a more in depth discussion of the theory of Partial Differential Equations, one can refer to Chapter 6 of \cite{rudin}.  
+Let us prove some useful lemmas involving convolutions with the Laplacian that we will be using later. 
+
+We also will want to use a theorem from classical vector calculus, known as Green's identity, though we will modify the statement of this theorem for the case of the plane. This is not to be confused with Green's theorem for line integrals.
+\begin{thm}[Green's identity]
+  Let $u,v \in \mathbb{R}^2$ be smooth functions on a path connected, bounded set $\Omega \subset \mathbb{R}^2$. Then we have that  
+  \[\iint_{\Omega} (u \nabla^2 v - v \nabla^2 u) dS= \int_{\partial \Omega} \left(u \frac{\partial v}{\partial n} - v \frac{\partial u}{\partial n}\right) dl, \] 
+  where $n$ is the oriented normal of the boundary curve, $dS$ is the standard surface area element and $dl$ is the standard arc length element of the boundary.
+\end{thm}
+Recall that in local coordinates, the definition of the Laplacian gave us that \[-\Delta f = (\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2}) dx\wedge dy = (\nabla^2f) dx\wedge dy\]
+where $\nabla^2f$ is the notation we shall use for the functional portion of our Laplacian (ie given a volume form $d\mu$, then $\Delta f = (\nabla^2 f) d\mu$).
+
+In the plane, $\mathbb{R}^2$, with regular cartesian coordinates, we have that $dS = dx \wedge dy$ or in more usual notation $dS = dxdy$. $dS$ and $dl$ are both examples of measures which, loosely speaking, "measure" how much one unit of whatever we are integrating over is.
+By changing coordinates we can perhaps simplify our problems, but $dS$ still measures the same surface area element. We see that the limits of integration must hence change to account for the potential introduction of new factors in the integral, brought about by this change of coordinates. An example of this is if we change from our standard coordinates to polar coordinates $(r,\theta) \mapsto (rCos(\theta),rSin(\theta)) = (x,y)$. In this case, $dS=dxdy=rdrd\theta$ where the factor of $r$ is recovered by computing the determinant of the jacobian of the change of coordinates, as usual. In short, the important thing to note with Green's identity is that it is independent of choice of coordinates used, and our notation when using it will take advantage of this fact.
+
+Returning to convolutions, we have the following lemma
+\begin{lemma}\label{ConvProperties}
+  Consider the function $V(z) = \frac{1}{2\pi}\log|z|$. We call this function the Newtonian potential and its significance will be discussed later. $V$ is well defined on all of $\mathbb{C}\setminus\{0\}$. Let us further consider two smooth functions $\sigma, \tau$ of compact support in $\mathbb{C}$. Then we have the following two points:
+  \begin{itemize}
+    \item $(V * \Delta \sigma)(z)=\sigma(z)$
+    \item $\Delta(V * f)(z) = f(z)$
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  Since we can change coordinates linearly, we can set $z=0$ and evaluate the convolution of $(V * \Delta \sigma)(0)$. We also note that since $\log(z)$ is harmonic on $\mathbb{C}\setminus \{0\}$, as we saw in example \ref{harmonicexamples}, then $\Delta \log(|z|) = 0 $. By setting $dS$ to be our volume form, we get:
+  \begin{align*}
+    (V * \Delta \sigma)(0) &= \int_{\mathbb{C}}\frac{1}{2\pi}\log(|w|)\Delta \sigma dS
+  \end{align*}
+  Let $\text{supp}(\sigma) = U \subset \mathbb{C}$. By the Heine-Borel theorem, since this is compact subset of the plane, it is also closed and bounded and hence, $U$ has a boundary $\partial U$. Thus we can replace our domain of integration from $\mathbb{C}$ to $U$ since $\sigma$ is zero outside of $U$. Let us also denote, for some $\delta > 0$, a small closed ball $B_{\delta} \subset U$ around $0$. Since $\sigma(w) = 0$ for all $w \in \mathbb{C}\setminus U$ then the integral needs only to be evaluated on $U$.
+  We will want however to be careful with how we treat the singularity at the origin. We begin by cutting out from $U$ a small open ball of radius $\delta >0$ for some small $\delta$, such that the ball $B_{\delta} \subset U$. Then we can split $U$ into a union of two sets $U=B_{\delta} \cup U_{\delta}$, where $U_{\delta} = U\setminus B_{\delta}$. In the limit of $\delta \rightarrow 0$ we get that $U=U_{\delta}$. So let us evaluate the above integral in this limit.
+  We begin by applying Green's identity, over the set $U_{\delta}$, since by letting $u = \frac{1}{2\pi}\log(|w|)$ and $v = \sigma$ we get the statement of the left hand side of Green's identity since $\frac{1}{2\pi}\log(|w|)$ is harmonic on $U_{\delta}$. So we proceed as follows.
+  \begin{align*}
+    (V * \Delta \sigma)(0) &= \lim_{\delta \rightarrow 0} \iint_{U_{\delta}} \frac{1}{2\pi}\log(|w|)\Delta\sigma(w) dS \\
+    &= \lim_{\delta \rightarrow 0} \int_{\partial U_{\delta}}\left(\frac{1}{2\pi}\log(|w|)\frac{\partial \sigma(w)}{\partial n} - \sigma(w)\frac{\partial}{\partial n}\left(\frac{1}{2\pi}\log(|w|)\right)\right)dl
+  \end{align*}
+  Careful thought gives us that $\partial U_{\delta}$ has two componants, one on the outer edge of $U_{\delta}$, the boundary of the support of $\sigma$, called the outer boundary, and one on the circle around the origin, of radius $\delta$, the inner boundary. Since $\sigma$ is continuous, then on the outer boundary, the value of $\sigma$ must be zero and so the integral there is zero. Hence, we only need to consider what happens on the interior boundary. So to compute the integral, we must consider the normal outwards vector of this circle. However, the outwards vector of this circle points inwards towards the origin. So we define the normal vector $\hat{\underline{n}}= -\frac{1}{r}\hat{\underline{r}}$ and that the normal derivative is $\frac{\partial}{\partial n} = -\frac{\partial}{\partial r}$.
+  Finally, since we are taking a radial limit it makes sense to parameterise $w$ using polar coordinates, so $w=re^{i\theta}$ with $r\in [0, \infty)$ and $\theta \in [0, 2\pi)$. Our integral now becomes
+  \begin{align*}
+    (V * \Delta \sigma)(0) &= \lim_{\delta \rightarrow 0} \int_{\partial U_{\delta}}\left(\frac{1}{2\pi}\log(|w|)\frac{\partial \sigma(w)}{\partial n} - \sigma(w)\frac{\partial}{\partial n}\left(\frac{1}{2\pi}\log(|w|)\right)\right)dl \\
+    &= \lim_{\delta \rightarrow 0} \int_{\partial U_{\delta}}\left( -\frac{1}{2\pi}\log(r)\frac{\partial \sigma(re^{i\theta})}{\partial n} + \sigma(re^{i\theta})\frac{\partial}{\partial r}\left(\frac{1}{2\pi}\log(r)\right)\right)dl \\
+    &= \lim_{\delta \rightarrow 0} \int_{\partial U_{\delta}}\left( -\frac{1}{2\pi}\log(r)\frac{\partial \sigma(re^{i\theta})}{\partial n} + \frac{1}{2\pi r}\sigma(re^{i\theta})\right)dl \\
+  \end{align*}
+  Since we are evaluating this integral along the edge of the circle of radius $\delta$, we can set $r=\delta$ and note that $dl$ hence becomes $d\theta$ since parameterise our position on the circle by the angle $\theta$. Hence our integral becomes
+  \begin{align*}
+    (V * \Delta \sigma)(0) &= \lim_{\delta \rightarrow 0} \int_{\partial U_{\delta}}\left( -\frac{1}{2\pi}\log(r)\frac{\partial \sigma(re^{i\theta})}{\partial n} + \frac{1}{2\pi r}\sigma(re^{i\theta})\right)dl \\
+    &= \lim_{\delta \rightarrow 0} \int_{\partial U_{\delta}}\left( -\frac{1}{2\pi}\log(\delta)\frac{\partial \sigma(\delta e^{i\theta})}{\partial n} + \frac{1}{2\pi \delta}\sigma(\delta e^{i\theta})\right)dl \\
+    &= \lim_{\delta \rightarrow 0} \int_{0}^{2\pi}\left( -\frac{1}{2\pi}\log(\delta)\frac{\partial \sigma(\delta e^{i\theta})}{\partial n} + \frac{1}{2\pi \delta}\sigma(\delta e^{i\theta})\right)d\theta \\
+    &= \lim_{\delta \rightarrow 0} \left( -\frac{1}{2\pi}\log(\delta) \int_{0}^{2\pi} \frac{\partial \sigma(\delta e^{i\theta})}{\partial n} d\theta + \frac{1}{2\pi \delta}\int_{0}^{2\pi}\sigma(\delta e^{i\theta})d\theta\right) \\
+  \end{align*}
+  If we now consider the averages of these integrals, we can attempt to directly compute the limit. We note that the average value of each integral will be the total arc length of the circle, $2\pi \delta$, multiplied by some value, as we are intgerating over the whole circle. We let the symbol $\mu_{\delta}$ indicate the average value of the first integral and $\overline{\sigma_{\delta}}$ to mean the average value of the second integral, at radius $\delta$. Substituting these into the integral therefore gives us
+  \begin{align*}
+    (V * \Delta \sigma)(0) &=\lim_{\delta \rightarrow 0} \left( -\frac{1}{2\pi}\log(\delta) \int_{0}^{2\pi} \frac{\partial \sigma(\delta e^{i\theta})}{\partial n} d\theta + \frac{1}{2\pi \delta}\int_{0}^{2\pi}\sigma(\delta e^{i\theta})d\theta\right) \\
+    &= \lim_{\delta \rightarrow 0} \left( -\frac{1}{2\pi}\log(\delta)2\pi \delta \mu_{\delta}  +  \frac{1}{2\pi \delta} 2\pi \delta \overline{\sigma_{\delta}}\right) \\
+    &= \lim_{\delta \rightarrow 0} \left( -\delta \log(\delta)  \mu_{\delta}  + \overline{\sigma_{\delta}}\right) \\
+    &= \sigma(0)
+  \end{align*}
+  where the last equality holds since $\lim_{\delta \rightarrow 0}\delta \log(\delta) = 0$ and $\overline{\sigma_{\delta}} \rightarrow \sigma(0)$ as $\delta \rightarrow 0$ since we have that the average value of the integral of $\sigma$ on smaller and smaller circles around the orgin tends to the value of $\sigma$ at the origin.
+  Hence we have shown that $(V * \Delta \sigma)(0) = \sigma(0)$.
+
+  To show now that $\Delta(V*f)(z) = f(z)$, is simpler. We begin by bringing in the $\Delta$ into the integral, which we can do since the integral is with respect to the dummy variable $w$ but $\Delta$ is the Laplacian on the coordinate $z$. We denote this volume form as $dS_w$. Hence we have,
+  \begin{align*}
+    \Delta(V*f)(z) &= \Delta \int_\mathbb{C} V(w)f(z-w)dS_w \\
+    &= \int_\mathbb{C} \Delta \left(V(w)f(z-w)\right)dS_w \\
+    &= \int_\mathbb{C} V(w)\Delta f(z-w)dS_w
+  \end{align*}
+  with the last equality following since $V$ is a function of the coordinate $w$ but $\Delta$ is an operator on the coordinate $z$. Hence, it passes through to $f$ which is a smooth function of compact support. Hence, we have shown that $\Delta(V*f)(z) = V*(\Delta f)(z)$ which we have just shown is $f(z)$. Therefore we have that $\Delta(V*f)(z) = f(z)$ as claimed.
+\end{proof} 
+
+\subsection{Showing the Dirichlet energy $\mathcal{L}$ is a bounded functional}
+
+Returning to our strategy for showing that given a $2$-form $\rho$ on a connected, compact Riemann surface $X$ such that $\int_X \rho = 0$, then we have a smooth function $f$ on $X$ such that $\Delta f = \rho$, we want to now prove that such an $f$ can exist. To do this, we need to show that the Dirichlet energy, $\mathcal{L}(f) = -2\hat{\rho}(f) + \Vert f \Vert^2_D$ is a bounded functional, bounded from below. Since for any smooth function $f$ on $X$ we have a finite Dirichlet norm (ie $\Vert f \Vert_D < +\infty $ for all $f \in \mathcal{H}(X))$, %since $f$ is continuous and must therefore attain a maximum value at some point on $X$,
+we are left with needing to show that the $\hat{\rho}$ functional is also bounded.
+
+To prove this, we need the following theorem and its subsequent corollary. We proceed by working in a bounded, convex, open set in the complex plane. We can do so as we can map any bounded, convex, open set from our Riemann surfaces confomally to the such sets in the complex plane using chart maps. Similarly, due to conformal equivalence, we can assume such sets are circular discs in the complex plane.
+
+We omit the proofs of the following theorem and its corollary due to them being long arguments that are well described in the quoted references.
+\begin{thm}[p122. Theorem 11 \cite{donaldson}]\label{quotedTheorem11}
+  Let $\Omega$ be a bounded convex open set in $\mathbb{R}^2$ and $\psi$ be a smooth function on an open set containing the closure $\overline{\Omega}$ with $\overline{\psi}$ denoting the average 
+  \[\overline{\psi} = \int_{\Omega}\psi dS\] 
+  where $A$ is the area of $\Omega$. Then, for $x \in \Omega$, we have 
+  \[|\psi(x) - \overline{\psi}| \leq \frac{d^2}{2A}\int_\Omega \frac{1}{|x - y|}|\nabla\psi(y)|dS_y\] where $dS_y$ indicates that $y$ is the variable of integration.
+\end{thm}
+Note that in \cite{donaldson}, the author uses the notation $d\mu$ instead of $dS$, calling $d\mu$ the Lebesgue measure on $\mathbb{R}^2$. As mentioned before briefly, $dS$ is an example of a measure. However to properly define a measure would be too large of a detour for such a minor point, and an in depth expos\'{e} can be avoided to some degree. Measure theory as a field of study however is a modern and analytical approach to integration amongst other things and is indeed extremely interesting. The reader is invited to read chapter 11 of \cite{babyRudin} for a more depth introduction into the subject.
+
+Returning to the theorem, an important corollary is the following.
+\begin{cor}[p123. Corollary 6 \cite{donaldson}]\label{quotedCorollary6}
+  Under the hypothesis from Theorem \ref{quotedTheorem11}, we have that 
+  \[\int_\Omega |\psi(x) - \overline{\psi}|^2 dS_x\leq \left(\frac{d^3\pi}{A}\right)^2\int_\Omega |\nabla\psi|^2 dS\]
+\end{cor}
+Using these two estimates we can prove the following theorem.
+\begin{prop}
+  Let $X$ be a compact, connected Riemann surface. Then the functional $\hat{\rho}:\mathcal{H}(X) \rightarrow \mathbb{R}$ is bounded, ie there exists a constant $C$ such that $|\hat{\rho}(\tilde{f})| \leq C \Vert \tilde{f} \Vert_D$, for all $\tilde{f} \in \mathcal{H}(X)$.
+\end{prop}
+The following proof follows the proof found on page 125 of \cite{donaldson}, though we have modified our notation to make certain aspects of the proof clearer and easier to follow.
+\begin{proof}
+  We split this proof into two parts. First we show that $\hat{\rho}$ is bounded in the case when $\text{supp}(\rho)$ is contained within a single coordinate chart, and then we show that we can construct a bound for $\hat{\rho}$ over the whole of our compact, connected Riemann surface $X$.
+  So let us consider a bounded, convex set $U$ in $\mathbb{C}$. We also state once again that, because chart maps between coordinate patches on $\mathbb{C}$ and open sets in $X$ are conformal equivalences, we can work in these coordinate patches directly, passing functions from $X$ to sets in $\mathbb{C}$ using precomposition with charts and transition maps if necessary (recall the the definition of an atlas).
+  So let $\tilde{f} \in \mathcal{H}(X)$. We write 
+  \[\hat{\rho}(\tilde{f}) = \int_U (f + a) \rho\] 
+  for some $a \in \mathbb{R}$. We set the constant $a$ be equal to $-\overline{f}$, the average value of $f$ on $U$, hence writing 
+  \[\hat{\rho}(\tilde{f}) = \int_U (f - \overline{f}) \rho\]
+  By fixing an area form in this coordinate chart, say $dS$, we can write $\rho = g dS$, where $g \in \Omega^0(X)$. This hence gives us that 
+  \[\hat{\rho}(\tilde{f}) = \int_U (f - \overline{f}) g dS\] which by the Cauchy-Schwarz inequality gives
+  \[ |\hat{\rho}(\tilde{f})| = \left| \int_U (f - \overline{f}) g dS \right| \leq \Vert g \Vert \Vert f-\tilde{f} \Vert  \]
+  Hence, by corollary \ref{quotedCorollary6}, we get that 
+  \[ |\hat{\rho}(\tilde{f})| \leq C \Vert \nabla f \Vert = C \Vert df \Vert\] where $C = d^3\pi A \Vert g \Vert$, and we have used the fact that the norm of the gradient and exterior derivative of a function are equal.
+  Finally, if we now compose with a chart map to map back to $X$ from $U$, and letting $ \Vert \cdot \Vert_U$ indicate the usual norm on $U$, we have that \[ \Vert df \Vert_U \leq \Vert df \Vert_X = \Vert \tilde{f} \Vert_{D,X}\]
+  Hence we have that if $\hat{\rho}$ is supported in a single coordinate chart on $X$, then $\hat{\rho}$ is a bounded operator.
+
+  So to extend this over multiple coordinate charts on $X$ we first fix a finite cover of $X$ by coordinate charts of the type considered in the previous case. This is possible since $X$ is compact. We call this family of coordinate charts $U_{\alpha}$. Since we showed that for each coordinate chart, a $2$-form of compact support in that chart of integral zero is bounded, we wish to somehow stitch together these forms to form a $2$-form of integral zero over the whole of $X$. To do this, we introduce a partition of unity $\chi_{\alpha}$, subordinate to our choice of finite cover $U_{\alpha}$
+  
+  Since integration of two forms defines an isomorphism between $H^2(X)$ and $\mathbb{R}$, we can write the $2$-form from our functional $\hat{\rho}$ as $\rho = d\theta$ for some $\theta \in \Omega^1(X)$. Now on each $U_{\alpha}$ we derive a $2$-form of compact support from $\theta$ using our partition of unity by setting $\rho_{\alpha} = d(\chi_{\alpha}\theta)$. Each $2$-form $\rho_{\alpha}$ is of compact support in $U_{\alpha}$ which it gets from $\chi_{\alpha}$. Furthermore, we have that,
+  \[ \int_X\rho_{\alpha} = \int_X d(\chi_{\alpha}\theta) = \int_{\partial X} \chi_{\alpha}\theta = 0 \] where we get the second to last equals sign by Stokes theorem, and the equality to zero since $X$ has no boundary.
+  So $\int_X \rho_{\alpha} = 0$. Finally, since $\sum_{\alpha} \chi_{\alpha} = 1$, we have that 
+  \[ \rho = d\theta = d\left(\sum_{\alpha}\chi_{\alpha}\theta\right) = \sum_{\alpha}d(\chi_{\alpha}\theta) = \sum_{\alpha}\rho_{\alpha}\]
+  As such, we have constructed a $2$-form $\rho$ such that $\int_X \rho = 0$. Since we showed in the first part that each $\hat{\rho}_{\alpha}$ is bounded in its coordinate chart, and since $\rho$ is equal to a finite sum of $\rho_{\alpha}$ we conclude that the functional $\hat{\rho} = \sum_{\alpha}\hat{\rho}_{\alpha}$ is also bounded since it is a finite sum of bounded linear maps.
+\end{proof}
+
+So we have that the functional $\hat{\rho}$ is bounded. Let us directly show that $\mathcal{L}$ is hence bounded from below.
+We have that $\mathcal{L}(f) = -2\hat{\rho}(f) + \Vert f \Vert^2_D$ for some function $f \in \mathcal{H}(X)$. We showed above that $|\hat{\rho}(f)| \leq C \Vert f \Vert_D$ for the constant $C$ defined above. Since $\hat{\rho}(f) \leq |\hat{\rho}(f)|$ we have that $ \mathcal{L}(f) \geq -2C \Vert f \Vert_D + \Vert f \Vert^2_D = (\Vert f \Vert_D - C)^2 - C^2 \geq - C^2$. Hence, we have that the Dirichlet energy is indeed bounded from below. We now proceed to seek this minimising function. Recall, that a function which minimises $\mathcal{L}$ is a solution to the Poisson equation for a given $\rho$.
+
+\subsection{The completion of $\mathcal{H}(X)$ and Weyl's lemma}
+Let us start this section by discussing the completion of the space $\mathcal{H}(X)$. What does this space look like? We can construct this space abstractly, by defining it as follows.
+\begin{defn}[The space $\overline{\mathcal{H}}(X)$]\label{completeH}
+  Let $X$ be a connected Riemann surface. The space $\overline{\mathcal{H}}(X)$, the abstract completion of $\mathcal{H}(X)$, can be constructed from the inner product space $\mathcal{H}(X)$ with the Dirichlet inner product, as the space of equivalence classes of Cauchy sequences of elements in $\mathcal{H}(X)$, under the equivalence relation $\sim$ where two Cauchy sequences $\{\psi_i\}$ and $\{\phi_i\}$ are equivalent if $\lim_{i \rightarrow \infty}\Vert \psi_i - \phi_i\Vert_D \rightarrow 0 $.
+  Therefore, a point in $\overline{\mathcal{H}}(X)$ is an equivalence class of Cauchy sequences of functions that differ by a constant, that have the same limit.
+\end{defn}
+This space is clearly very complicated, but its usefulness to us comes from the fact that we can guarantee that Cauchy sequences of functions will attain their limit in $\overline{\mathcal{H}}(X)$. This space is indeed a vector space because we can add elements of this vector space term by term. The space $\overline{\mathcal{H}}(X)$ also has an inner product, which we define as, for any two points $\psi, \phi \in \overline{\mathcal{H}}(X)$, where $\psi = \{\psi_i\}$ and $\phi = \{\phi_i\}$, the product $( \psi, \phi )_D = \lim_{i \rightarrow \infty} \langle \psi_i, \phi_i \rangle_D$. Note, that we use the notation $( \cdot, \cdot)_D$ for the inner product in $\overline{\mathcal{H}}(X)$ and $\langle \cdot, \cdot \rangle_D$ for the inner product in $\mathcal{H}(X)$.
+
+An interesting point to note is that each inner product in the limit, is just a sequence that is Cauchy in $\mathbb{R}$. Since we have a complete inner product space, with a norm that we can derive from our new inner product, $( \cdot, \cdot )_D$, then $\overline{\mathcal{H}}(X)$ is in fact, a Hilbert space. 
+% The benefit of this is that we can now apply the Riesz Representation Theorem, which will allow us to find a representative in $\overline{\mathcal{H}}(X)$ for our functionals. In the case of $\hat{\rho}$ this representative will turn out to be a "weak solution" to the Poisson equation (weak in the sense that it might not be in $\mathcal{H}(X)$). However, as we will show, Weyl's lemma guarantees that in fact, all weak solutions to the Poisson equation, do in fact live in $\mathcal{H}(X)$, and are hence smooth.
+
+To do this, we begin by extending our functionals to $\overline{\mathcal{H}}(X)$; a process of redefining their domains from $\mathcal{H}(X)$ to $\overline{\mathcal{H}}(X)$. We identify these extended functionals with an underline, except for the extended Dirichlet inner product. This is necessary, as elements of this new Hilbert space look vastly different to that of $\mathcal{H}(X)$. We have already extended the definition of the norm, since we have that a norm on $\overline{\mathcal{H}}(X)$ is defined as, for some $\psi \in \overline{\mathcal{H}}(X)$ that $\underline{\Vert\psi\Vert}_D^2 = (\psi, \psi)_D$
+So we now need to extend $\hat{\rho}$. As stated earlier, $\hat{\rho}$ is a bounded functional on $\mathcal{H}(X)$. Its extension to $\overline{\mathcal{H}}(X)$ can be accomplished as follows; note first that for some $\psi = \{\psi_i\} \in \overline{\mathcal{H}}(X)$, we can define the functional 
+\[\underline{\hat{\rho}}(\psi) = \lim_{i \rightarrow \infty} \hat{\rho}(\psi_i) = \lim_{i \rightarrow \infty} \int_X \psi_i\rho\]
+in similar vein to the inner product. We note that this functional is Cauchy in $\mathbb{R}$ since if we take a Cauchy sequence from $\mathcal{H}(X)$, say $\{\phi_i\}$ then the sequence $\hat{\rho}(\phi_i)$ is Cauchy in $\mathbb{R}$.
+Furthermore, $\underline{\hat{\rho}}$ is bounded since we have that 
+\[ |\underline{\hat{\rho}}(\psi)| = \lim_{i \rightarrow \infty}|\hat{\rho}(\psi_i)| \leq \lim_{i \rightarrow \infty}C\Vert \psi_i \Vert = C\underline{\Vert \psi\Vert} \] for some $\psi \in \overline{\mathcal{H}}(X)$.
+As such, we can define our extended version of the Dirichlet energy as being
+$\underline{\mathcal{L}}(f) =  -2\underline{\hat{\rho}}(f) + \underline{\Vert f \Vert}_D^2$, for any $f \in \overline{\mathcal{H}}(X)$. It follows that $\underline{\mathcal{L}}$ is also a functional that is bounded from below. The proof is identical to that of $\mathcal{L}$. However, now with our extended functional $\underline{\mathcal{L}}$, we can guarantee that if there is an abstract element $\Phi$ for which $\underline{\mathcal{L}}(\Phi) = -C^2$ then $\Phi \in \overline{\mathcal{H}}(X)$. To obtain such an element, we need to construct a Cauchy sequence of functions in $\mathcal{H}(X)$ that converges in $\overline{\mathcal{H}}(X)$, for which $\mathcal{L}$ attains this minimum, thereby guranteeing the existance of an element of $\overline{\mathcal{H}}(X)$ for which $\underline{\mathcal{L}}$ attains its minimum. We proceed with the following lemma.
+\begin{lemma}
+  Let $X$ be a compact, connected Riemann surface. We let $\mathcal{L}$ be the Dirichlet energry functional, and let it be bounded from below by a number $M \in \mathbb{R}$, ie $\mathcal{L} \geq M$ (which holds true by the previous section with $M=-C^2$).
+  Let $\{f_i\}$ be a sequence of functions such that $\lim_{i \rightarrow \infty}\mathcal{L}(f_i) = M$. Then $\{f_i\}$ is a Cauchy sequence in $\mathcal{H}(X)$, implying the existance of an abstract element $\Phi \in \overline{\mathcal{H}}(X)$, such that $\underline{\mathcal{L}}(\Phi) = M$.
+\end{lemma}
+Note that the work in this lemma and proof follow the proposition on pages 30 and 31 of \cite{notes}.
+\begin{proof}
+  Let $\epsilon > 0$. Then there exists some $N \in \mathbb{N}$ such that for $i,j \geq N$ we have that $\mathcal{L}(f_i) \leq M + \frac{1}{4}\epsilon$ and $\mathcal{L}(f_j) \leq M + \frac{1}{4}\epsilon$. We define a function $I:[0,1] \rightarrow \mathbb{R}$, as a function of t, with $I(0) = \mathcal{L}(f_j)$ and $I(1) = \mathcal{L}(f_i)$, which interpolates between the two giving
+  \begin{align*}
+    I(t) &= \mathcal{L}(tf_i + (1-t)f_j) \\
+         &= \Vert tf_i + (1-t)f_j \Vert^2_D - 2\hat{\rho}(tf_i + (1-t)f_j) \\
+         &= \Vert f_j + (f_i - f_j)t \Vert^2_D - 2\hat{\rho}(f_j + (f_i - f_j)t) \\
+         &= \Vert f_i - f_j \Vert^2_Dt^2 + 2\langle f_i, f_j\rangle_Dt + \Vert f_j \Vert^2_D - 2\hat{\rho}(f_j) - 2\hat{\rho}(f_i - f_j)t \\
+         &= \Vert f_i - f_j \Vert^2_Dt^2 + 2(\langle f_i, f_j\rangle_D - \hat{\rho}(f_i - f_j))t + (\Vert f_j \Vert^2_D - 2\hat{\rho}(f_j)) \\
+         &= \Vert f_i - f_j \Vert^2_Dt^2 + 2(\langle f_i, f_j\rangle_D - \hat{\rho}(f_i - f_j))t + \mathcal{L}(f_j)
+  \end{align*}
+  So we have that $I(t)$ is a quadratic polynomial. By expanding $2(I(0) - 2I(\frac{1}{2})+I(1))$ we get the coefficient of $t^2$. Considering that $I(0)= \mathcal{L}(f_j) \leq  M + \frac{1}{4}\epsilon$ and $I(1) = \mathcal{L}(f_i) \leq  M + \frac{1}{4}\epsilon$ and that for all $t$ we have that $I(t) \geq M$, since $\mathcal{L} \geq M$ for all functions, then we can apply the following approximation
+  \begin{align*}
+    \Vert f_i - f_j \Vert^2_D &= 2(I(0) - 2I(1/2)+I(1)) \\
+     &\leq 2(M + \frac{1}{4}\epsilon -2M + M + \frac{1}{4}\epsilon) \\
+     &\leq \epsilon
+  \end{align*}
+  Hence, giving us that the sequence $\{f_i\}$ is Cauchy and as such, by the definition of $\overline{\mathcal{H}}(X)$, there exists an element $\Phi = \lim_{i \rightarrow \infty}f_i$ such that $\underline{\mathcal{L}}(\Phi) = M$.
+\end{proof}
+The fact that this sequence is Cauchy means that it defines an equivalence class of sequences of functions from $\mathcal{H}(X)$, or in other words, it, along with the limit $\lim_{i \rightarrow \infty} f_i$ belong to $\overline{\mathcal{H}}(X)$.
+
+So we have proven the existance of the minimising element $\Phi$ of $\underline{\mathcal{L}}$ in $\overline{\mathcal{H}}(X)$. But we want to understand it a bit better. As things stand, it is simply an equivalence class of Cauchy sequences; not a very usable object. We want to instead show it is an element of $\mathcal{H}(X)$, that is, show it can be identified with an equivalence class of smooth functions (up to the addition of a constant). This implies Weyl's lemma; a theorem that states that every solution of the Poisson equation is a smooth function, which in our case, allows us to conclude our proof of the reverse direction of Theorem \ref{compactPoisson}.
+
+Before we embark on this final part of our proof, let us first show that indeed, we are on the right track and that this minimising element does indeed give a solution to the Poisson equation. The method mirrors what we did before for $\mathcal{L}$ with the arbitrary function $g$, however, now we use $\underline{\mathcal{L}}$ and $\Phi$ instead of an arbitrary function. Recall, earlier on we \emph{assumed} that there existed a function $g$ which minimised $\mathcal{L}$. As things stand, we still dont know that. What we do know however is that we can minimise $\underline{\mathcal{L}}$ by applying it to $\Phi$. Let us compute the first variation of $\underline{\mathcal{L}}$, ie for some $f\in \mathcal{H}(X)$ computing
+ \[ \delta\underline{\mathcal{L}} =  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0} \underline{\mathcal{L}}(\Phi + \epsilon f) = 0\]
+In an argument, largely the same as before we reach the following conlcusion
+\begin{align*}
+  (\Phi,f)_D &= \underline{\hat{\rho}}(f) \\
+  \lim_{i \rightarrow \infty}\langle \phi_i,f\rangle_D &= \underline{\hat{\rho}}(f) \\
+  \lim_{i \rightarrow \infty}\int_X f \Delta \phi_i &= \underline{\hat{\rho}}(f) 
+\end{align*}
+Since $\underline{\hat{\rho}}$ is a bounded linear functional, we have that the sequence of real numbers, defined by the integrals as the limit is taken to infinity is, in fact, a Cauchy sequence in $\mathbb{R}$ and so, we can precisely write that 
+\begin{align*} 
+  &\int_X f\Delta\Phi = \underline{\hat{\rho}}(f) \\
+  &\int_X f\Delta\Phi - f\rho = 0 \\
+  &\int_X f(\Delta\Phi - \rho) = 0
+\end{align*}
+In other words, $\Phi$ is indeed a solution to the Poisson equation. Such a $\Phi$ is often called a \emph{Weak Solution} to the Poisson equation since it is not necessarily a smooth, or even continuous function.
+Now all that is left to do, is show $\Phi$ can be identified with a smooth function. We begin by stating the infamous Weyl's Lemma.
+\begin{thm}[Weyl's Lemma]\label{WeylsLemmaCompact}
+  Let $X$ be a compact, connected Riemann Surface. If $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$, then a weak solution to Poissons equation $\phi \in \overline{\mathcal{H}}(X)$ in fact is an element of $\mathcal{H}(X)$, i.e. $\phi$ is a smooth function.
+\end{thm}
+
+We begin the proof as we did earlier, when we showed $\hat{\rho}$ is a bounded functional, by considering $\Phi$ on a single open coordinate chart of $\mathbb{C}$ and showing that in local charts, $\Phi$ can indeed by identified with a function and then showing it can be exteneded over the whole of $X$. Then, returning to one coordinate chart, we will show that $\Phi$ is locally smooth, so using a partition of unity to stitch together the local smooth functions obtained from $\Phi$, we obtain a smooth function from $\Phi$ that solves the Poisson equation on the whole of $X$. This argument is based on that from Chapter 10 of \cite{donaldson}. Note that henceforth, we associate to the weak solution $\Phi$, the Cauchy sequence $\{\phi_i\}$ of elements in $\mathcal{H}(X)$ (or, when considering local coordinate charts, $\mathcal{H}(U))$.
+
+
+We begin by fixing a coordinate chart $U$ of $X$. By adding suitable constants to each $\phi_i$, we can modify the value of $\int_{U} \phi dS_{U}$, where $dS_{U}$ is a fixed area form for $U$, so that the integrals are zero (to make the average value of $\phi_i$ over $U$ zero). Then, by corollary \ref{quotedCorollary6}, we have that, for some $i,j$ the norm $\Vert \phi_i - \phi_j\Vert \leq C \Vert \phi_i - \phi_j\Vert_D$. Since this is a Cauchy sequence in $\mathcal{H}(U)$ then by the completeness of the space of square-integrable functions on $U$ under the usual norm, we have that the Cauchy sequence $\{\phi_i\}$ converges to a square-integrable function $\phi$. Hence we have identified the abstract object $\Phi$ with a square integrable function which we call $\phi$. Square integrable functions, also called $L^2$ functions, are functions for whom $\int |f|^2$ is finite, over the domain of definition.
+
+So now we want to show that this same sequence $\{\phi_i\}$ converges to a $L^2$ function on the whole of $X$ rather than on just $U$. Since we just showed that in any given coordinate chart, $\{\phi_i\}$ converges to a $L^2$ function, we define the set $A \subset X$, to be the set of points $x \in X$ with the property that there exists a coordinate chart around $x$ such that $\{\phi_i\}$ converges to $\phi$ under the usual norm. Then $A$ by the above discussion is non-empty. Since $X$ is connected then we have that the compliment of $A$ is not open unless $A=\emptyset$, which cannot be. Therefore, either $A=X$ and we are done, or there exists a $y \in X$ such that $y \in \bar{A}$, the closure of $A$, but not in $A$. But in that case, we could find a coordinate chart $U^{\prime}$ about $y$ such that for some real numbers $c_i$, we can subtract them from each $\phi_i$ such that $\phi_i - c_i$ converges to the $L^2$ limit in $U^{\prime}$. However, now we have that there is a point $x \in A \cap U^{\prime}$ such that both $\phi_i$ and $\phi_i - c_i$ converge to $\phi$ under the usual norm. Hence, $c_i$ must tend to $0$ as $i \rightarrow \infty$ giving that, in fact, $y \in A$, a contradiction. Hence $A=X$ and we have shown that we can extend $\phi$ to be a $L^2$ function on the whole of $X$. 
+
+Now to show $\phi$ is smooth. To do so we need a local version of Weyl's lemma.
+\begin{lemma}[Local Weyl's Lemma]\label{WeylsLemmaLocal}
+  Let $U$ be a bounded open set in $\mathbb{C}$ and let $\rho \in \Omega^2(U)$ be a $2$-form on $U$. Suppose $\phi$ is a $L^2$ function on $U$ with the property that, for any smooth function $h$ of compact support in $U$ we have that 
+  \[\int_U \Delta h\phi = \int_U \chi\rho\]
+  Then $\phi$ is smooth and satisfies the equation $\Delta \phi = \rho$.
+\end{lemma}
+
+Since we can stitch together locally smooth solutions using a partition of unity subordinate to our choice of finite cover of coordinate charts of $X$, as we saw earlier, we will focus on proving the statement of the local Weyl's lemma, after which, the full Weyl's lemma follows. First we will try to simplify the problem to the case when $\rho = 0$. 
+
+To do this, we will show that $\phi$ is smooth on $U^{\prime}$, the interior of $U$, where we suppose that for some $\epsilon > 0$, we have an $\epsilon$ neighbourhood of $U^{\prime}\subset U$. We then find a $\rho^{\prime}$ which is equal to $\rho$ on a neighbourhood of the closure of $U^{\prime}$ and of compact support in $U$. If we can find a smooth solution $\phi^{\prime}$ of the equation $\Delta \phi^{\prime} = \rho^{\prime}$ over $U$, then $f = \phi - \phi^{\prime}$ will be a weak solution to $\Delta f = 0 $ in $U^{\prime}$. So, our strategy will boil down to showing that $f$ is smooth, which then implies that $\phi$ must be also be smooth.
+
+So, we suppose $f$ is a weak solution to $\Delta f = 0$ on $U$. This implies that $f$ is a harmonic function (in fact, this is precisely the definition of a harmonic function), an as such, we can use the mean value theorem for harmonic functions. Recall, that lemma \ref{MVT} stated that the value of a harmonic function at the center of a circle in the plane is equal to the average value of the function on the circle. We define a smooth function $\beta:[0,\infty)\rightarrow \mathbb{R}$ such that for $\epsilon > 0$, we have that $\beta(r)$ is a constant for values of $r < \epsilon / 2$ and $0$ for $r \geq \epsilon$ and such that $2\pi \int_0^{\infty}r\beta(r)dr = 1$. Extending $\beta$ to $U \subset \mathbb{C}$ by defining $B(z)=\beta(|z|)$, gives us that $B$ is also smooth and has integral $1$ over the whole of $\mathbb{C}$ since the integral is independent of the angular coordinate and hence, $\int_{\mathbb{C}}B(z)dS=\int_0^{2\pi}\int_0^{\infty}B(r,\theta)rdrd\theta = 2\pi\int_0^{\infty}r\beta(r)dr = 1$. Now if we have a smooth, harmonic function $g$ on a neighbourhood of the $\epsilon$ disc centred around the origin. Then we have that 
+\begin{align*}
+  \int_{\mathbb{C}}B(0-z)g(z)dS_z &= \int_0^{2\pi}\int_0^{\infty}r\beta(r)g(r,\theta)drd\theta \\
+  &= \int_0^{\infty}r\beta(r)\left(\int_0^{2\pi}g(r,\theta)d\theta\right) dr \\
+  &= \int_0^{\infty}r\beta(r)2\pi g(0) dr \\
+  &= g(0)\left(2\pi\int_0^{\infty}r\beta(r)dr\right) \\
+  &=g(0)
+\end{align*}
+Note that the first integral is the definition of the convolution of $B$ and $g$. So we have that $(B*g)(0) = g(0)$
+
+This gives us the final proposition that we will need to prove that our weak solution $f$ to $\Delta f = 0$ is indeed smooth. Since we can translate the $z$ coordinate anywhere, then this convolution is translation invariant. Hence we have the following.
+
+\begin{prop}
+  Let $\psi$ be a smooth function on $\mathbb{C}$, and let $\Delta \psi$ be supported in a compact set $J \subset \mathbb{C}$. Then $B*\psi - \psi$ vanishes outside an $\epsilon$ neighbourhood of $J$ for some $\epsilon > 0$.
+\end{prop}
+
+This proposition states that for our weak solution $f$, if $f$ were smooth on $U$, then $B*f = f$ on the interior set $U^{\prime}$. Conversely, for any $L^2$ function $h$ on $U$, the convolution $B*h$ is smooth, since $B$ is smooth. This gives us the condition that proving the smoothness of $f$ in $U^{\prime}$ is the equivalent to showing that $B*f = f$ at all points in $U^{\prime}$, or alternatively $B*f - f = 0$. To do this, we consider the inner product of $f-B*f$ with any smooth function of compact support in $U^{\prime}$. \[\langle \chi, f-B*f\rangle = \int_U (\chi)(f-B*f)dS = 0 \] for any choice of area form $dS$ on $U$. Finally, note that by the definition of convolutions and integration, we have the identity $\langle f, g*h \rangle = \langle g*f, h \rangle$, that we will refer to as the triple product identity.
+So we can now prove the proposition and hence conclude our search for our smooth solution of the Poisson equation.
+\begin{proof}
+  Let $h = V*(\chi-B*\chi)$ where $V(z) = \frac{1}{2\pi}\log(|z|)$, the Newtonian potential. We want to show that $h$ has support in $U$.
+  
+  Expanding gives us that $h = V*\chi - V*B*\chi$. Since $V*\chi$ is a smooth function on $\mathbb{C}$ and by the lemma on the properties of convolutions of the Laplacian with the Newtonian potential (Lemma \ref{ConvProperties}), we have that $\Delta V*\chi = \chi$. Hence, $\Delta V*\chi$ must vanish outside the of the support of $\chi$ and so $B*V*\chi = V*\chi$ outside the $\epsilon$ neighbourhood of the support of $\chi$. Therefore, $h$ has compact support, $J \subset U$. Hence by the hypothesis of the local Weyl's lemma, we can equate that $h$ to our $h$ and hence we have that $\langle \Delta h, f\rangle = 0$. Now we note that $\Delta h = \Delta V*(\chi - B*\chi) = \chi - B*\chi$, again since both $B$ and $\chi$ are compactly supported. Hence, we have that 
+  \begin{align*}
+    \langle \chi - B*\chi, f \rangle = 0 
+  \end{align*}
+  which when we apply the triple product identity, gives us 
+  \begin{align*}
+    \langle \chi, f - B*f \rangle = 0 
+  \end{align*}
+  which by our discussion, $B*f-f$ vanishes outside of an $\epsilon$ neighbourhood of $\text{supp}(h)=J$.
+\end{proof}
+More importantly, this shows that $B*f = f$ in $U^{\prime}$. Hence, $f$ is a smooth solution to $\Delta f = 0$, finally implying that $\phi$, our $L^2$ function, is in fact, a smooth solution to the Poisson equation.
+
+\section{Consequences of solving the Poisson equation on compact Riemann surfaces and the Riemann-Roch Theorem}
 \section{The Uniformisation Theorem}
-\section{The Laplace equation on simply connected non compact Riemann surfaces}
-\section{Consequences of solving the Laplace equation on Riemann surfaces and the Riemann-Roch Theorem}
+\section{The Poisson equation on simply connected, non-compact Riemann surfaces}
+
 %
 %\references{Bibliography}{}{yes}
 \begin{thebibliography}{99}
-\bibitem{donaldson} S. Donaldson, {\em Riemann Surfaces}
-\bibitem{arnold} V. I. Arnol'd, {\em Lectures on Partial Differential Equations}
-\bibitem{rudin} W. Rudin, {\em Functional Analysis}
+\bibitem{donaldson} S. Donaldson, {\em Riemann Surfaces},
+\bibitem{arnold} V. I. Arnol'd, {\em Lectures on Partial Differential Equations},
+\bibitem{rudin} W. Rudin, {\em Functional Analysis},
+\bibitem{babyRudin} W. Rudin, {\em Principles of Mathematical Analysis}, 
+
 \bibitem{comfun} Jones \& Singerman. {\em Complex Functions}, Cambridge University Press (DATE).
 \bibitem{calcohomo} I. Madsen \& J. Tornehave, {\em From Calculus to Cohomology}, Cambridge University Press (1997)
 \bibitem{spivak} M.Spivak, {\em Calculus on Manifolds}, 
 
+\bibitem{notes} The Notes
 %
 \bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
+
+
 \end{thebibliography}
+
 \end{document}
