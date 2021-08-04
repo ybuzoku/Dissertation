@@ -9,9 +9,11 @@
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
+\newtheorem*{thm*}{Theorem}
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{example}[thm]{Example}
+\newtheorem*{problem}{Problem}
 
 %%%% These lines are only needed for the example text which follows
 \DeclareMathOperator{\Fix}{Fix}
@@ -44,47 +46,6 @@ Type your abstract here.
 \declaration % Includes the declaration - don't delete this!
 \chapter{Introduction}
 
-The aim of this dissertation is to investigate and gain a deeper
-understanding of
-Riemann Surfaces, their construction, their classification and an analysis
-of the
-geometry of some classes of these surfaces. Doing so will bring together
-ideas
-from different, seemingly unrelated fields of mathematics. Often times,
-Riemann
-Surfaces are studied solely due to these connections as they might not
-occur in
-higher dimensional analogues. We begin this dissertation with an
-introduction to
-Riemann surfaces as classical complex-analytical manifolds, and then
-showing that
-we can define them equivalently as algebraic varieties of complex curves.
-We then 
-study briefly the automorphisms of a particular set of such Riemann
-Surfaces, and 
-give a short review of topological notions that will be important in our 
-classification later, including quotient spaces. We then show how can
-endow a 
-Riemann surface structure on such spaces, and give examples of spaces
-arising in such a way, and their lifts to their universal covers.
-
-From there we begin to classify Riemann surfaces by stating the
-uniformisation 
-theorem, and classifying Riemann surfaces with universal cover the Riemann
-sphere. We then introduce Teichm\"{u}ller spaces and discuss Riemann
-surfaces with the complex plane as universal cover.
-
-The remainder of this dissertation will then focus on the infinite family
-of Riemann surfaces with the hyperbolic plane as universal cover. A
-discussion of the geometry of some compact Riemann surfaces follows, with
-some anecdotal but interesting ideas introduced, such as the interplay
-between cubic graphs and Riemann surfaces, naturally arising hyperbolic
-Teichm\"{u}ller spaces, and Hubers Theorem relating the length spectrum of
-hyperbolic Riemann surfaces and the eigenvalues of the Laplacian on said
-surfaces. We conclude with a discussion of the heat kernel on the sphere,
-plane and hyperbolic plane and prove the uniformisation theorem for
-compact Riemann surfaces and the claim that there exist exactly two
-non-compact simply connected Riemann surfaces.
 
 \chapter{Elementary definitions and notation}
 We begin by setting up the notation and tools we will be using from Complex Analysis and Topology.
@@ -511,21 +472,27 @@ Let us use the fact that $\hat{\rho}$ is a linear functional to define a new fun
 
 \begin{defn}[Dirichlet Energy Functional]
   Let $X$ be a connected Riemann Surface, and suppose $f \in \mathcal{H}(X)$. Suppose further that we have $2$-form $\rho \in \Omega^2 (X)$ (or $\Omega^2_c (X)$ if $X$ is non-compact) such that $\int_X \rho = 0$. Then we can define a functional, $\mathcal{L}: 
-  \mathcal{H}(X) \rightarrow \mathbb{R}$ such that $\mathcal{L}(f) = -2\hat{\rho}(f)+\Vert f\Vert ^2_D$. This $\mathcal{L}$ is called the Dirichlet energy functional, or sometimes Dirichlet energy for short.
+  \mathcal{H}(X) \rightarrow \mathbb{R}$ such that $\mathcal{L}(f) = \Vert f\Vert ^2_D - 2\hat{\rho}(f)$. This $\mathcal{L}$ is called the Dirichlet energy functional, or sometimes Dirichlet energy for short.
 \end{defn}
 
 The case of $X$ being non-compact requires special treatment as we have seen in the preceeding definitions. In these cases, we consider functions $f$ that are compactly supported on $X$ as this guarantees that $f$ goes to zero as $\Vert f\Vert _D$ goes to $+\infty$. This condition, along with considering that a non-compact Riemann surface is simply connected, will be sufficient for our discussion of the Dirichlet functional on non-compact Riemann surfaces.
 
-Returning to the Dirichlet functional, we see that this functional is an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a dynamic system. Often in physics, one writes $L=T-V$ (where $T$ is the symbol for kinetic energy and $V$ is the symbol for potential energy) to mean the Lagrangian of a physical system. If we take a moment to look at our Dirichlet energy, we can take our kinetic energy term to be $\hat{\rho}f$, and the potential energy term to be $\Vert f\Vert ^2_D$. But what is this the kinetic or potential energy of? In Chapter 9 of \cite{donaldson}, the conclusions of our current argument are compared to those of the solutions of the steady state heat equation, meaning we are looking for solutions to the heat equation which are constant in time over a Riemann surface. Though I find a more interesting, and perhaps easier to understand interpretation can be had by considering electric fields. Suppose for a moment that we want to distribute an electric charge across the surface of our connected Riemann surface. What stable (non-changing) distributions of this charge are allowed on our Riemann surface? Naturally, the electric field and electric potential will want to be minimal, as nature tends to want to balance out forces, and spend as little energy as possible doing so. This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$ as much as possible. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding (to the first order) functions which minimise $\mathcal{L}$. To prove the existance of such minimising functions however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$. However, we must be careful as such minimising functions may live outside of $\mathcal{H}(X)$, in the Hilbert space $\overline{\mathcal{H}}(X)$, the completion of our inner product space. In our case, that will not be so, though showing that will be a little trickier.
+Returning to the Dirichlet functional, we see that we can consider this functional as an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a dynamic system. With this in mind, let us try to set up a situation, which will give us the main tools needed to prove the Uniformisation theorem. In keeping with the theme of 19th century mathematics, we look to electrostatics for motivation. Let us for a moment, assume that our Riemann surface is in fact a conductive surface (known as a dielectric). We can then ask the question, "What stable (non-changing) distributions of electric charge are physically possible to apply onto our Riemann surface?" 
+
+Physicists generally agree that nature is lazy, and always acts to minimise the energy of a dynamical system. Therefore, we should look for functions which minimise the Lagrangian of this problem too. But what does the Lagrangian of this system look like? Perhaps, unsurprisingly, the electrostatic potential $\phi$ of a diaelectric in the presence of an extermal charge distribution $\rho$, is equal to $\Vert \phi \Vert_D - 2\hat{\rho}(\phi)$. This fact can be found in \cite{electromagentismBook}. In other words, the Dirichlet energy function, $\mathcal{L}$, is the Lagrangian of our system. Hence, we can turn this problem around to be the following:
+\begin{problem}
+  Given a charge distribution $\rho$, of integral zero over our Riemann surface, which potential functions exists which minimise the energy of the system?
+\end{problem}
+This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$ as much as possible. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding functions which minimise $\mathcal{L}$. To prove the existance of such minimising functions however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$. However, we must be careful as such minimising functions may live outside of $\mathcal{H}(X)$, in the Hilbert space $\overline{\mathcal{H}}(X)$, the completion of our inner product space. In our case, that will not be so, though showing that will be a little trickier.
 
 Let us, for a moment, suppose such functions exist and that $\mathcal{L}$ is a bounded linear functional. What are the functions that minimise our problem?
 We begin by computing the first variation of $\mathcal{L}$. To do this we let $\epsilon > 0$ and let $g$ be function on $X$. The conditions on $g$ will be more precisely defined later, so for now, we assume such a $g$ exists. Let us now compute the first variation of $\mathcal{L}$:
 \begin{gather*}
   \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}\mathcal{L}(f+\epsilon g) = 0 \\
-  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(-2\hat{\rho}(f+\epsilon g) + \Vert f+\epsilon g\Vert _D^2) = 0 \\
-  -2\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\int_X f\rho  + \epsilon \int_X g\rho) + \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0} \langle f + \epsilon g, f + \epsilon g \rangle = 0 \\
-  -2\hat{\rho}(g)+\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\langle f, f \rangle + 2\epsilon \langle f, g \rangle +\epsilon^2 \langle g, g \rangle) = 0 \\
-  -2\hat{\rho}(g) + 2\langle f, g \rangle = 0 \\
+  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\Vert f+\epsilon g\Vert _D^2 -2\hat{\rho}(f+\epsilon g) +) = 0 \\
+  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0} \langle f + \epsilon g, f + \epsilon g \rangle -2\frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\int_X f\rho  + \epsilon \int_X g\rho) = 0 \\
+  \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}(\langle f, f \rangle + 2\epsilon \langle f, g \rangle +\epsilon^2 \langle g, g \rangle) -2 \hat{\rho}(g) = 0 \\
+  2\langle f, g \rangle -2\hat{\rho}(g) = 0 \\
   \int_X g\Delta f - \int_X g\rho = 0 \\
   \int_X g(\Delta f - \rho) = 0 
 \end{gather*}
@@ -572,8 +539,9 @@ Before we begin, we will diverge slightly from discussing the Poisson equation o
 \begin{defn}[Convolution of functions]\label{ConvolutionDefn}
   Let $f,g$ be smooth, complex functions defined on $\mathbb{R}^n$. Then their convolution is defined as $(f * g)(x) = \int_{\mathbb{R}^n}f(y)g(x-y)dy$ where $dy$ is volume form on $\mathbb{R}^n$, provided the integral exists for all $x \in \mathbb{R}^n$ .
 \end{defn}
-It is important to note that, one can relax the requirement for the integral to exist on all $x \in \mathbb{R}^n$ to requiring $x$ to be defined on $\mathbb{R}^n\setminus{U}$, where $U \subset \mathbb{R}^n$ is a set of measure zero. The definition of a set of measure zero can be found on page 50 of \cite{spivak}.
+Note that this definition implies we have the identity $\langle f, g*h \rangle = \langle g*f, h \rangle$, that we will refer to as the triple product identity.
 
+It is important to note that, one can relax the requirement for the integral to exist on all $x \in \mathbb{R}^n$ to requiring $x$ to be defined on $\mathbb{R}^n\setminus{U}$, where $U \subset \mathbb{R}^n$ is a set of measure zero. The definition of a set of measure zero can be found on page 50 of \cite{spivak}.
 For a detailed treatment of convolutions of functions and the theory of distributions and a more in depth discussion of the theory of Partial Differential Equations, one can refer to Chapter 6 of \cite{rudin}.  
 Let us prove some useful lemmas involving convolutions with the Laplacian that we will be using later. 
 
@@ -665,7 +633,7 @@ Returning to the theorem, an important corollary is the following.
   \[\int_\Omega |\psi(x) - \overline{\psi}|^2 dS_x\leq \left(\frac{d^3\pi}{A}\right)^2\int_\Omega |\nabla\psi|^2 dS\]
 \end{cor}
 Using these two estimates we can prove the following theorem.
-\begin{prop}
+\begin{prop}\label{PartitionOfUnity}
   Let $X$ be a compact, connected Riemann surface. Then the functional $\hat{\rho}:\mathcal{H}(X) \rightarrow \mathbb{R}$ is bounded, ie there exists a constant $C$ such that $|\hat{\rho}(\tilde{f})| \leq C \Vert \tilde{f} \Vert_D$, for all $\tilde{f} \in \mathcal{H}(X)$.
 \end{prop}
 The following proof follows the proof found on page 125 of \cite{donaldson}, though we have modified our notation to make certain aspects of the proof clearer and easier to follow.
@@ -716,7 +684,7 @@ Furthermore, $\underline{\hat{\rho}}$ is bounded since we have that
 As such, we can define our extended version of the Dirichlet energy as being
 $\underline{\mathcal{L}}(f) =  -2\underline{\hat{\rho}}(f) + \underline{\Vert f \Vert}_D^2$, for any $f \in \overline{\mathcal{H}}(X)$. It follows that $\underline{\mathcal{L}}$ is also a functional that is bounded from below. The proof is identical to that of $\mathcal{L}$. However, now with our extended functional $\underline{\mathcal{L}}$, we can guarantee that if there is an abstract element $\Phi$ for which $\underline{\mathcal{L}}(\Phi) = -C^2$ then $\Phi \in \overline{\mathcal{H}}(X)$. To obtain such an element, we need to construct a Cauchy sequence of functions in $\mathcal{H}(X)$ that converges in $\overline{\mathcal{H}}(X)$, for which $\mathcal{L}$ attains this minimum, thereby guranteeing the existance of an element of $\overline{\mathcal{H}}(X)$ for which $\underline{\mathcal{L}}$ attains its minimum. We proceed with the following lemma.
 \begin{lemma}
-  Let $X$ be a compact, connected Riemann surface. We let $\mathcal{L}$ be the Dirichlet energry functional, and let it be bounded from below by a number $M \in \mathbb{R}$, ie $\mathcal{L} \geq M$ (which holds true by the previous section with $M=-C^2$).
+  Let $X$ be a compact, connected Riemann surface. We let $\mathcal{L}$ be the Dirichlet energy functional, and let it be bounded from below by a number $M \in \mathbb{R}$, ie $\mathcal{L} \geq M$ (which holds true by the previous section with $M=-C^2$).
   Let $\{f_i\}$ be a sequence of functions such that $\lim_{i \rightarrow \infty}\mathcal{L}(f_i) = M$. Then $\{f_i\}$ is a Cauchy sequence in $\mathcal{H}(X)$, implying the existance of an abstract element $\Phi \in \overline{\mathcal{H}}(X)$, such that $\underline{\mathcal{L}}(\Phi) = M$.
 \end{lemma}
 Note that the work in this lemma and proof follow the proposition on pages 30 and 31 of \cite{notes}.
@@ -788,32 +756,69 @@ So, we suppose $f$ is a weak solution to $\Delta f = 0$ on $U$. This implies tha
   &= g(0)\left(2\pi\int_0^{\infty}r\beta(r)dr\right) \\
   &=g(0)
 \end{align*}
-Note that the first integral is the definition of the convolution of $B$ and $g$. So we have that $(B*g)(0) = g(0)$
-
-This gives us the final proposition that we will need to prove that our weak solution $f$ to $\Delta f = 0$ is indeed smooth. Since we can translate the $z$ coordinate anywhere, then this convolution is translation invariant. Hence we have the following.
+Note that the first integral is the definition of the convolution of $B$ and $g$. So we have that $(B*g)(0) = g(0)$. Since we can shift the coordinate $z$ by any complex number $w$ anywhere, then this convolution is translation invariant (this can be seen by for some $a \in \mathbb{C}$ setting $w = z + a$). Therefore, we can summarise the above in the following proposition.
 
 \begin{prop}
   Let $\psi$ be a smooth function on $\mathbb{C}$, and let $\Delta \psi$ be supported in a compact set $J \subset \mathbb{C}$. Then $B*\psi - \psi$ vanishes outside an $\epsilon$ neighbourhood of $J$ for some $\epsilon > 0$.
 \end{prop}
 
-This proposition states that for our weak solution $f$, if $f$ were smooth on $U$, then $B*f = f$ on the interior set $U^{\prime}$. Conversely, for any $L^2$ function $h$ on $U$, the convolution $B*h$ is smooth, since $B$ is smooth. This gives us the condition that proving the smoothness of $f$ in $U^{\prime}$ is the equivalent to showing that $B*f = f$ at all points in $U^{\prime}$, or alternatively $B*f - f = 0$. To do this, we consider the inner product of $f-B*f$ with any smooth function of compact support in $U^{\prime}$. \[\langle \chi, f-B*f\rangle = \int_U (\chi)(f-B*f)dS = 0 \] for any choice of area form $dS$ on $U$. Finally, note that by the definition of convolutions and integration, we have the identity $\langle f, g*h \rangle = \langle g*f, h \rangle$, that we will refer to as the triple product identity.
-So we can now prove the proposition and hence conclude our search for our smooth solution of the Poisson equation.
-\begin{proof}
-  Let $h = V*(\chi-B*\chi)$ where $V(z) = \frac{1}{2\pi}\log(|z|)$, the Newtonian potential. We want to show that $h$ has support in $U$.
-  
-  Expanding gives us that $h = V*\chi - V*B*\chi$. Since $V*\chi$ is a smooth function on $\mathbb{C}$ and by the lemma on the properties of convolutions of the Laplacian with the Newtonian potential (Lemma \ref{ConvProperties}), we have that $\Delta V*\chi = \chi$. Hence, $\Delta V*\chi$ must vanish outside the of the support of $\chi$ and so $B*V*\chi = V*\chi$ outside the $\epsilon$ neighbourhood of the support of $\chi$. Therefore, $h$ has compact support, $J \subset U$. Hence by the hypothesis of the local Weyl's lemma, we can equate that $h$ to our $h$ and hence we have that $\langle \Delta h, f\rangle = 0$. Now we note that $\Delta h = \Delta V*(\chi - B*\chi) = \chi - B*\chi$, again since both $B$ and $\chi$ are compactly supported. Hence, we have that 
-  \begin{align*}
-    \langle \chi - B*\chi, f \rangle = 0 
-  \end{align*}
-  which when we apply the triple product identity, gives us 
-  \begin{align*}
-    \langle \chi, f - B*f \rangle = 0 
-  \end{align*}
-  which by our discussion, $B*f-f$ vanishes outside of an $\epsilon$ neighbourhood of $\text{supp}(h)=J$.
-\end{proof}
-More importantly, this shows that $B*f = f$ in $U^{\prime}$. Hence, $f$ is a smooth solution to $\Delta f = 0$, finally implying that $\phi$, our $L^2$ function, is in fact, a smooth solution to the Poisson equation.
+Though it is not immediately clear, if we compute the $L^2$ inner product $\langle \Delta \psi, (B*\psi) - \psi \rangle$ (with $B$ and $\psi$ as in the proposition), then we get $-\langle \Delta \psi, \psi \rangle + \langle \Delta \psi, B*\psi \rangle$ which equals zero outside of $J$ since $\Delta \psi$ has as support $J$ and as we showed above, in an $\epsilon$ neighbourhood around $J$, $B$ has its support, so both inner products are defined and are zero outside of $J$ but are equal within $J$.  
+
+Therefore we can use this proposition to help us show that our $f$ is smooth, since, if $f$ were smooth on $U$, then $B*f = f$ on the interior set $U^{\prime}$. Additionally, by the properties of convolutions, the convolution of any $L^2$ function with $B$ is smooth on $U$ since, $B$ itself is smooth. This gives us the condition we want; proving the smoothness of $f$ in $U^{\prime}$ is the equivalent to showing that $B*f = f$ at all points in $U^{\prime}$. Simply put, if we can show $B*f - f = 0$ on $U^{\prime}$, then $f$ must be smooth. 
+
+We begin by considering the inner product of $f-B*f$ with a smooth function, $\chi$, of compact support in $U^{\prime}$, \[\langle \chi, f-B*f\rangle = \int_{U^{\prime}} (\chi)(f-B*f)dS = 0 \] for any choice of area form $dS$ on $U$. 
+
+Let $h = V*(\chi-B*\chi)$ where $V(z) = \frac{1}{2\pi}\log(|z|)$, the Newtonian potential. We want to show that $h$ has compact support in $U^{\prime}$. We want to show that we can use this $h$ as the $h$ in the hypothesis of the local Weyl's Lemma, ie, show it has compact support in $U$. Expanding this gives us that $h = V*\chi - V*B*\chi$. Since $V*\chi$ is a smooth function on $\mathbb{C}$ and by the lemma on the properties of convolutions of the Laplacian with the Newtonian potential (Lemma \ref{ConvProperties}), we have that $\Delta V*\chi = \chi$. Hence, $\Delta V*\chi$ must vanish outside the of the support of $\chi$ and so $B*V*\chi = V*\chi$ outside the $\epsilon$ neighbourhood of the support of $\chi$. Therefore, $h$ has compact support, contained in $U$, since $\chi$ has by hypothesis. Using the hypothesis of the local Weyl's lemma we have that $\langle \Delta h, f\rangle = 0$. Now we note that $\Delta h = \Delta V*(\chi - B*\chi) = \chi - B*\chi$, again since both $B$ and $\chi$ are compactly supported. Hence, we have that 
+\begin{align*}
+  \langle \chi - B*\chi, f \rangle = 0 
+\end{align*}
+which when we apply the triple product identity, gives us 
+\begin{align*}
+  \langle \chi, f - B*f \rangle = 0 
+\end{align*}
+which implies that $f-B*f = 0$ on in $U^{\prime}$. Hence, $f$ is indeed a smooth solution to $\Delta f = 0$, finally implying that $\phi$, our $L^2$ function, is in fact, a smooth solution to the Poisson equation.
+To then extend this solution over the whole of $X$, we must pick a finite collection of coordinate charts, and pick a partition of unity subordinate to this cover. Once we identify this solution with a $2$-form on $X$, by fixing an area form, then we proceed as in the second part of the proof of proposition \ref{PartitionOfUnity}. \qed
 
 \section{Consequences of solving the Poisson equation on compact Riemann surfaces and the Riemann-Roch Theorem}
+The implications of theorem \ref{compactPoisson} are not immediately obvious. Let us recall the statement of this theorem.
+\begin{thm*}
+  Let $X$ be a connected, compact Riemann surface. Let $\rho \in \Omega^2(X)$ be a $2$-form on $X$. Then, there exists a unique, smooth solution $f \in \Omega^0(X)$ to the equation $\Delta f = \rho$, up to the addition of a constant, if and only if $\int_X \rho = 0$. This equation is called the Poisson equation.
+\end{thm*}
+So how can we use the guaranteed existence of such a function $f$ for a given $2$-form to help us classify connected, compact Riemann surfaces? We begin this section by using this result to help us prove four very useful isomorphisms between various cohomology groups of $X$.
+
+\begin{thm}
+  Let $X$ be a compact, connected Riemann surface. Then we have the following isomorphims:
+  \begin{itemize}
+    \item The induced map $\sigma: H^{1,0}(X) \rightarrow \overline{H^{0,1}}(X)$, induced by the mapping $\alpha \mapsto \overline{\alpha}$ is an isomorphism
+    \item The bilinear map $B:H^{1,0}(X)\times H^{0,1}(X) \rightarrow \mathbb{C}$ defined by $B(\alpha, \tilde{\theta})=\int_X \alpha \wedge \theta$ gives an isomorphism between $H^{0,1}(X)$ and the dual space $(H^{1,0}(X))^*$
+    \item Define the mapping $\mu:H^{1,0}(X) \oplus H^{0,1}(X) \rightarrow H^1(X)$ given by $\mu(\alpha, \beta) = i(\alpha) + \overline{i(\sigma^{-1}(\beta))}$, where $i:H^{1,0}(X) \rightarrow H^1(X)$ is the inclusion map, defined by mapping a holomorphic $1$-form to its cohomology class in $H^1(X)$. The map $\mu$ defines an isomorphism.
+    \item The map $\nu:H^{1,1}(X) \rightarrow H^2(X)$ defined as the natural inclusion of $Im(\overline{\partial}:\Omega^{1,0}(X)\rightarrow \Omega^2(X))$ in $Im(d:\Omega^1(X)\rightarrow \Omega^2(X))$ defines an isomorphism.
+  \end{itemize}
+\end{thm}
+\begin{proof}
+  We take these each in turn.
+\end{proof}
+So we have seen, that these ismorphisms which provide nice connections between the real and complex cohomology groups of our Riemann surface, depend on this solution to the Poisson equation existing. But what of classification? We notice that the third isomorphism implies that the cohomology groups $H^{1,0}(X)$ and $H^{0,1}(X)$ not only have the same dimension, but in fact, each share half the value of the dimension of $H^1(X)$, by the first isomorphism. This connection links the notion of the genus of our surface $X$ to the dimensions of these cohomology groups. But what is the dimension of these cohomology groups? To answer that, we make the following proposition.
+\begin{prop}
+  Let $X$ be a connected, compact Riemann surface. This implies that $H^{0,1}(X)$ has finite dimension, say $g$. Then, given any $g+1$ points on $X$, $p_1,\ldots, p_{g+1}$, there exists a meromorphic, non-holomorphic, function on $X$ with a simple pole at each of the points $p_1,\ldots, p_{g+1}$.
+\end{prop} 
+As we have noted in our first attempts at classifying Riemann surfaces, we have the result that, given a Riemann surface, if we can construct a meromorphic function on $X$ such that it has a simple pole at a point $p \in X$ then it must be conformally equivalent to the sphere. This argument, generalises this result considerably and allows us to classify \emph{all} connected, compact Riemann surfaces.
+\begin{proof}
+  We start by considering a single point $p_1=p \in X$ and then stitiching together our argument for $g+1$ points. We pick a coordinate chart such that $p$ is mapped to zero in this chart. Then, we have that the function $\frac{1}{z}$ is a meromorphic function on this coordinate chart $U$, with a simple pole at $0$. We can multiply this function by a smooth real-valued function $\beta$ which we will define as follows. Given an $\epsilon > 0$ let 
+  \[
+    \beta(z) = 
+    \begin{cases}
+      1 , & |z|<\frac{1}{4}\epsilon \\
+      0 , & |z|>\frac{3}{4}\epsilon
+    \end{cases}
+  \]
+  Thus, the function $f(z)=\beta(z)/z$ is a smooth function supported in an open set $V=B_{\epsilon}(0)\subset U$, with, $f(z) = 1$ for $z$ near $p$. The domain of $f(z)$ is clearly $V\setminus \{p\}$. In fact, since $f$ is supported in $V$, we have that $f(z)$ is actually well defined on the whole of $X\setminus \{p\}$ (subject to transitioning to other coordinate charts, but noting that the value of $f$ always remains $0$ except for $z\in V$). Thus, the quest of finding a meromorphic function on $X$ with a pole at any given point $p$ on $X$, is equivalent to finding a smooth function $g$ such that $g + f(z)/z$ is holomorphic on $X \setminus \{p\}$, where the function $g$ acts to shift our choice of point $p$ around $X$.
+  Now we can define a special form, with support in $X\setminus \{p\}$
+  \[A = \overline{\partial}(f(z))=\overline{\partial}(\beta(z))\frac{1}{z} \]
+  Since $\beta(z)$ is constant on the disc $|z| < \epsilon/4$, then the derivative of $\beta$ in that region is 0. Consequently, all limits of $A$ approaching $p$ equal $0$, and so we can extend $A$ over the point $p$, so that $A$ is a $(0,1)$-form defined on the \emph{whole} of $X$. Hence, to find a smooth function $g\in \Omega^0(X)$, we need to solve the following equation
+  \[\partial g = -A\]
+  
+\end{proof}
 \section{The Uniformisation Theorem}
 \section{The Poisson equation on simply connected, non-compact Riemann surfaces}
 
@@ -830,6 +835,8 @@ More importantly, this shows that $B*f = f$ in $U^{\prime}$. Hence, $f$ is a smo
 \bibitem{spivak} M.Spivak, {\em Calculus on Manifolds}, 
 
 \bibitem{notes} The Notes
+
+\bibitem{electromagentismBook} The book
 %
 \bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
 
