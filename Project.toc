@@ -2,33 +2,40 @@
 \contentsline {chapter}{Declaration}{5}
 \contentsline {chapter}{\numberline {1}Introduction}{6}
 \contentsline {chapter}{\numberline {2}Elementary definitions and notation}{7}
-\contentsline {chapter}{\numberline {3}Riemann Surfaces}{8}
-\contentsline {section}{\numberline {3.1}Basic Definitions}{8}
-\contentsline {section}{\numberline {3.2}Algebraic Curves}{8}
-\contentsline {section}{\numberline {3.3}Proper Discontinuous Group Actions}{9}
-\contentsline {subsection}{\numberline {3.3.1}Fuchsian grouppos}{9}
-\contentsline {section}{\numberline {3.4}Attempting to classify some Riemann surfaces}{9}
-\contentsline {subsection}{\numberline {3.4.1}The Riemann Sphere}{9}
-\contentsline {subsection}{\numberline {3.4.2}Quotients of the Complex Plane}{9}
-\contentsline {subsubsection}{The Cylinder}{9}
-\contentsline {subsubsection}{The Torus}{9}
-\contentsline {subsection}{\numberline {3.4.3}Moduli space of Tori}{9}
-\contentsline {chapter}{\numberline {4}Calculus on Riemann Surfaces}{10}
-\contentsline {section}{\numberline {4.1}Introduction}{10}
-\contentsline {section}{\numberline {4.2}The Tangent and Cotangent Spaces}{10}
-\contentsline {section}{\numberline {4.3}The Alternating Algebra and Differential forms}{11}
-\contentsline {section}{\numberline {4.4}de-Rham Cohomology}{11}
-\contentsline {section}{\numberline {4.5}Poincar\'{e}'s lemma}{11}
-\contentsline {section}{\numberline {4.6}Complex structures}{11}
-\contentsline {chapter}{\numberline {5}The Uniformisation Theorem}{13}
-\contentsline {section}{\numberline {5.1}Preliminaries}{13}
-\contentsline {subsection}{\numberline {5.1.1}The $\Delta $ operator and Harmonic functions}{13}
-\contentsline {subsection}{\numberline {5.1.2}Hilbert Spaces and the space $\mathcal {H}(X)$}{17}
-\contentsline {section}{\numberline {5.2}The Dirichlet Energy Functional}{21}
-\contentsline {section}{\numberline {5.3}Solving the Poisson equation on compact Riemann surfaces}{24}
-\contentsline {subsection}{\numberline {5.3.1}Convolutions and related technical lemmas}{25}
-\contentsline {subsection}{\numberline {5.3.2}Showing the Dirichlet energy $\mathcal {L}$ is a bounded functional}{29}
-\contentsline {subsection}{\numberline {5.3.3}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{32}
-\contentsline {section}{\numberline {5.4}Consequences of solving the Poisson equation on compact Riemann surfaces and the Riemann-Roch Theorem}{39}
-\contentsline {section}{\numberline {5.5}The Uniformisation Theorem}{41}
-\contentsline {section}{\numberline {5.6}The Poisson equation on simply connected, non-compact Riemann surfaces}{41}
+\contentsline {section}{\numberline {2.1}An overview of the notations and conventions taken in this dissertation}{7}
+\contentsline {section}{\numberline {2.2}An overview of definitions and results from Analysis and Topology}{8}
+\contentsline {subsection}{\numberline {2.2.1}Topological results}{8}
+\contentsline {subsection}{\numberline {2.2.2}Real Analysis}{8}
+\contentsline {subsection}{\numberline {2.2.3}Complex Analysis}{8}
+\contentsline {subsection}{\numberline {2.2.4}Functional Analysis}{8}
+\contentsline {chapter}{\numberline {3}Riemann Surfaces}{9}
+\contentsline {section}{\numberline {3.1}Basic Definitions}{9}
+\contentsline {section}{\numberline {3.2}Algebraic Curves}{11}
+\contentsline {section}{\numberline {3.3}Properly Discontinuous Group Actions}{11}
+\contentsline {subsection}{\numberline {3.3.1}Automorphisms of Riemann surfaces}{11}
+\contentsline {subsection}{\numberline {3.3.2}Fuchsian groups and Tessellations}{11}
+\contentsline {section}{\numberline {3.4}Attempting to classify some Riemann surfaces}{12}
+\contentsline {subsection}{\numberline {3.4.1}The Riemann Sphere}{12}
+\contentsline {subsection}{\numberline {3.4.2}Quotients of the Complex Plane}{12}
+\contentsline {subsubsection}{The Cylinder}{12}
+\contentsline {subsubsection}{The Torus}{12}
+\contentsline {subsection}{\numberline {3.4.3}Moduli space of Tori}{12}
+\contentsline {chapter}{\numberline {4}Calculus on Riemann Surfaces}{13}
+\contentsline {section}{\numberline {4.1}Introduction}{13}
+\contentsline {section}{\numberline {4.2}The Tangent and Cotangent Spaces}{13}
+\contentsline {section}{\numberline {4.3}The Alternating Algebra and Differential forms}{14}
+\contentsline {section}{\numberline {4.4}de-Rham Cohomology}{15}
+\contentsline {section}{\numberline {4.5}Poincar\'{e}'s lemma}{15}
+\contentsline {section}{\numberline {4.6}Complex structures}{15}
+\contentsline {chapter}{\numberline {5}The Uniformisation Theorem}{16}
+\contentsline {section}{\numberline {5.1}Preliminaries}{16}
+\contentsline {subsection}{\numberline {5.1.1}The $\Delta $ operator and Harmonic functions}{16}
+\contentsline {subsection}{\numberline {5.1.2}Hilbert Spaces and the space $\mathcal {H}(X)$}{20}
+\contentsline {section}{\numberline {5.2}The Dirichlet Energy Functional}{23}
+\contentsline {section}{\numberline {5.3}Solving the Poisson equation on compact Riemann surfaces}{28}
+\contentsline {subsection}{\numberline {5.3.1}Convolutions and related technical lemmas}{29}
+\contentsline {subsection}{\numberline {5.3.2}Showing the Dirichlet energy $\mathcal {L}$ is a bounded functional}{33}
+\contentsline {subsection}{\numberline {5.3.3}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{36}
+\contentsline {section}{\numberline {5.4}Consequences of solving the Poisson equation on compact Riemann surfaces}{43}
+\contentsline {section}{\numberline {5.5}The Uniformisation Theorem}{46}
+\contentsline {section}{\numberline {5.6}The Poisson equation on simply connected, non-compact Riemann surfaces}{48}

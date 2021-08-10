@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=pdflatex 2021.5.25)  4 AUG 2021 04:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=pdflatex 2021.5.25)  10 AUG 2021 04:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -284,43 +284,43 @@ Chapter 1.
 Chapter 2.
 [7
 
-]
+] [8]
 Chapter 3.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 67.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
 (/usr/local/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
- [8
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+ [9
 
-] [9]
+] [10] [11] [12]
 Chapter 4.
-[10
-
-] [11] [12]
-Chapter 5.
 [13
 
-] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
+] [14] [15]
+Chapter 5.
+[16
+
+] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 564.
- [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 614.
+ [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49
 
 ] (./Project.aux) ) 
 Here is how much of TeX's memory you used:
- 3192 strings out of 493093
- 42050 string characters out of 6138120
- 120117 words of memory out of 5000000
- 6619 multiletter control sequences out of 15000+600000
+ 3196 strings out of 493093
+ 42131 string characters out of 6138120
+ 120156 words of memory out of 5000000
+ 6623 multiletter control sequences out of 15000+600000
  12912 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,45p,1365b,273s stack positions out of 5000i,2500n,10000p,300000b,80000s
+ 38i,12n,45p,1605b,314s stack positions out of 5000i,2500n,10000p,300000b,80000s
 </usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Project.pdf (42 pages, 316352 bytes).
+Output written on Project.pdf (49 pages, 349264 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+ 232 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

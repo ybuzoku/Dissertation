@@ -27,10 +27,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %YOU FILL IN THESE AS APPROPRIATE
 \subject{Mathematics} %write your degree subject here
-\title{A survey of Riemann surfaces and their classification}
+\title{The Uniformisation Theorem of Riemann surfaces}
 \author{Y. Buzoku}
 \supervisor{Dr. B. Fairbairn} %
-\submissiondate{$31^{\mathrm{st}}$ August 2021}%
+\submissiondate{$3^{\mathrm{rd}}$ September 2021}%
 
 
 
@@ -41,14 +41,23 @@
 
 \newpage
 \begin{abstract}
-Type your abstract here.
+This dissertation is an in-depth discussion of Riemann surfaces and their classification by ways of the uniformisation theorem. The dissertation is split into two parts; the first being a discussion of Riemann surfaces themselves, methods of their construction, and interesting properties and symmetries that they exhibit. The second section focusses on providing an in-depth account of the proof of the classification of Riemann surfaces. It is an analytical treatment motivated by a problem that can be stated using the theory of electrostatics. We classify compact Riemann surfaces in detail, then only sketching the case for non-compact, simply connected Riemann surfaces (since the arguments are similar and only differ by minor technical aspects). The uniformisation theorem then follows naturally. The majority of the work presented generally follows the proofs presented in \cite{donaldson} and \cite{notes}, however in some cases heavily modified to account for our novel and different interpretation of the problem, with many details explicitly filled in to make for an easier reading. 
 \end{abstract}
 \declaration % Includes the declaration - don't delete this!
 \chapter{Introduction}
 
 
 \chapter{Elementary definitions and notation}
-We begin by setting up the notation and tools we will be using from Complex Analysis and Topology.
+We begin by setting up the notation and tools we will be using from Topology,Real and Complex Analysis. Though this dissertation focuses on Riemann Surfaces,
+the climactic result of this dissertation, the uniformisation theorem, is approached from the point of view of Harmonic analyis; the analysis of harmonic functions on sets in $\mathbb{R}^n$. Therefore a review of some results and definitions from real and complex analysis are required. For most of these results, a reference to a proof will be provided, unless where the proof of the theorem might be helpful to our analysis, in which case we shall prove the result here.
+\section{An overview of the notations and conventions taken in this dissertation}
+$\mathbb{F}=\mathbb{C} \wedge \mathbb{R}$
+\section{An overview of definitions and results from Analysis and Topology}
+\subsection{Topological results}
+\subsection{Real Analysis}
+\subsection{Complex Analysis}
+\subsection{Functional Analysis}
+
 
 \chapter{Riemann Surfaces}
 
@@ -57,9 +66,7 @@ Intro to Riemann Surfaces. Talk about $\log(z)$ and it as a motivational entry i
 
 \section{Basic Definitions}\label{bdefns}
 
-We begin by stating the basic definitions of Riemann Surfaces and the 
-analogs of some important notions from Complex Analysis in Riemann Surface
-Theory.
+We begin by defining and constructing some Riemann surfaces.
 
 \begin{defn}[Riemann Surface]\label{rsdefn}
 A Hausdorff topological space $X$ is said to be a Riemann Surface if:
@@ -75,9 +82,7 @@ $X$.
 $\tilde{U}_{\alpha}$ is 
   an open set in $\mathbb{C}$, with the property that for all $\alpha$,
   $\beta$, the composite map $\psi_{\alpha} \circ \psi_{\beta}^{-1}$ is
-  holomorphic on its 
-domain of 
-definition. (These composite maps are sometimes called transition maps).
+  holomorphic on its domain of definition, with a holomorphic inverse map. (These composite maps are sometimes called transition maps).
 \end{itemize}
 We call the triple $(\{U_\alpha\},\{\tilde{U}_{\alpha}\},
 \{\psi_\alpha\})$ an 
@@ -88,14 +93,39 @@ notation $(U,
 $\tilde{U}=\{\tilde{U}
 _{\alpha}\}$ and $\psi=\{\psi_\alpha\}$.
 \end{defn}
+This definition can be quite difficult to work with. Luckily, we can construct some very nice examples using this definition. Let us begin with our first example.
+\begin{example}[The Complex Plane]
+  Perhaps, unsurprisingly, the complex plane $\mathbb{C}$ can be defined as a Riemann surface. To see this, we pick a cover for the complex plane, say $U_{\alpha}$, and just identity map each set back into the complex plane. Hence the triple $(U_{\alpha},U_{\alpha},\phi_{\alpha})$ is an atlas for $\mathbb{C}$ where $\phi_{\alpha}=Id_{\alpha}$.
+\end{example}
+In a similar way we can also define the upper half plane $\mathbb{H}$, as we can cover the set $\{ z \in \mathbb{C} \colon Im(z)>0\}$ with an open cover, and identity map them into the upper half plane on $\mathbb{C}$. Though this seems like a natural subspace of $\mathbb{C}$, as we will see, the space $\mathbb{H}$ can produce some of the most interesting examples of Riemann surfaces. Finally, a perhaps more interesting example is that of the Riemann sphere. As we will shortly see, the Riemann sphere comes up in a variety of special ways and is perhaps the nicest and simplest to understand Riemann surface barring $\mathbb{C}$ itself.
 
+\begin{example}[The Riemann sphere]
+  The Riemann sphere, commonly denoted as $\hat{\mathbb{C}}$, can be defined as a topological space $\mathbb{C} \cup \{\infty\}$, where all sequences of complex numbers that do not converge to a value in $\mathbb{C}$ can be said to converge at this additional point, denoted by $\infty$, otherwise called the point at infinity (note this implies our space is sequentially compact and hence compact). Let us construct an atlas of charts for the Riemann sphere as this will show us that the Riemann sphere is indeed a Riemann surface. The following system of constructing charts on a sphere is known as stereographic projection. Let $U=\{U_1,U_2\}$, with $U_1=\{z \in \mathbb{C} : |z| < 2\}$ and $U_2=\{z \in \mathbb{C} : |z| > \frac{1}{2}\}\cup \{\infty\}$. Let $U_1=\tilde{U}_1=\tilde{U}_2$ and we let $\psi_1:U_1 \rightarrow \tilde{U}_1$, be the identity map. However, we let $\psi_2:U_2 \rightarrow \tilde{U}_2$ with $\psi_2(z)=\frac{1}{z}$ and $\psi_2(\infty)=0$. Both of these maps are clearly holomorphic so all that is needed is to consider if the transition maps composed of these two maps are also holomorphic.
+  It turns out that both $\psi_1 \circ \psi_2 ^{-1}$ and $\psi_2 \circ \psi_1 ^{-1}$ are the map $z \mapsto \frac{1}{z}$, which is also holomorphic on its domain of definition $\{z\in \mathbb{C} : \frac{1}{2} < |z| < 2\}$ and so we have our atlas for the Riemann sphere proving it is a Riemann surface.
+\end{example}
+
+We now show quite a unique property of Riemann surfaces, that is that their transition maps have a positive Jacobian. This restricts the types of surfaces which can arise as Riemann surfaces to being only the orientable surfaces. 
+\begin{lemma}[Riemann surfaces are orientable]
+  Let $X$ be a Riemann surface. Then, the determinant of the Jacobian of the transition maps all have positive determinant.
+\end{lemma}
+\begin{proof}
+  Pick an arbitrary transition map between arbitrary open sets on $X$, with a non-empty intersection. Let us call this map $f$. By the definition of transition maps, $f$ is holomorphic on its domain of definition. Hence we can write for any point $z=x+iy$ in the intersection, $f(z) = f(x+iy)=u(x,y)+iv(x,y)$ for some real valued functions $u,v$, with $u,v$ satisfying the Cauchy-Riemann equations $\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}$ and $\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}$. 
+  Thus, the determinant of the Jacobian $J[f]$ of our transition map $f$ is 
+  $\text{det}(J[f])=\begin{vmatrix}
+    \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\
+    \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \\
+  \end{vmatrix} = \frac{\partial u}{\partial x}\frac{\partial v}{\partial y} -  \frac{\partial v}{\partial x}\frac{\partial u}{\partial y}= (\frac{\partial u}{\partial x})^2 + (\frac{\partial u}{\partial y})^2 \geq 0$, where the last equality holds by the Cauchy-Riemann equations. This is strictly positive barring the fairly uninteresting case of $f=0$, which means that the transition map (and hence the chart maps), are the zero map. However, we discard this case as the inverse map would not be holomorphic (ie $f^{-1}(0)$ would not be a single point).
+\end{proof}
+
+So, we have used atlases to construct a few examples of Riemann surface and even prove an interestng property of theirs. However, one can ask, are there any other ways of constructing Riemann surfaces? We see that, it is perhaps, quite difficult to move beyond these examples with only this data. Luckily, Riemann surfaces arise in a number of different, but equivalent, ways, as we shall see.
 
 \section{Algebraic Curves}\label{algcurv}
-ALGBRAIC CURVES ARE COOOOOL MAN!
+We begin with the case of algebraic curves in $\mathbb{C}^2$. Certain curves in $\mathbb{C}^2$ define covers the Riemann sphere, often with multiple sheets, except at a certain set of presecribed points. One imagines this process as if one were to cut open a sphere, and stretch the cut sphere over another sphere, wrapping the cover around the sphere a number of times, and then sewing it up along the cut again. We see that there would be a problem at the poles, where material would bunch up and misbehave. This is an example of such a "prescribed" point. We investigate below.
 
-\section{Proper Discontinuous Group Actions}\label{PropDiscGrpAct}
+\section{Properly Discontinuous Group Actions}\label{PropDiscGrpAct}
+\subsection{Automorphisms of Riemann surfaces}
 Geometry and groups episode three, the revenge of the fundamental domain.
-\subsection{Fuchsian grouppos}
+\subsection{Fuchsian groups and Tessellations}
 Empty something.
 
 \section{Attempting to classify some Riemann surfaces}
@@ -113,12 +143,12 @@ such surfaces. This involves defining the notions of integration,
 differential forms and vector fields on Riemann Surfaces. As we will see
 however, these notions give rise to certain groups and vector spaces
 which will be very important in the following sections, especially in the
-proof of the uniformisation theorem.
+proof of the uniformisation theorem. This section will be a brief introduction
+to doing calculus on Riemann surfaces, complete with definitions and examples to gain a good understanding but with the proofs to most theorems being referenced.
 
 \section{The Tangent and Cotangent Spaces}
-We begin our study of calculus on Riemann surfaces by defining notions of
-the tangent and cotangent spaces. The following definitions may be found
-in Chapter 5 of \cite{donaldson} unless otherwise noted.
+We begin our study of calculus on Riemann surfaces by defining the notions of
+the tangent and cotangent spaces. This section takes the work found in chapter 5 of \cite{donaldson}, chapters 2, 3, 8, 9 and 10 of \cite{calcohomo} and chapters 4 and 5 of \cite{spivak}, to provide a comprehensive set of consistant definitions and examples that should give the reader a good overview of this broad subject.
 
 \begin{defn}[Smooth path on a Riemann Surface]\label{Smooth Path}
   Let $X$ be a Riemann Surface and let $\epsilon > 0$. Then we say
@@ -144,21 +174,29 @@ in Chapter 5 of \cite{donaldson} unless otherwise noted.
 \end{defn}
 
 \section{The Alternating Algebra and Differential forms}
-
-\begin{defn}[Alternating Algebra]\label{AltAlg}
-  cf Calc to cohomo and Spivak  
+We state these definitions in such a way that will be useful to us, however they all generalise to the case of $n$-dimensional manifolds.
+\begin{defn}[Alternating Space]\label{AltSpc}
+  Let $V$ be a $\mathbb{F}$ vector space. A $k$-linear map $\omega:V^k\rightarrow \mathbb{R}$ is said to be alternating if $\omega(v_1,\ldots,v_k)=0$ when $v_i=v_j$ where $i\neq j$. The vector space of alternating, $k$-linear maps is denoted by $\text{Alt}^k(V)$.
 \end{defn}
+\begin{defn}[Exterior Product]
+  Let $V$ be a $\mathbb{F}$ vector space. Let $\omega_1 \in \text{Alt}^p(V)$ and $\omega_2 \in \text{Alt}^q(V)$. We define the exterior product $\wedge : \text{Alt}^p(V) \times \text{Alt}^q(V) \rightarrow \text{Alt}^{p+q}(V)$ as 
+  \begin{align*}
+    &(\omega_1 \wedge \omega_2)(v_1,\ldots,v_{p+q})= \\
+    &\sum_{\sigma \in S(p,q)}sign(\sigma)\omega_1(v_{\sigma(1)},\ldots,v_{\sigma(p)})(\omega_2(v_{\sigma(p+1)},\ldots,v_{\sigma(q)})
+  \end{align*}
+  where $S(p,q)$ is defined as a permutation of $\{1,\ldots,p+q\}$ such that $\sigma(1) < \ldots < \sigma(p)$ and $\sigma(p+1) < \ldots < \sigma(p+q)$.
+\end{defn}
+The alternating space $\text{Alt}^k(V)$ becomes an alternating $\mathbb{F}$-algebra when considering it with the associative exterior product. Refer to page 11 of \cite{calcohomo} for a more in-depth treatment.
 
 \begin{defn}[Differential $p$-forms]\label{p-form}
-  Calc to cohomo. ALL FUNCTIONS SMOOTH AND REAL HERE! We only need to consider $p=0,1,2$
+  Let $U$ be an open set in $\mathbb{R}^2$. A differential $p$-form on $U$ is a smooth map $\omega : U \rightarrow \text{Alt}^p(\mathbb{R^2})$. The vector space of all such maps on $U$ is denoted by $\Omega^p(U)$.
 \end{defn}
-
-\begin{defn}[Volume form]\label{volumeform}
-  Sometimes known as an area form on surfaces.
-\end{defn}
-  Space of differential $0$-form is also written as $C^{\infty}(U)$
+  The space of differential $0$-form is also sometimes written as $C^{\infty}(U)$
 \begin{defn}[Exterior Derivative]\label{exteriorD}
   aaa
+\end{defn}
+\begin{defn}[Volume form]\label{volumeform}
+  Sometimes known as an area form on surfaces.
 \end{defn}
 
 \begin{defn}[Integration]\label{Integration}
@@ -349,13 +387,13 @@ Hilbert spaces over the real numbers are called real Hilbert spaces and those ov
   \end{itemize}
 \end{example}
 
-However, the fact Hilbert spaces are complete, allows us to find the limits of all Cauchy sequences of their elements. This completeness property allows us to generalise our notions of calculus as we have guaranteed that well defined limits exist within our space.
+%However, the fact Hilbert spaces are complete, allows us to find the limits of all Cauchy sequences of their elements. This completeness property allows us to generalise our notions of calculus as we have guaranteed that well defined limits exist within our space.
 
-A further important reason to want to use the theory of Hilbert Spaces is the Riesz Representation Theorem; a theorem that allows us, under sufficiently nice conditions, to represent a bounded linear functional acting on an element of a Hilbert space as an inner product of elements. Let us write this more precisely .
-\begin{thm}[The Riesz Representation Theorem]\label{RieszRepTheorem}
-  Let $H$ be a real Hilbert Space, and let $\sigma \colon H \rightarrow \mathbb{R}$ be a bounded linear functional, so there exists a constant $C$ such that $|\sigma(x)| \leq C\Vert x\Vert $ for all $x \in H$. Then there exists an element $z \in H$ such that \[ \sigma(x) = \langle z, x \rangle \]
-\end{thm}
-A proof of this theorem can be found in chapter ??? of ???
+%A further important reason to want to use the theory of Hilbert Spaces is the Riesz Representation Theorem; a theorem that allows us, under sufficiently nice conditions, to represent a bounded linear functional acting on an element of a Hilbert space as an inner product of elements. Let us write this more precisely .
+%\begin{thm}[The Riesz Representation Theorem]\label{RieszRepTheorem}
+%  Let $H$ be a real Hilbert Space, and let $\sigma \colon H \rightarrow \mathbb{R}$ be a bounded linear functional, so there exists a constant $C$ such that $|\sigma(x)| \leq C\Vert x\Vert $ for all $x \in H$. Then there exists an element $z \in H$ such that \[ \sigma(x) = \langle z, x \rangle \]
+%\end{thm}
+%A proof of this theorem can be found in chapter ??? of ???
 
 We are now in a position to introduce a space of critical importance to our study of the Laplacian on a Riemann surface. This space will be a Hilbert space, though we prove this in steps, first showing it is a vector space, then that given a particular norm, it is an inner product space, and then later on showing that it is complete. We call this inner product space $\mathcal{H}(X)$ and we shall explicitly construct it below, with its completion being constructed later and will be denoted as $\overline{\mathcal{H}}(X)$. 
 
@@ -372,7 +410,7 @@ Note that henceforth we consider only connected Riemann surfaces to alleviate  i
 
 
 \begin{lemma}
-  Let $X$ be a connected Riemann Surface. We define a relation on $\Omega^0(X)$ (or on $\Omega^0_c(X)$ if $X$ is non-compact), whereby two functions are equivalent if they differ by a constant function. This relation, given the symbol $\sim$, defines an equivalence relation on $\Omega^0(X)$.
+  Let $X$ be a connected Riemann Surface. We define a relation on $\Omega^0(X)$ (or on $\Omega^0_c(X)$ if $X$ is non-compact), whereby two functions are equivalent if they differ by a constant function. This relation, given the symbol $\sim$, defines an equivalence relation.
 \end{lemma}
 
 \begin{proof}
@@ -443,10 +481,6 @@ We now begin by defining the $\hat{\rho}$ functional, a simple integral function
 \end{defn}
 
 Since $\int_X \rho = 0$ then we have that this functional is linear on functions of compact support in $\mathcal{H}(X)$. Note that, if $X$ is a compact Riemann surface, then all functions and $2$-forms on $X$ automatically have compact support in $X$, so the compact support conditions really only matter in the cases of non-compact Riemann surfaces.
-% For example, if we let $X=\mathbb{C}$ and let $\rho = sin(z)dz\wedge d\overline{z}$ and let $f(z) = z$, then we have that $\int_{\mathbb{C}}zsin(z)dz\wedge d\overline{z} = \infty$ with neither $f$ or $\rho$ being of compact support even though $\int_X \rho = 0$
-
-%SHOULD I INCLUDE THIS EXAMPLE? FLESH IT OUT? IS IT EVEN RIGHT?
-%supp(f) = \mathbb{C}\setminus \{0\} and supp(\rho)=\mathbb{C}\setminus \{nz| \forall z \in \mathbb{Z}\}
 
 We now prove the claim that $\hat{\rho}$ is a linear functional on $\mathcal{H}(X)$.
 \begin{lemma}[$\hat{\rho}$ is a linear functional]\label{rhohatlinear}
@@ -477,15 +511,33 @@ Let us use the fact that $\hat{\rho}$ is a linear functional to define a new fun
 
 The case of $X$ being non-compact requires special treatment as we have seen in the preceeding definitions. In these cases, we consider functions $f$ that are compactly supported on $X$ as this guarantees that $f$ goes to zero as $\Vert f\Vert _D$ goes to $+\infty$. This condition, along with considering that a non-compact Riemann surface is simply connected, will be sufficient for our discussion of the Dirichlet functional on non-compact Riemann surfaces.
 
-Returning to the Dirichlet functional, we see that we can consider this functional as an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a dynamic system. With this in mind, let us try to set up a situation, which will give us the main tools needed to prove the Uniformisation theorem. In keeping with the theme of 19th century mathematics, we look to electrostatics for motivation. Let us for a moment, assume that our Riemann surface is in fact a conductive surface (known as a dielectric). We can then ask the question, "What stable (non-changing) distributions of electric charge are physically possible to apply onto our Riemann surface?" 
+Returning to the Dirichlet functional, we see that we can consider this functional as an example of a Lagrangian; physically, a quantity that encapsulates the difference of the kinetic and potential energy of a dynamic system. With this in mind, let us try to set up a situation, which will give us the main tools needed to prove the Uniformisation theorem. In keeping with the theme of 19th century mathematics, we look to electrostatics for motivation. Let us for a moment, assume that our Riemann surface is in fact made from a conductive surface on which an electric field can permeate. We then pose the question, "How can we distribute charge across this surface in such a way that there is no overall gain or loss of electric charge on the surface?" 
 
-Physicists generally agree that nature is lazy, and always acts to minimise the energy of a dynamical system. Therefore, we should look for functions which minimise the Lagrangian of this problem too. But what does the Lagrangian of this system look like? Perhaps, unsurprisingly, the electrostatic potential $\phi$ of a diaelectric in the presence of an extermal charge distribution $\rho$, is equal to $\Vert \phi \Vert_D - 2\hat{\rho}(\phi)$. This fact can be found in \cite{electromagentismBook}. In other words, the Dirichlet energy function, $\mathcal{L}$, is the Lagrangian of our system. Hence, we can turn this problem around to be the following:
+There are two main points to be made here. First, the fact that there cannot be an overall gain or loss in electric charge on the system severely restricts the types of charge distribution that we can apply onto our Riemann surface. In fact, it implies that any charge distribution must be chosen so that its integral over the surface vanishes. If this were not the case, there would be a net source or sink of charge on our surface. We can see this by considering some charge distributions on, say a Riemann sphere. 
+
+After choosing the area form $sin(\theta)d\theta d\phi$ with respect to the standard spherical coordinates, taking the Riemann sphere to have radius $1$, we can define our distribution to be $\rho = cos(\phi)sin(\theta)d\theta d\phi$. We then get that $\int_{\hat{\mathbb{C}}}\rho =\int_0^{2\pi}\int_0^{\pi}cos(\phi)sin(\theta)d\theta d\phi= 0$, which makes sense, since the distribution of charge along the angle $\phi$ is periodic across the sphere, so no single point on the sphere has more charge than any other, and is zero on the poles since $sin(\theta)=0$ at $\theta = 0,\pi$.
+
+Another example distribution, say $\rho^{\prime}$ would be to take two small disjoint circular domains, of diameter $\epsilon > 0$ on our Riemann sphere such that our smooth charge distribution is compactly supported inside these two domains say $A$ and $B$. After fixing an area form on $\hat{\mathbb{C}}$, say $dz \wedge d\overline{z}$, let us say that the function representing the distribution on $A$ is defined as,
+\[
+\beta(z)=
+\begin{cases}
+  1, &|z| \leq \frac{1}{4}\epsilon \\
+  0, &|z| > \frac{3}{4}\epsilon
+\end{cases}
+\]
+with the function for $B$ being $-\beta$. We see clearly that the integral of our distribution splits into two. Hence, we get that since $\rho^{\prime}$ is zero outside $A \cup B$ that $\int_{\hat{\mathbb{C}}} \rho^{\prime} = \int_A \beta dz\wedge d\overline{z} + \int_B (-\beta) dz\wedge d\overline{z} = 0$, by the definition of $\beta$. So we can have charge distributions over the entire surface, or confine them to particular regions, so long as they satisfy certain conditions. The latter case is similar to defining point charges (and in fact, in the limiting case of $\epsilon \rightarrow 0$ does indeed define a point charge) on our Riemann surface, and so this is similar to defining a dipole on our sphere (a pair of opposing electric point charges). 
+
+A pair of a bad examples would be that of any distribution of non-zero constant value on the Riemann sphere, or even one where it was defined as in the case of $\rho^{\prime}$ but only for a single set $A$. By the above example, the integral of such a distribution would obviously not be $0$. In the case of the constant distribution, we begin by denoting it by $\rho_{\text{bad}}$. Affixing the same spherical area form as in the first example, we see that the integral of $\int_{\hat{\mathbb{C}}} \rho_{\text{bad}} = \int_0^{2\pi}\int_0^{\pi}Dsin(\theta)d\theta d\phi = 4\pi D$ which is $0$ if and only if the constant $D$ is zero.
+
+The second point to note is that Physicists generally agree that nature is lazy, and always acts to minimise the energy of a dynamical system. Therefore, we too should look for functions which minimise the Lagrangian of this problem, as these would be physically desirable. But what does the Lagrangian of this system look like? Since there is no motion (it is a static system), then the kinetic energy term is zero. So the Lagrangian of this system is a pure potential, made from two parts. The first part of the potential is a term related to the potential to the space itself to be charged, outside of any region of charge on the surface. Given a potential function $\phi$ (we will define what is meant by potential function in a moment), this term looks like $\Vert \phi \Vert_D^2$. The second part comes directly from the externally imposed charge density. This distributes positive and negative charges all over our surface according to $\hat{\rho}$. Its potential energy looks like $-2\hat{\rho}(\phi)$. This term describes the energy density inside the regions that contribute to the field on the surface. Therefore, the electrostatic potential energy on an arbitrary Riemann surface would be the sum of these two. This is discussed further in depth in \cite{electromagentismBook}, with a more mathematical treatment of similar problems in chapters $6$ and $12$ of \cite{arnold}. However since this is simply a motivation for the problem and we shall not make use of the electrostatics aspect of the problem any longer.
+
+We therefore have that the Dirichlet energy functional, $\mathcal{L}$, is the Lagrangian of our system. Hence, we can turn this problem around to be the following:
 \begin{problem}
-  Given a charge distribution $\rho$, of integral zero over our Riemann surface, which potential functions exists which minimise the energy of the system?
+  Given a charge distribution $\rho$, of integral zero over our Riemann surface, which functions exist that minimise the total energy of the system?
 \end{problem}
-This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$ as much as possible. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding functions which minimise $\mathcal{L}$. To prove the existance of such minimising functions however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$. However, we must be careful as such minimising functions may live outside of $\mathcal{H}(X)$, in the Hilbert space $\overline{\mathcal{H}}(X)$, the completion of our inner product space. In our case, that will not be so, though showing that will be a little trickier.
+This leads us to look for functions in $\mathcal{H}(X)$ that minimise $\mathcal{L}$. We call such functions potential functions. But how do we find such solutions? Do they even exist? To answer this, we appeal to the calculus of variations. We wish to apply the variational principle, a method for finding functions which minimise Lagrangians. To prove the existance of such a minimising function however, we need to show that $\mathcal{L}$ is a bounded functional, bounded from below. This will allow us to apply the variational principle to find which functions minimise $\mathcal{L}$. However, we must be careful as such minimising functions may live outside of $\mathcal{H}(X)$, in the Hilbert space $\overline{\mathcal{H}}(X)$, the completion of our inner product space. In our case, that will not be so, though showing that will be a little trickier.
 
-Let us, for a moment, suppose such functions exist and that $\mathcal{L}$ is a bounded linear functional. What are the functions that minimise our problem?
+Let us, for a moment, suppose such a potential function exists and that $\mathcal{L}$ is a bounded linear functional. How do we proceed finding such potential functions?
 We begin by computing the first variation of $\mathcal{L}$. To do this we let $\epsilon > 0$ and let $g$ be function on $X$. The conditions on $g$ will be more precisely defined later, so for now, we assume such a $g$ exists. Let us now compute the first variation of $\mathcal{L}$:
 \begin{gather*}
   \frac{d}{d\epsilon}\biggr\rvert_{\epsilon = 0}\mathcal{L}(f+\epsilon g) = 0 \\
@@ -502,17 +554,17 @@ Since we have that at least one of $f,g$ and $\rho,g$ have compact support (and 
 There exists a unique solution $f$, up to addition by a constant, of the equation 
 \[ \Delta f = \rho \Longleftrightarrow \int_X \rho = 0\]
 
-This equation, known as Poissons' equation, will be the main tool we will use in our treatment of the uniformisation theorem. As we shall shortly see, we only need to consider its solutions on a small number of Riemann surfaces to allow us to draw the conclusions we seek. We will split our study of the Poisson equation into two families:
+The equation on the left, known as Poissons' equation, will be the main tool we will use in our treatment of the uniformisation theorem. As we shall shortly see, we only need to consider its solutions on a small number of Riemann surfaces to allow us to draw the conclusions we seek. We will split our study of the Poisson equation into two families:
 \begin{itemize}
   \item The Poisson equation on connected, compact Riemann surfaces.
   \item The Poisson equation on connected, simply connected, non-compact Riemann surfaces.
 \end{itemize}
-The reason for choosing these two families of Riemann surface is not immediately obvious but in brief, we will attempt to find all simply connected Riemann surfaces, and then show that all other Riemann surfaces must arise as some kind of quotient space of these simply connected surfaces. This search is motivated by a similar topological result which loosely says that a sufficiently nice topological space can be constructed by taking its universal cover (the unique simply-connected covering space) and quotienting it by a properly discontinuous group action. We will approach the problem in a similar way, but importantly in our case, the quotient spaces of these simply connected Riemann surfaces also have Riemann surface structures.
+We choose these two families of Riemann surface since in doing so, we can classify all connected, simply connected Riemann surfaces. This then allows us to classify all Riemann surfaces by their universal cover, since as we have seen, all connected, non-simply connected Riemann surfaces arise as a properly discontinuous group action on a connected, simply connected Riemann surface.
 
-We begin by solving Poissons equation on connected, compact Riemann surfaces. A corollary of this section will be that there exists a single simply connected compact Riemann surface, up to conformal equivalence - the Riemann Sphere. 
+We begin by solving Poissons equation on connected, compact Riemann surfaces. A perhaps astounding corollary of our analysis of the Poisson equation on compact, connected Riemann surfaces is that up to conformal equivalence, there exists a single connected, simply connected, compact Riemann surface - the Riemann Sphere. 
 
 \section{Solving the Poisson equation on compact Riemann surfaces}
-To begin this section, let us state the theorem that we wish to prove precisely.
+We begin by trying to prove the following theorem, as the existance of solutions to the Poisson equation play a vital role in our classification of connected, compact Riemann surfaces.
 \begin{thm}[Poissons's equation on compact Riemann surfaces]\label{compactPoisson}
   Let $X$ be a connected, compact Riemann surface. Let $\rho \in \Omega^2(X)$ be a $2$-form on $X$. Then, there exists a unique, smooth solution $f \in \Omega^0(X)$ to the equation $\Delta f = \rho$, up to the addition of a constant, if and only if $\int_X \rho = 0$. This equation is called the Poisson equation.
 \end{thm}
@@ -521,7 +573,7 @@ We can immediately prove two things:
   \item If $f$ is a smooth solution to $\Delta f = \rho$, then $\int_X \rho= 0$
   \item $f$ is unique up to a constant.
 \end{itemize}
-The remaining statement however, ie given an arbitrary $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ then we can find a unique solution up to the addition of a constant, is much tricker to prove and this section is dedicated to proving that final point of the theorem. So let us begin the proof of Theorem \ref{compactPoisson} by proving the two aforementioned bullet points.
+The remaining statement however, ie given an arbitrary $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ then we can find a unique solution to Poisson's equation, up to the addition of a constant, is much tricker to prove and this section is dedicated to proving this point. So let us begin the proof of Theorem \ref{compactPoisson} by proving the two aforementioned bullet points.
 \begin{proof}
   We wish to first prove that if $f$ is a smooth solution to $\Delta f = \rho$ then $\int_X \rho = 0$. To show this, we note that since $d = \partial + \overline{\partial}$ and $d(\partial f) = \partial^2 f + \overline{\partial}\partial f = \overline{\partial}\partial f$ since $\partial^2 = 0$. Recall that  $\Delta f = 2i \overline{\partial}\partial f$. Combining these two gives us that $\Delta f =2id(\partial f)$. So let us integrate $\rho$.
   \begin{align*}
@@ -532,17 +584,15 @@ The remaining statement however, ie given an arbitrary $\rho \in \Omega^2(X)$ su
   Now to show that such a solution is unique up to a constant. We assume $f$ and $g$ are both solutions to the Poisson equation, ie $\Delta f = \rho$ and $\Delta g = \rho$. Then we have that $\Delta (f - g) = 0$, ie that $f-g$ is a harmonic function. Thinking of the Dirichlet norm for a moment, if we consider $\Vert f-g\Vert _D$ we get $\int_X (f-g)\Delta(f-g) = 0$. Hence, we have $\Vert f-g\Vert _D = 0$. Unfortunately, this is not a norm on $\Omega^0(X)$ but on $\mathcal{H}(X)$. But elements of $\Omega^0(X)$ can easily be mapped to elements of $\mathcal{H}(X)$. So let us consider $\Vert \tilde{f}-\tilde{g}\Vert _D = \Vert df - dg\Vert $. It follows that $\Vert \tilde{f}-\tilde{g}\Vert _D = 0$ since $\Delta(constant) = 0$ and so by the definition of $d$ and the Dirichlet norm, we get that $ df - dg = d(f-g) = 0$ implying that $f - g = c$ where $c$ is a constant. So any solution of the Poisson equation is unique up to the addition of a constant.
 \end{proof} 
 
-As stated, to complete our proof of Theorem \ref{compactPoisson}, now must now show that given a $2$-form $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ we can find a smooth function $f$ such that $\Delta f = \rho$. 
+As stated, to complete our proof of Theorem \ref{compactPoisson}, now must now show that given a $2$-form $\rho \in \Omega^2(X)$ such that $\int_X \rho = 0$ we can find a smooth function $f$ such that $\Delta f = \rho$. Our strategy will be as follows: Since we are yet to formally motivate that we need to study the Poisson equation, we begin by doing that. To do so, we will first lay out some technical ground-work in the form of briefly studying convolutions of functions on $X$ in certain special cases. We then show that the Dirichlet energy is indeed a bounded functional, which attains a minimum when applied to minimising functions. After that, we show that such minimising functions are indeed obtained as solutions to Poissons equation, but may live "outside" our space of all possible smooth functions on $X$. We thence conclude by identifying these functions with smooth functions on $X$, and so, combined with our proof above, we will have proven the statement of Theorem \ref{compactPoisson}. 
 
 \subsection{Convolutions and related technical lemmas}
-Before we begin, we will diverge slightly from discussing the Poisson equation on connected, compact Riemann surfaces and instead talk briefly about convolutions and the Newtonian potential and prove some technical lemmas that will be useful when we attempt to prove the final part of Theorem \ref{compactPoisson}.
+As mentioned, we will now delve into a short discussion on convolutions. We begin by defining a convolution of two functions. 
 \begin{defn}[Convolution of functions]\label{ConvolutionDefn}
   Let $f,g$ be smooth, complex functions defined on $\mathbb{R}^n$. Then their convolution is defined as $(f * g)(x) = \int_{\mathbb{R}^n}f(y)g(x-y)dy$ where $dy$ is volume form on $\mathbb{R}^n$, provided the integral exists for all $x \in \mathbb{R}^n$ .
 \end{defn}
-Note that this definition implies we have the identity $\langle f, g*h \rangle = \langle g*f, h \rangle$, that we will refer to as the triple product identity.
-
-It is important to note that, one can relax the requirement for the integral to exist on all $x \in \mathbb{R}^n$ to requiring $x$ to be defined on $\mathbb{R}^n\setminus{U}$, where $U \subset \mathbb{R}^n$ is a set of measure zero. The definition of a set of measure zero can be found on page 50 of \cite{spivak}.
-For a detailed treatment of convolutions of functions and the theory of distributions and a more in depth discussion of the theory of Partial Differential Equations, one can refer to Chapter 6 of \cite{rudin}.  
+Note that this definition implies we have the identity $\langle f, g*h \rangle = \langle g*f, h \rangle$, and we will refer to this as the triple product identity for convolutions. Also note that, one can relax the requirement for the integral to exist on all $x \in \mathbb{R}^n$ to requiring $x$ to be defined on $\mathbb{R}^n\setminus{U}$, where $U \subset \mathbb{R}^n$ is a set of measure zero. The definition of a set of measure zero can be found on page 50 of \cite{spivak}.
+For a detailed treatment of convolutions of functions and the theory of distributions and a more in depth discussion of the theory of Partial Differential Equations, one can refer to Chapter 6 of \cite{rudin}. 
 Let us prove some useful lemmas involving convolutions with the Laplacian that we will be using later. 
 
 We also will want to use a theorem from classical vector calculus, known as Green's identity, though we will modify the statement of this theorem for the case of the plane. This is not to be confused with Green's theorem for line integrals.
@@ -613,7 +663,7 @@ Returning to convolutions, we have the following lemma
 
 \subsection{Showing the Dirichlet energy $\mathcal{L}$ is a bounded functional}
 
-Returning to our strategy for showing that given a $2$-form $\rho$ on a connected, compact Riemann surface $X$ such that $\int_X \rho = 0$, then we have a smooth function $f$ on $X$ such that $\Delta f = \rho$, we want to now prove that such an $f$ can exist. To do this, we need to show that the Dirichlet energy, $\mathcal{L}(f) = -2\hat{\rho}(f) + \Vert f \Vert^2_D$ is a bounded functional, bounded from below. Since for any smooth function $f$ on $X$ we have a finite Dirichlet norm (ie $\Vert f \Vert_D < +\infty $ for all $f \in \mathcal{H}(X))$, %since $f$ is continuous and must therefore attain a maximum value at some point on $X$,
+Returning to our strategy for showing that given a $2$-form $\rho$ on a connected, compact Riemann surface $X$ such that $\int_X \rho = 0$, then we have a smooth function $f$ on $X$ such that $\Delta f = \rho$, we want to now prove that such an $f$ can exist. To do this, recall that we need to show that the Dirichlet energy, $\mathcal{L}(f) = -2\hat{\rho}(f) + \Vert f \Vert^2_D$ is a bounded functional, bounded from below. Since for any smooth function $f$ on $X$ we have a finite Dirichlet norm (ie $\Vert f \Vert_D < +\infty $ for all $f \in \mathcal{H}(X))$, %since $f$ is continuous and must therefore attain a maximum value at some point on $X$,
 we are left with needing to show that the $\hat{\rho}$ functional is also bounded.
 
 To prove this, we need the following theorem and its subsequent corollary. We proceed by working in a bounded, convex, open set in the complex plane. We can do so as we can map any bounded, convex, open set from our Riemann surfaces confomally to the such sets in the complex plane using chart maps. Similarly, due to conformal equivalence, we can assume such sets are circular discs in the complex plane.
@@ -675,7 +725,7 @@ This space is clearly very complicated, but its usefulness to us comes from the 
 An interesting point to note is that each inner product in the limit, is just a sequence that is Cauchy in $\mathbb{R}$. Since we have a complete inner product space, with a norm that we can derive from our new inner product, $( \cdot, \cdot )_D$, then $\overline{\mathcal{H}}(X)$ is in fact, a Hilbert space. 
 % The benefit of this is that we can now apply the Riesz Representation Theorem, which will allow us to find a representative in $\overline{\mathcal{H}}(X)$ for our functionals. In the case of $\hat{\rho}$ this representative will turn out to be a "weak solution" to the Poisson equation (weak in the sense that it might not be in $\mathcal{H}(X)$). However, as we will show, Weyl's lemma guarantees that in fact, all weak solutions to the Poisson equation, do in fact live in $\mathcal{H}(X)$, and are hence smooth.
 
-To do this, we begin by extending our functionals to $\overline{\mathcal{H}}(X)$; a process of redefining their domains from $\mathcal{H}(X)$ to $\overline{\mathcal{H}}(X)$. We identify these extended functionals with an underline, except for the extended Dirichlet inner product. This is necessary, as elements of this new Hilbert space look vastly different to that of $\mathcal{H}(X)$. We have already extended the definition of the norm, since we have that a norm on $\overline{\mathcal{H}}(X)$ is defined as, for some $\psi \in \overline{\mathcal{H}}(X)$ that $\underline{\Vert\psi\Vert}_D^2 = (\psi, \psi)_D$
+To do this, we begin by extending our functionals to $\overline{\mathcal{H}}(X)$; a process of redefining their domains from $\mathcal{H}(X)$ to $\overline{\mathcal{H}}(X)$. We identify these extended functionals with an underline, except for the extended Dirichlet inner product. This is necessary, as elements of this new Hilbert space look vastly different to that of $\mathcal{H}(X)$. We have already extended the definition of the norm, since we have that a norm on $\overline{\mathcal{H}}(X)$ is defined as, for some $\psi \in \overline{\mathcal{H}}(X)$ that $\underline{\Vert\psi\Vert}_D^2 = (\psi, \psi)_D$.
 So we now need to extend $\hat{\rho}$. As stated earlier, $\hat{\rho}$ is a bounded functional on $\mathcal{H}(X)$. Its extension to $\overline{\mathcal{H}}(X)$ can be accomplished as follows; note first that for some $\psi = \{\psi_i\} \in \overline{\mathcal{H}}(X)$, we can define the functional 
 \[\underline{\hat{\rho}}(\psi) = \lim_{i \rightarrow \infty} \hat{\rho}(\psi_i) = \lim_{i \rightarrow \infty} \int_X \psi_i\rho\]
 in similar vein to the inner product. We note that this functional is Cauchy in $\mathbb{R}$ since if we take a Cauchy sequence from $\mathcal{H}(X)$, say $\{\phi_i\}$ then the sequence $\hat{\rho}(\phi_i)$ is Cauchy in $\mathbb{R}$.
@@ -685,7 +735,7 @@ As such, we can define our extended version of the Dirichlet energy as being
 $\underline{\mathcal{L}}(f) =  -2\underline{\hat{\rho}}(f) + \underline{\Vert f \Vert}_D^2$, for any $f \in \overline{\mathcal{H}}(X)$. It follows that $\underline{\mathcal{L}}$ is also a functional that is bounded from below. The proof is identical to that of $\mathcal{L}$. However, now with our extended functional $\underline{\mathcal{L}}$, we can guarantee that if there is an abstract element $\Phi$ for which $\underline{\mathcal{L}}(\Phi) = -C^2$ then $\Phi \in \overline{\mathcal{H}}(X)$. To obtain such an element, we need to construct a Cauchy sequence of functions in $\mathcal{H}(X)$ that converges in $\overline{\mathcal{H}}(X)$, for which $\mathcal{L}$ attains this minimum, thereby guranteeing the existance of an element of $\overline{\mathcal{H}}(X)$ for which $\underline{\mathcal{L}}$ attains its minimum. We proceed with the following lemma.
 \begin{lemma}
   Let $X$ be a compact, connected Riemann surface. We let $\mathcal{L}$ be the Dirichlet energy functional, and let it be bounded from below by a number $M \in \mathbb{R}$, ie $\mathcal{L} \geq M$ (which holds true by the previous section with $M=-C^2$).
-  Let $\{f_i\}$ be a sequence of functions such that $\lim_{i \rightarrow \infty}\mathcal{L}(f_i) = M$. Then $\{f_i\}$ is a Cauchy sequence in $\mathcal{H}(X)$, implying the existance of an abstract element $\Phi \in \overline{\mathcal{H}}(X)$, such that $\underline{\mathcal{L}}(\Phi) = M$.
+  Let $\{f_i\}$ be a sequence of functions such that $\lim_{i \rightarrow \infty}\mathcal{L}(f_i) = M$. Then $\{f_i\}$ is a Cauchy sequence in $\mathcal{H}(X)$ which defines our abstract element $\Phi \in \overline{\mathcal{H}}(X)$, such that $\underline{\mathcal{L}}(\Phi) = M$.
 \end{lemma}
 Note that the work in this lemma and proof follow the proposition on pages 30 and 31 of \cite{notes}.
 \begin{proof}
@@ -779,7 +829,7 @@ which when we apply the triple product identity, gives us
 which implies that $f-B*f = 0$ on in $U^{\prime}$. Hence, $f$ is indeed a smooth solution to $\Delta f = 0$, finally implying that $\phi$, our $L^2$ function, is in fact, a smooth solution to the Poisson equation.
 To then extend this solution over the whole of $X$, we must pick a finite collection of coordinate charts, and pick a partition of unity subordinate to this cover. Once we identify this solution with a $2$-form on $X$, by fixing an area form, then we proceed as in the second part of the proof of proposition \ref{PartitionOfUnity}. \qed
 
-\section{Consequences of solving the Poisson equation on compact Riemann surfaces and the Riemann-Roch Theorem}
+\section{Consequences of solving the Poisson equation on compact Riemann surfaces}
 The implications of theorem \ref{compactPoisson} are not immediately obvious. Let us recall the statement of this theorem.
 \begin{thm*}
   Let $X$ be a connected, compact Riemann surface. Let $\rho \in \Omega^2(X)$ be a $2$-form on $X$. Then, there exists a unique, smooth solution $f \in \Omega^0(X)$ to the equation $\Delta f = \rho$, up to the addition of a constant, if and only if $\int_X \rho = 0$. This equation is called the Poisson equation.
@@ -798,28 +848,94 @@ So how can we use the guaranteed existence of such a function $f$ for a given $2
 \begin{proof}
   We take these each in turn.
 \end{proof}
-So we have seen, that these ismorphisms which provide nice connections between the real and complex cohomology groups of our Riemann surface, depend on this solution to the Poisson equation existing. But what of classification? We notice that the third isomorphism implies that the cohomology groups $H^{1,0}(X)$ and $H^{0,1}(X)$ not only have the same dimension, but in fact, each share half the value of the dimension of $H^1(X)$, by the first isomorphism. This connection links the notion of the genus of our surface $X$ to the dimensions of these cohomology groups. But what is the dimension of these cohomology groups? To answer that, we make the following proposition.
-\begin{prop}
-  Let $X$ be a connected, compact Riemann surface. This implies that $H^{0,1}(X)$ has finite dimension, say $g$. Then, given any $g+1$ points on $X$, $p_1,\ldots, p_{g+1}$, there exists a meromorphic, non-holomorphic, function on $X$ with a simple pole at each of the points $p_1,\ldots, p_{g+1}$.
+So as we have seen, these ismorphisms which provide nice relations between the real and complex cohomology groups of our connected, compact Riemann surface, depend on this solution to the Poisson equation existing. But what can we say about their classification? We notice that the third isomorphism, imply that the cohomology groups $H^{1,0}(X)$ and $H^{0,1}(X)$ not only have the same dimension, but when combined with the first isomorphism, we get that each share half the value of the dimension of $H^1(X)$. We showed earlier that for a connected, compact genus $g$ smooth surface, $\Sigma_g$, we had that $H^1(\Sigma_g)\cong\mathbb{R}^{2g}$. Therefore, we have that $dim_{\mathbb{R}}H^{1,0}(X)=dim_{\mathbb{R}}H^{0,1}(X)=g$. So our Riemann surface $X$ can be classified by genus. Or can it? Cohomology unfortunately is not a strong enough condition, as two cohomological Riemann surfaces, \emph{may} not be confomally equivalent. We still need to show that all compact, connected genus $g$ surfaces have compatible Riemann surface structures, i.e that we can find a conformal map between any of them. This next proposition allows us to say something about that.
+\begin{prop}\label{meroFunctionOnGenusGSurface}
+  Let $X$ be a connected, compact Riemann surface with $H^{0,1}(X)$ of finite dimension $g$. Then, given any distinct $g+1$ points on $X$, $p_1,\ldots, p_{g+1}$, there exists a meromorphic function on $X$ with a simple pole at some (perhaps all) of the points $p_1,\ldots, p_{g+1}$.
 \end{prop} 
-As we have noted in our first attempts at classifying Riemann surfaces, we have the result that, given a Riemann surface, if we can construct a meromorphic function on $X$ such that it has a simple pole at a point $p \in X$ then it must be conformally equivalent to the sphere. This argument, generalises this result considerably and allows us to classify \emph{all} connected, compact Riemann surfaces.
+As we noted in our first attempts at classifying Riemann surfaces, we found a result that allows us to distinguish if, given a Riemann surface $X$, is it confomally equivalent to the Riemann sphere. We showed that if we could construct a meromorphic function on $X$ such that it has a simple pole at a point $p \in X$ then it must be conformally equivalent to the Riemann sphere. The above stated proposition, proposition \ref{meroFunctionOnGenusGSurface}, generalises this result considerably by constructing such a function directly and generalises it for all genus $g$ Riemann surfaces. This therefore means that we can classify \emph{all} connected, compact Riemann surfaces simply by considering their genus.
 \begin{proof}
-  We start by considering a single point $p_1=p \in X$ and then stitiching together our argument for $g+1$ points. We pick a coordinate chart such that $p$ is mapped to zero in this chart. Then, we have that the function $\frac{1}{z}$ is a meromorphic function on this coordinate chart $U$, with a simple pole at $0$. We can multiply this function by a smooth real-valued function $\beta$ which we will define as follows. Given an $\epsilon > 0$ let 
+  We begin by considering a single point $p \in X$. This implies by hypothesis that we have a genus $0$ Riemann surface. We now pick a coordinate chart around $p$ such that $p$ maps to $0$, and let $U$ be a small disc encircling $p$. We define $\beta(z)$ to be a smooth function on $U$ such that $\beta$ is supported on $U$. More precisely, for some fixed $\epsilon > 0$, let us write $\beta$ as 
   \[
-    \beta(z) = 
-    \begin{cases}
-      1 , & |z|<\frac{1}{4}\epsilon \\
-      0 , & |z|>\frac{3}{4}\epsilon
-    \end{cases}
+  \beta(z)=
+  \begin{cases}
+    1, &|z| \leq \frac{1}{4}\epsilon \\
+    0, &|z| > \frac{3}{4}\epsilon
+  \end{cases}
   \]
-  Thus, the function $f(z)=\beta(z)/z$ is a smooth function supported in an open set $V=B_{\epsilon}(0)\subset U$, with, $f(z) = 1$ for $z$ near $p$. The domain of $f(z)$ is clearly $V\setminus \{p\}$. In fact, since $f$ is supported in $V$, we have that $f(z)$ is actually well defined on the whole of $X\setminus \{p\}$ (subject to transitioning to other coordinate charts, but noting that the value of $f$ always remains $0$ except for $z\in V$). Thus, the quest of finding a meromorphic function on $X$ with a pole at any given point $p$ on $X$, is equivalent to finding a smooth function $g$ such that $g + f(z)/z$ is holomorphic on $X \setminus \{p\}$, where the function $g$ acts to shift our choice of point $p$ around $X$.
-  Now we can define a special form, with support in $X\setminus \{p\}$
-  \[A = \overline{\partial}(f(z))=\overline{\partial}(\beta(z))\frac{1}{z} \]
-  Since $\beta(z)$ is constant on the disc $|z| < \epsilon/4$, then the derivative of $\beta$ in that region is 0. Consequently, all limits of $A$ approaching $p$ equal $0$, and so we can extend $A$ over the point $p$, so that $A$ is a $(0,1)$-form defined on the \emph{whole} of $X$. Hence, to find a smooth function $g\in \Omega^0(X)$, we need to solve the following equation
-  \[\partial g = -A\]
   
+  We define a function, $f^{\prime}(z) = \beta(z)z^{-1}$ and note that $f^{\prime}$ is defined on $U$. However, very easily, we can extend the domain of definition of $f^{\prime}$ by noticing that as $|z|$ grows in $U$, $f^{\prime}$ goes to $0$. Therefore, we can extend $f^{\prime}$ to the whole of $X$. We call this extension to $X$, $f(z)$ and define $f$ such that 
+  
+  \[
+    f(z)=
+    \begin{cases}
+      0, &z \in X \setminus U \\
+      f^{\prime}(z), &z \in U
+    \end{cases}
+    \]
+  We call this process "extending $f^{\prime}$ to $X$ by zero". We further note that $f^{\prime}$ is holomorphic in the region $|z| < \epsilon/4$ since $f^{\prime} = z^{-1}$ in this region. We lose this fact as soon as $\beta$ stops being constant however since we can't impose that $\beta$ decays to zero holomorphically. Hence $f$ is holomorphic in this region too.
+
+  We can also construct a useful $(0,1)$-form on $X$ from $f$, namely $A=\overline{\partial}f(z) = \overline{\partial}(\beta(z))z^{-1}$.
+  By definition, $A$ is an element of $\Omega^{0,1}(X\setminus \{p\})$. We would like to extend $A$ over the whole of $X$ and undertsand this extensions' cohomology class. Namely, we want to understand the class $[A] \in H^{0,1}(X)=\frac{\Omega^{0,1}(X)}{Im(\overline{\partial}:\Omega^0(X) \rightarrow \Omega^{0,1}(X))}$.
+
+
+  We see from the definition of $H^{0,1}(X)$ that we can find a smooth function $g$ on $X$ such that $\overline{\partial}(g) = A$ if and only if $[A] = 0$. An interesting and important fact to note is that, if we multiply the function $f$ by some $\lambda \in \mathbb{C}$ then our $(0,1)$-form $A$ becomes $\lambda A$ and hence, any associated cohomology class becomes $\lambda[A]$. We see that $A$ can be easily extended over the whole of $X$. In the annulus $\epsilon /4 < |z| \leq 3\epsilon /4$, we see the $A$ has some value corresponding to the rate of decay of $\beta$. So let us consider when $|z| \leq \epsilon /4$. In this case, we see that $\beta$ is constant so $\overline{\partial}\beta = 0$ for all $|z| \leq \epsilon /4$. Thus, the limit of $A$ as $z$ approaches $0$ vanishes and so we have extended $A$ over the whole of $X$. Thus, we have that because $X$ is a genus $0$ surface, $H^{0,1}(X)=0$ and, $[A] = 0$, and so there exists a smooth function $\psi \in \Omega^0(X)$ such that $\overline{\partial}\psi = A$. 
+
+  Now, we let $\phi$ be a function defined as $\phi = \psi + \lambda f$ for some $\lambda \in \mathbb{C}$. $\psi$ is defined to be smooth over all of $X$ and $f$ is smooth on $X\setminus \{p\}$ so $\phi$ is also smooth on $X \setminus \{p\}$. Since we have that $\phi$ is smooth, if we can show that this $\phi$ is holomorphic near $p$ then it is precisely the meromorphic function we need. We know that $f$, on the punctured disc $\{|z| \leq \epsilon / 4\} \setminus \{p\}$, is holomorphic, therefore so is $\lambda f$. 
+  
+  Therefore, if we can show that $\psi$ is holomorphic on this disc, then $\phi$ will be holomorphic on the punctured disc. But we know that on $X$, we have $\overline{\partial}\psi = A$ and except for in the annulus $\epsilon / 4 < |z| \leq 3\epsilon / 4$ we have that $A=0$. In particular, on the disc of radius $\epsilon / 4$ we have that $A=0$ and so $\overline{\partial}\psi = 0$. Hence, $\psi$ is holomorphic and so it follows that in this punctured disc, $\phi$ is holomorphic. Therefore, in this disc around $p$, the function $\phi$ is meromorphic, with a pole at $p$ and smooth over $X$, as required.
+
+  We can now generalise this construction, whereby for $g+1$ points $p_1,\ldots, p_{g+1}$, we can repeat the exact same procedure, creating functions $f_1,\ldots,f_{g+1}$ such that they extend by zero over $X$ and have a single, simple pole at the points $p_1,\ldots,p_{g+1}$ respectively. Then we can define forms $A_i$ and show that since the cohomology group $H^{0,1}(X) \cong \mathbb{R}^g$ (implying it is $g$ dimensional), then the linear combination $\lambda_1[A_1]+\ldots+\lambda_{g+1}[A_{g+1}] = 0$, is a linear dependency, implying that the equality to zero is had even if not all $\lambda_i = 0$. Then we proceed as before with this linear combination equalling zero, rather than with $[A]=0$ as we did in the single point case, thereby constructing a meromorphic function on $X$ with $g+1$ simple poles. 
 \end{proof}
+So we see that the existance of a linear dependency of the cohomology classes of $(0,1)$-forms over their respective poles, gives us a link between the genus of $X$ and the number of poles a meromorphic function must have on $X$. The number of points which have a pole over them correspond to which of the $\lambda_i \neq 0$ in the linear dependency. This result is incredibly powerful as it unifies the topological notion of a genus and turns it into an invarient of connected, compact Riemann surfaces. Hence, we can state the following corollary.
+\begin{cor}\label{ClassificationByGenus}
+  Let $X$ be a connected, compact Riemann surface. 
+  \begin{itemize}
+    \item If $X$ has genus $0$, then $X$ is confomally equivalent to the Riemann Sphere. 
+    \item If $X$ has genus $1$, then $X$ is conformally equivalent to a Torus.
+    \item If $X$ has genus $n$, then $X$ is conformally equivalent to an orientable surface of genus $n$.
+  \end{itemize}
+\end{cor}
+
+The latter point holds due to the fact that we have equated the classification of closed, orientable surfaces and compact, connected Riemann surfaces. For an in depth discussion on the classification of surfaces, see.
+
+We conclude this section with the observation that the first bullet point in Corollary \ref{ClassificationByGenus}. If we have a connected, simply connected, compact Riemann surface, it is conformally equivalent to the Riemann sphere $\hat{\mathbb{C}}$.
+
 \section{The Uniformisation Theorem}
+We are finally ready to discuss the main topic of this dissertation. In fact, due to all the hard work we have put in to understanding holomorphic and harmonic functions, differential forms and the general topology involved in studying Riemann surfaces, stating and proving the Uniformisation theorem becomes quite a bit easier as we shall see. 
+
+For the moment, let us assume that we have also classified all non-compact, simply connected Riemann surfaces. Recall when we introduced the Poisson equation, we said that we would be solving it for two separate cases; the first being the compact connected case, and the second being the non-compact, simply connected case. In a similar vein to how working with the Poisson equation helped us classify compact, connected Riemann surfaces, it will also help us classify non-compact, simply connected Riemann surfaces. So for now, we assume that we have done this classification. It turns out that there are two non-compact, simply connected Riemann surfaces; the complex plane $\mathbb{C}$ and the upper half plane $\mathbb{H}$.
+Now we can state the uniformisation theorem. We shall proceed in a similar way to that of the start of chapter 10 of \cite{donaldson}.
+
+\begin{thm}[The Uniformisation Theorem]\label{Uniformisation}
+  Let $X$ be a connected, simply connected Riemann surface. 
+  \begin{itemize}
+    \item If $X$ is compact, it is conformally equivalent to $\hat{\mathbb{C}}$, the Riemann Sphere. 
+    \item If $X$ is not compact, the $X$ is conformally equivalent to either $\mathbb{C}$, the complex plane or $\mathbb{H}$, the upper half plane.
+  \end{itemize}
+\end{thm}
+
+Since we have classified all connected, simply connected Riemann surfaces, we can actually classify all Riemann surfaces. This follows since any Riemann surface is confomally equivalent to its universal cover (recall, the universal cover is a simply connected space) quotiented by some group action of the fundamental group on the universal cover (called a Deck transformation).
+\begin{cor}
+  Any connected Riemann surface is conformally equivalent to one of the following:
+  \begin{itemize}
+    \item The Riemann Sphere, $\hat{\mathbb{C}}$
+    \item The Complex Plane $\mathbb{C}$, the Cylinder $\mathbb{C}/\mathbb{Z}$ or the Torus $\mathbb{C}/\Lambda$, for some lattice $\Lambda \subset \mathbb{C}$
+    \item The Upper Half Plane quotiented by a freely acting discrete subgroup of $\Gamma \subset PSL(2,\mathbb{R})$, $\mathbb{H}/\Gamma$ 
+  \end{itemize}
+\end{cor}
+So how does Poissons equation for simply connected, non-compact Riemann surfaces come into the proof of the uniformisation theorem? Let us first state the theorem, similar to the compact, connected case, but for the simply connected, non-compact case.
+\begin{thm}\label{NonCompactPoissons}
+  Let $X$ be a connceted, simply connected, non-compact Riemann surface. Then if $\rho$ is a $2$-form of compact support on $X$ (ie $\rho \in \Omega^2_c(X)$) with $\int_X \rho = 0$ then there is a smooth function $\phi \in \Omega^0(X)$ such that $\Delta \phi = \rho$, with $\phi$ tending to $0$ at infinity in $X$.
+\end{thm}
+That last part about tending to $0$, is a much weaker condition than compact support. Let us make that notion precise.
+\begin{defn}[A function tending to a value at infinity on $X$]
+  Let $X$ be a connected, simply connected, non-compact Riemann surface. If we have a smooth function $f \in \Omega^0(X)$, and a real number $c \in \mathbb{R}$, then we say that $f$ tends to $c$ at infinity in $X$ if, for all $\epsilon > 0$ there is a compact subset $K \subset X$ such that $|f(x) - c| < \epsilon$ for $x \notin K$.
+
+  Conversely, we say that $f$ tends to $+\infty$, at infinity in $X$ if for all $C \in \mathbb{R}$, there is a compact set $K \subset X$ such that $f(x) > C$ for all $x \notin K$ (and we say that $f$ tends to $-\infty$ in $X$ if $-f$ tends to $+\infty$).
+\end{defn}
+
+Now, we want to use the fact that we have a solution to Poissons equation on simply connected, non-compact Riemman surfaces, to prove the uniformisation theorem. That way, rather than prove the uniformisation theorem directly, we can prove the statement of Poissons equation, which will imply uniformisation for non compact surfaces. So, let us show that given the statement of Theorem \ref{NonCompactPoissons}, we can classify all simply connected non-compact Riemann surfaces.
+
 \section{The Poisson equation on simply connected, non-compact Riemann surfaces}
 
 %
@@ -834,9 +950,11 @@ As we have noted in our first attempts at classifying Riemann surfaces, we have 
 \bibitem{calcohomo} I. Madsen \& J. Tornehave, {\em From Calculus to Cohomology}, Cambridge University Press (1997)
 \bibitem{spivak} M.Spivak, {\em Calculus on Manifolds}, 
 
-\bibitem{notes} The Notes
+\bibitem{notes} The alternative to Donaldsons Notes
 
-\bibitem{electromagentismBook} The book
+\bibitem{electromagentismBook} The EM book
+
+\bibitem{Hatchers} Hatchers book
 %
 \bibitem{website} MacTutor History of Mathematics Archive, at https://mathshistory.st-andrews.ac.uk/ [accessed 9 May 2030]
 
