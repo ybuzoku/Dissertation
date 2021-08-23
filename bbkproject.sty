@@ -6,7 +6,7 @@
 %%% The complicated looking lines after \usepackage{parskip} fix these issues.
 %%% If you want the default setting with no space between paragraphs, but new paragraph indented then delete these lines
 \RequirePackage[paper=a4paper, margin=28mm]{geometry}
-
+%28mm margins of 11pt font
 \newif\if@loadparskip\@loadparskipfalse
 \DeclareOption{parskip}{\@loadparskiptrue}
 \ProcessOptions\relax
@@ -44,7 +44,7 @@
 %%% End of lines to sort out headers and footers
 
 
-\renewcommand{\baselinestretch}{1.45}%%% This line makes things (almost) double-spaced. This is ample spacing to meet the rules.
+\renewcommand{\baselinestretch}{1.45}%%% This line makes things (almost) double-spaced. This is ample spacing to meet the rules. 
 
 %%% The next lines set up the title page / declaration and abstract etc.
 

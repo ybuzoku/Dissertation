@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=pdflatex 2021.5.25)  20 AUG 2021 03:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=pdflatex 2021.5.25)  23 AUG 2021 04:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -369,18 +369,18 @@ Package: etoolbox 2015/05/04 v2.2 e-TeX tools for LaTeX (JAW)
  (./Project.aux)
 \openout1 = `Project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
  (/usr/local/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
@@ -462,53 +462,53 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 49.
+LaTeX Font Info:    Try loading font information for U+msa on input line 51.
  (/usr/local/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 49.
+LaTeX Font Info:    Try loading font information for U+msb on input line 51.
  (/usr/local/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] (./Project.toc [2])
+{/usr/local/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] (./Project.toc)
 \tf@toc=\write4
 \openout4 = `Project.toc'.
 
- [3] [4] [5
+ [2] [3] [4
 
 ]
 Chapter 1.
-[6]
+[5]
 Chapter 2.
-[7]
+[6]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 124.
  (/usr/local/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
- [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
+ [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
 Chapter 3.
-[21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
+[22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
 Chapter 4.
-[31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
+[32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 827.
- [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] (./Project.aux) ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 822.
+ [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] (./Project.aux) ) 
 Here is how much of TeX's memory you used:
- 14363 strings out of 493093
- 286162 string characters out of 6138120
- 337625 words of memory out of 5000000
- 17547 multiletter control sequences out of 15000+600000
- 15971 words of font info for 60 fonts, out of 8000000 for 9000
+ 14370 strings out of 493093
+ 286221 string characters out of 6138120
+ 337643 words of memory out of 5000000
+ 17553 multiletter control sequences out of 15000+600000
+ 16330 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,15n,84p,2288b,924s stack positions out of 5000i,2500n,10000p,300000b,80000s
-</usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Project.pdf (61 pages, 463481 bytes).
+ 61i,15n,84p,2285b,924s stack positions out of 5000i,2500n,10000p,300000b,80000s
+</usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Project.pdf (59 pages, 484201 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
+ 291 PDF objects out of 1000 (max. 8388607)
+ 204 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
