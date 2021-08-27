@@ -1,27 +1,27 @@
 \contentsline {chapter}{Abstract}{3}
 \contentsline {chapter}{Declaration}{4}
-\contentsline {chapter}{\numberline {1}Introduction}{5}
-\contentsline {chapter}{\numberline {2}Preliminaries}{6}
-\contentsline {chapter}{\numberline {3}Riemann Surfaces}{8}
-\contentsline {section}{\numberline {3.1}Riemann surfaces and their properties}{8}
-\contentsline {section}{\numberline {3.2}Quotients of the complex plane}{11}
-\contentsline {section}{\numberline {3.3}Maps between Riemann surfaces}{14}
-\contentsline {section}{\numberline {3.4}Covering spaces of Riemann surfaces}{16}
-\contentsline {subsection}{\numberline {3.4.1}Automorphisms of Riemann surfaces}{17}
-\contentsline {subsection}{\numberline {3.4.2}Automorphism groups of simply-connected Riemann surfaces}{19}
-\contentsline {chapter}{\numberline {4}Calculus on Riemann Surfaces}{23}
-\contentsline {section}{\numberline {4.1}Preliminaries}{23}
-\contentsline {section}{\numberline {4.2}Complex structures}{28}
-\contentsline {section}{\numberline {4.3}Cohomology of Surfaces}{30}
-\contentsline {chapter}{\numberline {5}The Uniformisation Theorem}{33}
-\contentsline {section}{\numberline {5.1}Preliminaries}{33}
-\contentsline {subsection}{\numberline {5.1.1}The $\Delta $ operator and Harmonic functions}{33}
-\contentsline {subsection}{\numberline {5.1.2}Hilbert Spaces and the space $\mathcal {H}(X)$}{35}
-\contentsline {section}{\numberline {5.2}The Dirichlet Energy Functional}{38}
-\contentsline {subsection}{\numberline {5.2.1}Showing the Dirichlet energy $\mathcal {L}$ is bounded from below}{41}
-\contentsline {section}{\numberline {5.3}Poisson's equation on compact Riemann surfaces}{43}
-\contentsline {subsection}{\numberline {5.3.1}Convolutions and related technical lemmas}{44}
-\contentsline {subsection}{\numberline {5.3.2}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{47}
-\contentsline {section}{\numberline {5.4}Cohomology groups of compact Riemann surfaces}{51}
-\contentsline {section}{\numberline {5.5}Poissons equation on simply connected, non-compact Riemann surfaces}{54}
-\contentsline {section}{\numberline {5.6}The Uniformisation Theorem}{56}
+\contentsline {chapter}{Introduction}{5}
+\contentsline {chapter}{\numberline {1}Preliminaries}{6}
+\contentsline {chapter}{\numberline {2}Riemann Surfaces}{8}
+\contentsline {section}{\numberline {2.1}Riemann surfaces and their properties}{8}
+\contentsline {section}{\numberline {2.2}Quotients of the complex plane}{11}
+\contentsline {section}{\numberline {2.3}Maps between Riemann surfaces}{14}
+\contentsline {section}{\numberline {2.4}Covering spaces of Riemann surfaces}{16}
+\contentsline {subsection}{\numberline {2.4.1}Automorphisms of Riemann surfaces}{17}
+\contentsline {subsection}{\numberline {2.4.2}Automorphism groups of simply-connected Riemann surfaces}{19}
+\contentsline {chapter}{\numberline {3}Calculus on Riemann Surfaces}{23}
+\contentsline {section}{\numberline {3.1}Calculus on smooth, orientable surfaces}{23}
+\contentsline {section}{\numberline {3.2}Complex structures}{28}
+\contentsline {section}{\numberline {3.3}Cohomology of surfaces}{30}
+\contentsline {chapter}{\numberline {4}The Uniformisation Theorem}{33}
+\contentsline {section}{\numberline {4.1}The Laplacian and Hilbert spaces}{33}
+\contentsline {subsection}{\numberline {4.1.1}The $\Delta $ operator and Harmonic functions}{33}
+\contentsline {subsection}{\numberline {4.1.2}Hilbert Spaces and the space $\mathcal {H}(X)$}{35}
+\contentsline {section}{\numberline {4.2}The Dirichlet Energy Functional}{38}
+\contentsline {subsection}{\numberline {4.2.1}Showing the Dirichlet energy $\mathcal {L}$ is bounded from below}{41}
+\contentsline {section}{\numberline {4.3}Poisson's equation on compact Riemann surfaces}{43}
+\contentsline {subsection}{\numberline {4.3.1}Convolutions and related technical lemmas}{44}
+\contentsline {subsection}{\numberline {4.3.2}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{47}
+\contentsline {section}{\numberline {4.4}Cohomology groups of compact Riemann surfaces}{51}
+\contentsline {section}{\numberline {4.5}Poissons equation on simply connected, non-compact Riemann surfaces}{54}
+\contentsline {section}{\numberline {4.6}The Uniformisation Theorem}{56}
