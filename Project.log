@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=pdflatex 2021.5.25)  1 SEP 2021 23:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=pdflatex 2021.5.25)  1 SEP 2021 23:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -533,37 +533,37 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 ] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] <./images/complogimsmall.png, id=92, 439.6425pt x 292.09125pt>
 File: ./images/complogimsmall.png Graphic file (type png)
  <use ./images/complogimsmall.png>
-Package pdftex.def Info: ./images/complogimsmall.png used on input line 349.
+Package pdftex.def Info: ./images/complogimsmall.png used on input line 350.
 (pdftex.def)             Requested size: 219.82071pt x 146.04526pt.
  [22] <./images/800px-Heptagonal_tiling.png, id=96, 803.0pt x 803.0pt>
 File: ./images/800px-Heptagonal_tiling.png Graphic file (type png)
  <use ./images/800px-Heptagonal_tiling.png>
-Package pdftex.def Info: ./images/800px-Heptagonal_tiling.png used on input line 357.
+Package pdftex.def Info: ./images/800px-Heptagonal_tiling.png used on input line 358.
 (pdftex.def)             Requested size: 92.01674pt x 92.0061pt.
  <./images/3-7_kisrhombille.png, id=98, 803.0pt x 803.0pt>
 File: ./images/3-7_kisrhombille.png Graphic file (type png)
  <use ./images/3-7_kisrhombille.png>
-Package pdftex.def Info: ./images/3-7_kisrhombille.png used on input line 361.
+Package pdftex.def Info: ./images/3-7_kisrhombille.png used on input line 362.
 (pdftex.def)             Requested size: 92.01674pt x 92.0061pt.
  <./images/1024px-PavageDemiPlanPoincare.png, id=99, 1027.84pt x 741.77126pt>
 File: ./images/1024px-PavageDemiPlanPoincare.png Graphic file (type png)
  <use ./images/1024px-PavageDemiPlanPoincare.png>
-Package pdftex.def Info: ./images/1024px-PavageDemiPlanPoincare.png used on input line 366.
+Package pdftex.def Info: ./images/1024px-PavageDemiPlanPoincare.png used on input line 367.
 (pdftex.def)             Requested size: 131.45139pt x 94.86037pt.
 
-Overfull \hbox (21.90828pt too wide) in paragraph at lines 366--367
+Overfull \hbox (21.90828pt too wide) in paragraph at lines 367--368
  [][] 
  []
 
 <./images/escherDisk.jpg, id=100, 752.8125pt x 752.8125pt>
 File: ./images/escherDisk.jpg Graphic file (type jpg)
  <use ./images/escherDisk.jpg>
-Package pdftex.def Info: ./images/escherDisk.jpg used on input line 376.
+Package pdftex.def Info: ./images/escherDisk.jpg used on input line 377.
 (pdftex.def)             Requested size: 131.45306pt x 131.4455pt.
  <./images/escherPlane.jpg, id=101, 1003.75pt x 846.16125pt>
 File: ./images/escherPlane.jpg Graphic file (type jpg)
  <use ./images/escherPlane.jpg>
-Package pdftex.def Info: ./images/escherPlane.jpg used on input line 381.
+Package pdftex.def Info: ./images/escherPlane.jpg used on input line 382.
 (pdftex.def)             Requested size: 153.36302pt x 129.2815pt.
  [23 <./images/complogimsmall.png> <./images/800px-Heptagonal_tiling.png> <./images/3-7_kisrhombille.png> <./images/1024px-PavageDemiPlanPoincare.png> <./images/escherDisk.jpg> <./images/escherPlane.jpg>]
 Chapter 3.
@@ -575,7 +575,7 @@ Chapter 4.
 
 ] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1090.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1091.
  [55] [56] [57
 
 ] [58
@@ -590,7 +590,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  61i,15n,84p,2404b,924s stack positions out of 5000i,2500n,10000p,300000b,80000s
 </usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Project.pdf (58 pages, 1673015 bytes).
+Output written on Project.pdf (58 pages, 1673008 bytes).
 PDF statistics:
  298 PDF objects out of 1000 (max. 8388607)
  203 compressed objects within 3 object streams

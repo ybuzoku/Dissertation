@@ -309,7 +309,8 @@ We begin by computing the automorphism group of $\mathbb{C}$, as it is the simpl
   The automorphism group of the complex plane is ~\\$Aut(\mathbb{C})=\{f(z)=az+b \, \vert \, a, b \in  \mathbb{C}, a \neq 0\}$
 \end{thm}
 \begin{proof}
-  Let $f(z) = az+b$ such that $a\neq 0$ and $a,b \in \mathbb{C}$. This is clearly a holomorphic function so we just need to find a holomorphic inverse. Let $w = f(z)$. Then we have that if $g(w) = \frac{w - b}{a}$ then $g(f(z))=z$ and as such $f^{-1}(z)=g(z)$. The element $g$ is clearly also holomorphic since $a \neq 0$ and linear functions are clearly automorphisms of $\mathbb{C}$. Now we wish to show that they are the only possible maps that give automorphisms of $\mathbb{C}$. \newline
+  Let $f(z) = az+b$ such that $a\neq 0$ and $a,b \in \mathbb{C}$. This is clearly a holomorphic function so we just need to find a holomorphic inverse. Let $w = f(z)$. Then we have that if $g(w) = \frac{w - b}{a}$ then $g(f(z))=z$ and as such $f^{-1}(z)=g(z)$. The element $g$ is clearly also holomorphic since $a \neq 0$ and linear functions are clearly automorphisms of $\mathbb{C}$. Now we wish to show that they are the only possible maps that give automorphisms of $\mathbb{C}$.
+
   Since $f(z)$ is an automorphism, it is crucially a holomorphic function and hence admits a series expansion about any point $z \in \mathbb{C}$. So, we write $f(z) = \sum\limits_{j=0}^{\infty}\lambda_jz^j$ for $\lambda_j \in \mathbb{C}$ for all $j$. Writing $g(z)=f(z^{-1})$ gives that $g$ is also holomorphic and injective but only on the annulus $0 < |z| < 1$. Hence, $g$ has a singularity (perhaps many), at $0$, and hence $f$ has one at $\infty$. So we need to classify this singularity, to try and understand $f$. If $f$ had an essential singularity, then by the Great Picard Theorem (\cite[p.300]{conway}), $f$ would fail to be injective, which it is because it is an automorphism. If the singularity were removable, then by Liouville's theorem (\cite[p.122]{ahlfors}), $f$ would be a constant function, which has no holomorphic inverse. Hence, $f$ must have a pole at $\infty$. If for $j\geq 2$ we had that $\lambda_j \neq 0$ then $f$ would fail to be injective on $\mathbb{C}$ as every point would be mapped to by multiple other points. Hence $j \leq 1$ and cannot be constant. Therefore, $f$ has a simple pole at infinity and $f(z) = az + b$ for $a \neq 0$. Hence, all automorphisms of $\mathbb{C}$ have this form.
 \end{proof}
 
@@ -1087,9 +1088,9 @@ Thus we can justifiably classify all Riemann surfaces as being quotients of $\wi
 \begin{cor}
   Any connected Riemann surface is conformally equivalent to one of the following:
   \begin{itemize}
-    \item The Riemann Sphere, $\widehat{\mathbb{C}}$
-    \item The Complex Plane $\mathbb{C}$, the Cylinder $\mathbb{C}/2\pi \mathbb{Z}$ or the Torus $\mathbb{C}/\Lambda$, for some lattice $\Lambda \subset \mathbb{C}$
-    \item The Upper Half Plane quotiented by a freely acting discrete subgroup of $\Gamma \subset PSL(2,\mathbb{R})$, $\mathbb{H}/\Gamma$ 
+    \item The Riemann Sphere, $\widehat{\mathbb{C}}$.
+    \item The Complex Plane $\mathbb{C}$, the Cylinder $\mathbb{C}/2\pi \mathbb{Z}$ or the Torus $\mathbb{C}/\Lambda$, for some lattice $\Lambda \subset \mathbb{C}$.
+    \item The space Upper Half Plane $\mathbb{H}$ quotiented by a discrete subgroup $\Gamma \subset PSL(2,\mathbb{R})$.
   \end{itemize}
   Riemann surfaces may be called Elliptic, Parabolic and Hyperbolic, depending on their universal cover.
 \end{cor}
