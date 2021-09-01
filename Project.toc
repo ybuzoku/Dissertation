@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.2}Quotients of the complex plane}{11}
 \contentsline {section}{\numberline {2.3}Maps between Riemann surfaces}{14}
 \contentsline {section}{\numberline {2.4}Covering spaces of Riemann surfaces}{16}
-\contentsline {subsection}{\numberline {2.4.1}Automorphisms of Riemann surfaces}{16}
+\contentsline {subsection}{\numberline {2.4.1}Automorphisms of Riemann surfaces}{17}
 \contentsline {subsection}{\numberline {2.4.2}Automorphism groups of simply-connected Riemann surfaces}{19}
 \contentsline {chapter}{\numberline {3}Calculus on Riemann Surfaces}{24}
 \contentsline {section}{\numberline {3.1}Calculus on smooth, orientable surfaces}{24}
@@ -20,9 +20,8 @@
 \contentsline {section}{\numberline {4.2}The Dirichlet Energy Functional}{39}
 \contentsline {subsection}{\numberline {4.2.1}Showing the Dirichlet energy $\mathcal {L}$ is bounded from below}{42}
 \contentsline {section}{\numberline {4.3}Poisson's equation on compact Riemann surfaces}{44}
-\contentsline {subsection}{\numberline {4.3.1}Convolutions and related technical lemmas}{45}
-\contentsline {subsection}{\numberline {4.3.2}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{48}
-\contentsline {section}{\numberline {4.4}Cohomology groups of compact Riemann surfaces}{52}
-\contentsline {section}{\numberline {4.5}Poissons equation on simply connected, non-compact Riemann surfaces}{55}
-\contentsline {section}{\numberline {4.6}The Uniformisation Theorem}{57}
-\contentsline {chapter}{Conclusion}{59}
+\contentsline {subsection}{\numberline {4.3.1}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{45}
+\contentsline {section}{\numberline {4.4}Cohomology groups of compact Riemann surfaces}{49}
+\contentsline {section}{\numberline {4.5}Poissons equation on simply connected, non-compact Riemann surfaces}{53}
+\contentsline {section}{\numberline {4.6}The Uniformisation Theorem}{54}
+\contentsline {chapter}{Conclusion}{57}
