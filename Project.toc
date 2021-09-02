@@ -22,6 +22,6 @@
 \contentsline {section}{\numberline {4.3}Poisson's equation on compact Riemann surfaces}{44}
 \contentsline {subsection}{\numberline {4.3.1}The completion of $\mathcal {H}(X)$ and Weyl's lemma}{45}
 \contentsline {section}{\numberline {4.4}Cohomology groups of compact Riemann surfaces}{49}
-\contentsline {section}{\numberline {4.5}Poisson's equation on simply connected, non-compact Riemann surfaces}{53}
-\contentsline {section}{\numberline {4.6}The Uniformisation Theorem}{54}
+\contentsline {section}{\numberline {4.5}Poisson's equation on simply connected, non compact Riemann surfaces}{53}
+\contentsline {section}{\numberline {4.6}The Uniformisation Theorem}{55}
 \contentsline {chapter}{Conclusion}{57}
